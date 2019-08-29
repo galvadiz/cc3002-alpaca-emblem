@@ -1,6 +1,6 @@
 package model.items;
 
-import model.units.IUnit;
+import model.units.*;
 
 /**
  * Abstract class that defines some common information and behaviour between all items.
@@ -36,8 +36,12 @@ public abstract class AbstractItem implements IEquipableItem {
   }
 
   @Override
-  public void equipTo(final IUnit unit) {
-    unit.setEquippedItem(this);
+  public void equipTo(IUnit unit) {
+    
+  }
+
+  @Override
+  public void setOwner(IUnit unit) {
     owner = unit;
   }
 

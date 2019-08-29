@@ -1,6 +1,6 @@
 package model.units;
 
-import model.items.Axe;
+import model.items.*;
 import model.items.IEquipableItem;
 import model.map.Location;
 
@@ -18,16 +18,8 @@ public class Fighter extends AbstractUnit {
     super(hitPoints, movement, location, 3, items);
   }
 
-  /**
-   * Sets the currently equipped item of this unit.
-   *
-   * @param item
-   *     the item to equip
-   */
-  @Override
-  public void equipItem(final IEquipableItem item) {
-    if (item instanceof Axe) {
-      equippedItem = item;
-    }
+
+  public void equipAxe(Axe axe){
+    equippedItem = axe;
   }
 }

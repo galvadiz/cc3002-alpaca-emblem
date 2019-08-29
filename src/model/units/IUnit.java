@@ -2,6 +2,7 @@ package model.units;
 
 import java.util.List;
 import model.items.IEquipableItem;
+import model.items.*;
 import model.map.Location;
 
 /**
@@ -24,6 +25,46 @@ public interface IUnit {
   void equipItem(IEquipableItem item);
 
   /**
+   * Sets axe of this unit.
+   *
+   * @param axe
+   *     the item to equip
+   */
+  void equipAxe(Axe axe);
+
+  /**
+   * Sets bow of this unit.
+   *
+   * @param bow
+   *     the item to equip
+   */
+  void equipBow(Bow bow);
+
+  /**
+   * Sets spear of this unit.
+   *
+   * @param spear
+   *     the item to equip
+   */
+  void equipSpear(Spear spear);
+
+  /**
+   * Sets staff of this unit.
+   *
+   * @param staff
+   *     the item to equip
+   */
+  void equipStaff(Staff staff);
+
+  /**
+   * Sets sword of this unit.
+   *
+   * @param sword
+   *     the item to equip
+   */
+  void equipSword(Sword sword);
+
+  /**
    * @return hit points of the unit
    */
   int getCurrentHitPoints();
@@ -38,11 +79,6 @@ public interface IUnit {
    */
   IEquipableItem getEquippedItem();
 
-  /**
-   * @param item
-   *     the item to be equipped
-   */
-  void setEquippedItem(IEquipableItem item);
 
   /**
    * @return the current location of the unit

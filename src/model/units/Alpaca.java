@@ -1,6 +1,6 @@
 package model.units;
 
-import model.items.IEquipableItem;
+import model.items.*;
 import model.map.Location;
 
 /**

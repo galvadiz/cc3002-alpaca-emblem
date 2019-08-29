@@ -1,6 +1,8 @@
 package model.items;
 
+import model.units.Hero;
 import model.units.IUnit;
+import model.units.*;
 
 /**
  * This interface represents the <i>weapons</i> that the units of the game can use.
@@ -20,6 +22,11 @@ public interface IEquipableItem {
    *     the unit that will be quipped with the item
    */
   void equipTo(IUnit unit);
+
+  /**
+   * @param unit
+   */
+  void setOwner(IUnit unit);
 
   /**
    * @return the unit that has currently equipped this item
