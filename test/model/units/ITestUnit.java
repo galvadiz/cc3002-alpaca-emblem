@@ -92,6 +92,14 @@ public interface ITestUnit {
    */
   Bow getBow();
 
+  @Test
+  void equipMagiaTest();
+
+  /**
+   * @return the test magia
+   */
+  AbstractMagia getMagia();
+
   /**
    * Checks if the unit moves correctly
    */

@@ -92,6 +92,8 @@ public abstract class AbstractUnit implements IUnit {
   }
   public void equipSword(Sword sword){
   }
+  public void equipMagia(AbstractMagia magia){
+  }
 
   @Override
   public void moveTo(final Location targetLocation) {

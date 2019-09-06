@@ -26,13 +26,12 @@ public class Sorcerer extends AbstractUnit {
      * @param items
      *     the items carried by this unit
      */
-    public Sorcerer(final int hitPoints, final int movement, final Location position,
-                  final IEquipableItem... items) {
+    public Sorcerer(int hitPoints, int movement, Location position, IEquipableItem... items) {
         super(hitPoints, movement, position, 3, items);
     }
 
-    public void equipBow(Bow bow){
-        equippedItem = bow;
+    public void equipMagia(AbstractMagia magia){
+        equippedItem = magia;
     }
 }
 
