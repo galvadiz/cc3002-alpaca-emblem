@@ -65,6 +65,14 @@ public interface IUnit {
   void equipSword(Sword sword);
 
   /**
+   * Sets magia of this unit.
+   *
+   * @param magia
+   *     the item to equip
+   */
+  void equipMagia(AbstractMagia magia);
+
+  /**
    * @return hit points of the unit
    */
   int getCurrentHitPoints();

@@ -28,7 +28,7 @@ public abstract class AbstractItem implements IEquipableItem {
    * @param maxRange
    *     the maximum range of the item
    */
-  public AbstractItem(final String name, final int power, final int minRange, final int maxRange) {
+  public AbstractItem(String name, int power, int minRange, int maxRange) {
     this.name = name;
     this.power = power;
     this.minRange = Math.max(minRange, 1);
@@ -37,7 +37,7 @@ public abstract class AbstractItem implements IEquipableItem {
 
   @Override
   public void equipTo(IUnit unit) {
-    
+
   }
 
   @Override

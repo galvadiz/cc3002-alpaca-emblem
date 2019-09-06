@@ -24,7 +24,7 @@ public class Axe extends AbstractItem {
    * @param maxRange
    *     the maximum range of the axe
    */
-  public Axe(final String name, final int power, final int minRange, final int maxRange) {
+  public Axe(String name, int power, int minRange, int maxRange) {
     super(name, power, minRange, maxRange);
   }
 
