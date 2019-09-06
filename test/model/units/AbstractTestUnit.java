@@ -23,7 +23,7 @@ public abstract class AbstractTestUnit implements ITestUnit {
   protected Sword sword;
   protected Staff staff;
   protected Spear spear;
-  protected AbstractMagia magia;
+  protected Magia magia;
 
   @Override
   public void setTargetAlpaca() {
@@ -186,7 +186,7 @@ public abstract class AbstractTestUnit implements ITestUnit {
    * @return the test bow
    */
   @Override
-  public AbstractMagia getMagia() {
+  public Magia getMagia() {
     return magia;
   }
 

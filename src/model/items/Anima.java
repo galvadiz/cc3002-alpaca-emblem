@@ -10,7 +10,7 @@ import model.units.*;
  * @author Ignacio Slater Muñoz
  * @since 1.0
  */
-public class Anima extends AbstractMagia {
+public class Anima extends Magia {
 
     /**
      * Creates a new Anima item

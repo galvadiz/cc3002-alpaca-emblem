@@ -10,7 +10,7 @@ import model.units.*;
  * @author Ignacio Slater Muñoz
  * @since 1.0
  */
-public class Luz extends AbstractMagia {
+public class Luz extends Magia {
 
     /**
      * Creates a new Luz item

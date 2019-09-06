@@ -8,7 +8,7 @@ import model.units.*;
  * @author Ignacio Slater Muñoz
  * @since 1.0
  */
-public abstract class AbstractMagia extends AbstractItem {
+public class Magia extends AbstractItem {
 
     private String name;
     private int power;
@@ -27,7 +27,7 @@ public abstract class AbstractMagia extends AbstractItem {
      * @param maxRange
      *     the maximum range of the item
      */
-    public AbstractMagia(String name, int power, int minRange, int maxRange){
+    public Magia(String name, int power, int minRange, int maxRange){
         super(name, power, minRange, maxRange);
     }
     @Override

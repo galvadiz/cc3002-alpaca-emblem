@@ -92,7 +92,7 @@ public abstract class AbstractUnit implements IUnit {
   }
   public void equipSword(Sword sword){
   }
-  public void equipMagia(AbstractMagia magia){
+  public void equipMagia(Magia magia){
   }
 
   @Override

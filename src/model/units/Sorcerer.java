@@ -30,7 +30,7 @@ public class Sorcerer extends AbstractUnit {
         super(hitPoints, movement, position, 3, items);
     }
 
-    public void equipMagia(AbstractMagia magia){
+    public void equipMagia(Magia magia){
         equippedItem = magia;
     }
 }
