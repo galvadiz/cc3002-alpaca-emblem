@@ -22,4 +22,12 @@ public class Fighter extends AbstractUnit {
   public void equipAxe(Axe axe){
     equippedItem = axe;
   }
+
+  public void attack(IUnit unit){
+    if(equippedItem != null && this.getLocation().distanceTo(unit.getLocation()) >= equippedItem.getMinRange()
+            && this.getLocation().distanceTo(unit.getLocation()) <= equippedItem.getMaxRange()){
+      unit.receiveAxeAttack(equippedItem);
+    }
+  }
+
 }

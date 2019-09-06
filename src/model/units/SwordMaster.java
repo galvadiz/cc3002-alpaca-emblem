@@ -21,4 +21,21 @@ public class SwordMaster extends AbstractUnit {
   public void equipSword(Sword sword){
     equippedItem = sword;
   }
+
+  public void attack(IUnit unit){
+    if(equippedItem != null && this.getLocation().distanceTo(unit.getLocation()) >= equippedItem.getMinRange()
+            && this.getLocation().distanceTo(unit.getLocation()) <= equippedItem.getMaxRange()){
+      unit.receiveSwordAttack(equippedItem);
+    }
+  }
+
+  @Override
+  public void receiveSpearAttack(IEquipableItem spear){
+    if(equippedItem != null){
+      this.receiveStrengthenedAttack(spear);
+      return;
+    }
+    super.receiveSpearAttack(spear);
+  }
+
 }

@@ -120,7 +120,7 @@ public abstract class AbstractUnit implements IUnit {
   }
 
   @Override
-  public void receiveAxeAttack(Axe axe){
+  public void receiveAxeAttack(IEquipableItem axe){
     currentHitPoints -= axe.getPower();
   }
 
@@ -130,27 +130,27 @@ public abstract class AbstractUnit implements IUnit {
   }
 
   @Override
-  public void receiveSpearAttack(Spear spear){
+  public void receiveSpearAttack(IEquipableItem spear){
     currentHitPoints -= spear.getPower();
   }
 
   @Override
-  public void receiveSwordAttack(Sword sword){
+  public void receiveSwordAttack(IEquipableItem sword){
     currentHitPoints -= sword.getPower();
   }
 
   @Override
-  public void receiveAnimaAttack(Anima anima){
+  public void receiveAnimaAttack(IEquipableItem anima){
     currentHitPoints -= anima.getPower();
   }
 
   @Override
-  public void receiveLuzAttack(Luz luz){
+  public void receiveLuzAttack(IEquipableItem luz){
     currentHitPoints -= luz.getPower();
   }
 
   @Override
-  public void receiveOscuridadAttack(Oscuridad oscuridad){
+  public void receiveOscuridadAttack(IEquipableItem oscuridad){
     currentHitPoints -= oscuridad.getPower();
   }
 

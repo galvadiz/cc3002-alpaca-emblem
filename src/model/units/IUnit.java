@@ -6,6 +6,8 @@ import model.items.IEquipableItem;
 import model.items.*;
 import model.map.Location;
 
+import javax.imageio.event.IIOReadProgressListener;
+
 /**
  * This interface represents all units in the game.
  * <p>
@@ -114,19 +116,19 @@ public interface IUnit {
 
   void attack(IUnit unit);
 
-  void receiveAxeAttack(Axe axe);
+  void receiveAxeAttack(IEquipableItem axe);
 
   void receiveBowAttack(IEquipableItem bow);
 
-  void receiveSpearAttack(Spear spear);
+  void receiveSpearAttack(IEquipableItem spear);
 
-  void receiveSwordAttack(Sword sword);
+  void receiveSwordAttack(IEquipableItem sword);
 
-  void receiveAnimaAttack(Anima anima);
+  void receiveAnimaAttack(IEquipableItem anima);
 
-  void receiveLuzAttack(Luz luz);
+  void receiveLuzAttack(IEquipableItem luz);
 
-  void receiveOscuridadAttack(Oscuridad oscuridad);
+  void receiveOscuridadAttack(IEquipableItem oscuridad);
 
   void receiveStrengthenedAttack(IEquipableItem item);
 
