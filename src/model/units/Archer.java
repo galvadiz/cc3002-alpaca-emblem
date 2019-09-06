@@ -34,4 +34,11 @@ public class Archer extends AbstractUnit {
   public void equipBow(Bow bow){
     equippedItem = bow;
   }
+
+  public void attack(IUnit unit){
+    if(equippedItem != null && this.getLocation().distanceTo(unit.getLocation()) >= equippedItem.getMinRange()
+            && this.getLocation().distanceTo(unit.getLocation()) <= equippedItem.getMaxRange()){
+      unit.receiveBowAttack(equippedItem);
+    }
+  }
 }

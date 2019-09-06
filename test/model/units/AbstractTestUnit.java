@@ -223,4 +223,10 @@ public abstract class AbstractTestUnit implements ITestUnit {
   public Alpaca getTargetAlpaca() {
     return targetAlpaca;
   }
+
+  @Test
+  @Override
+  public void attackTest(){
+
+  }
 }

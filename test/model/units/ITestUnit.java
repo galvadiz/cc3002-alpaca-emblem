@@ -115,4 +115,7 @@ public interface ITestUnit {
    * @return the target Alpaca
    */
   Alpaca getTargetAlpaca();
+
+  void attackTest();
+
 }

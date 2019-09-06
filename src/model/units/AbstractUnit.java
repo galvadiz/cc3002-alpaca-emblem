@@ -20,9 +20,9 @@ import model.map.Location;
  */
 public abstract class AbstractUnit implements IUnit {
 
-  protected final List<IEquipableItem> items = new ArrayList<>();
-  private final int currentHitPoints;
-  private final int movement;
+  protected List<IEquipableItem> items = new ArrayList<>();
+  private int currentHitPoints;
+  private int movement;
   protected IEquipableItem equippedItem;
   private Location location;
 
@@ -38,7 +38,7 @@ public abstract class AbstractUnit implements IUnit {
    * @param maxItems
    *     maximum amount of items this unit can carry
    */
-  protected AbstractUnit(final int hitPoints, final int movement,
+  protected AbstractUnit(int hitPoints, final int movement,
       final Location location, final int maxItems, final IEquipableItem... items) {
     this.currentHitPoints = hitPoints;
     this.movement = movement;
@@ -82,16 +82,27 @@ public abstract class AbstractUnit implements IUnit {
     return movement;
   }
 
+  @Override
   public void equipAxe(Axe axe){
   }
+
+  @Override
   public void equipBow(Bow bow){
   }
+
+  @Override
   public void equipSpear(Spear spear){
   }
+
+  @Override
   public void equipStaff(Staff staff){
   }
+
+  @Override
   public void equipSword(Sword sword){
   }
+
+  @Override
   public void equipMagia(Magia magia){
   }
 
@@ -102,4 +113,55 @@ public abstract class AbstractUnit implements IUnit {
       setLocation(targetLocation);
     }
   }
+
+  @Override
+  public void attack(IUnit unit){
+
+  }
+
+  @Override
+  public void receiveAxeAttack(Axe axe){
+    currentHitPoints -= axe.getPower();
+  }
+
+  @Override
+  public void receiveBowAttack(IEquipableItem bow){
+    currentHitPoints -= bow.getPower();
+  }
+
+  @Override
+  public void receiveSpearAttack(Spear spear){
+    currentHitPoints -= spear.getPower();
+  }
+
+  @Override
+  public void receiveSwordAttack(Sword sword){
+    currentHitPoints -= sword.getPower();
+  }
+
+  @Override
+  public void receiveAnimaAttack(Anima anima){
+    currentHitPoints -= anima.getPower();
+  }
+
+  @Override
+  public void receiveLuzAttack(Luz luz){
+    currentHitPoints -= luz.getPower();
+  }
+
+  @Override
+  public void receiveOscuridadAttack(Oscuridad oscuridad){
+    currentHitPoints -= oscuridad.getPower();
+  }
+
+  @Override
+  public void receiveStrengthenedAttack(IEquipableItem item){
+    currentHitPoints -= (item.getPower()*1.5);
+  }
+
+  @Override
+  public void receiveWeakenedAttack(IEquipableItem item){
+    currentHitPoints -= (item.getPower()-20);
+  }
+
 }

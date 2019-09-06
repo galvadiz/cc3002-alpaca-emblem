@@ -14,6 +14,7 @@ import org.junit.jupiter.api.Test;
 public class ArcherTest extends AbstractTestUnit {
 
   private Archer archer;
+  private Archer archer2;
 
   /**
    * Set up the main unit that's going to be tested in the test set
@@ -21,6 +22,7 @@ public class ArcherTest extends AbstractTestUnit {
   @Override
   public void setTestUnit() {
     archer = new Archer(50, 2, field.getCell(0, 0));
+    archer2 = new Archer(50, 2, field.getCell(1, 2));
   }
 
   /**
@@ -40,5 +42,14 @@ public class ArcherTest extends AbstractTestUnit {
     assertNull(archer.getEquippedItem());
     archer.equipItem(bow);
     assertEquals(bow, archer.getEquippedItem());
+  }
+
+  @Test
+  @Override
+  public void attackTest() {
+    assertEquals(50, archer.getCurrentHitPoints());
+    archer2.equipItem(bow);
+    archer2.attack(archer);
+    assertEquals(40, archer.getCurrentHitPoints());
   }
 }
