@@ -63,7 +63,7 @@ public abstract class AbstractUnit implements IUnit {
 
   @Override
   public void equipItem(IEquipableItem item) {
-    item.setOwner(this);
+    //item.setOwner(this);
     item.equipTo(this);
   }
 

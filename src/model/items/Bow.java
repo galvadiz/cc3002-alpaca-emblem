@@ -31,6 +31,7 @@ public class Bow extends AbstractItem {
 
   @Override
   public void equipTo(IUnit unit){
+    super.setOwner(unit);
     unit.equipBow(this);
   }
 
