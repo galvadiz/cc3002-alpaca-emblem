@@ -31,6 +31,10 @@ public class Archer extends AbstractUnit {
     super(hitPoints, movement, position, 3, items);
   }
 
+  /**
+   *
+   * @param bow
+   */
   public void equipBow(Bow bow){
     equippedItem = bow;
   }

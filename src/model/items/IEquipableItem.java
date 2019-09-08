@@ -52,4 +52,7 @@ public interface IEquipableItem {
    * @return the maximum range of the item
    */
   int getMaxRange();
+
+  @Override
+  boolean equals(Object o);
 }

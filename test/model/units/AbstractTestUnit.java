@@ -1,14 +1,12 @@
 package model.units;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
 import model.items.*;
 import model.map.Field;
 import model.map.Location;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * @author Ignacio Slater Muñoz
@@ -63,12 +61,12 @@ public abstract class AbstractTestUnit implements ITestUnit {
    */
   @Override
   public void setWeapons() {
-    this.axe = new Axe("Axe", 10, 1, 2);
-    this.sword = new Sword("Sword", 10, 1, 2);
-    this.spear = new Spear("Spear", 10, 1, 2);
-    this.staff = new Staff("Staff", 10, 1, 2);
-    this.bow = new Bow("Bow", 10, 2, 3);
-    this.magia = new Anima("Anima", 10, 1, 2);
+    this.axe = new Axe("Axe", 30, 1, 2);
+    this.sword = new Sword("Sword", 30, 1, 2);
+    this.spear = new Spear("Spear", 30, 1, 2);
+    this.staff = new Staff("Staff", 30, 1, 2);
+    this.bow = new Bow("Bow", 30, 2, 3);
+    this.magia = new Anima("Anima", 30, 1, 2);
   }
 
   /**
@@ -77,10 +75,10 @@ public abstract class AbstractTestUnit implements ITestUnit {
   @Override
   @Test
   public void constructorTest() {
-    assertEquals(50, getTestUnit().getCurrentHitPoints());
+    assertEquals(100, getTestUnit().getCurrentHitPoints());
     assertEquals(2, getTestUnit().getMovement());
     assertEquals(new Location(0, 0), getTestUnit().getLocation());
-    assertTrue(getTestUnit().getItems().isEmpty());
+    assertFalse(getTestUnit().getItems().isEmpty());
   }
 
   /**
@@ -224,8 +222,8 @@ public abstract class AbstractTestUnit implements ITestUnit {
     return targetAlpaca;
   }
 
-  @Test
   @Override
+  @Test
   public void attackTest(){
 
   }

@@ -24,13 +24,24 @@ public class Staff extends AbstractItem {
    * @param maxRange
    *     the maximum range of the staff
    */
-  public Staff(final String name, final int power, final int minRange, final int maxRange) {
+  public Staff(String name, int power, int minRange, int maxRange) {
     super(name, power, minRange, maxRange);
   }
   @Override
   public void equipTo(IUnit unit){
     super.setOwner(unit);
     unit.equipStaff(this);
+  }
+
+  @Override
+  public boolean equals(Object o){
+    if (this == o) return true;
+    if (!(o instanceof Staff)) return false;
+    Staff that = (Staff) o;
+    return this.getPower() == that.getPower() &&
+            this.getMinRange() == that.getMinRange() &&
+            this.getMaxRange() == that.getMaxRange() &&
+            getName().equals(that.getName());
   }
 
 }

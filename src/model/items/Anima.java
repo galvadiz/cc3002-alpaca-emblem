@@ -28,4 +28,15 @@ public class Anima extends AbstractMagia {
         super(name, power, minRange, maxRange);
     }
 
+    @Override
+    public boolean equals(Object o){
+        if (this == o) return true;
+        if (!(o instanceof Anima)) return false;
+        Anima that = (Anima) o;
+        return this.getPower() == that.getPower() &&
+                this.getMinRange() == that.getMinRange() &&
+                this.getMaxRange() == that.getMaxRange() &&
+                getName().equals(that.getName());
+    }
+
 }

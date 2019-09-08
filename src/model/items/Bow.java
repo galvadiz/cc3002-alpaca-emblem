@@ -35,4 +35,15 @@ public class Bow extends AbstractItem {
     unit.equipBow(this);
   }
 
+  @Override
+  public boolean equals(Object o){
+    if (this == o) return true;
+    if (!(o instanceof Bow)) return false;
+    Bow that = (Bow) o;
+    return this.getPower() == that.getPower() &&
+            this.getMinRange() == that.getMinRange() &&
+            this.getMaxRange() == that.getMaxRange() &&
+            getName().equals(that.getName());
+  }
+
 }

@@ -13,8 +13,7 @@ import model.map.Location;
  */
 public class SwordMaster extends AbstractUnit {
 
-  public SwordMaster(final int hitPoints, final int movement, final Location location,
-      IEquipableItem... items) {
+  public SwordMaster(int hitPoints, int movement, Location location, IEquipableItem... items) {
     super(hitPoints, movement, location, 3, items);
   }
 
@@ -38,4 +37,19 @@ public class SwordMaster extends AbstractUnit {
     super.receiveSpearAttack(spear);
   }
 
+  @Override
+  public void receiveAxeAttack(IEquipableItem axe){
+    if(equippedItem != null){
+      this.receiveWeakenedAttack(axe);
+      return;
+    }
+    super.receiveAxeAttack(axe);
+  }
+
+  //@Override
+  //public boolean equals(Object o) {
+  //  if (this == o) return true;
+  //  if (!(o instanceof SwordMaster)) return false;
+  //  SwordMaster that = (SwordMaster) o;
+  //}
 }

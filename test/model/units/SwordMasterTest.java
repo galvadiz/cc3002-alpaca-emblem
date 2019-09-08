@@ -13,14 +13,17 @@ public class SwordMasterTest extends AbstractTestUnit {
 
   private SwordMaster swordMaster;
   private Hero hero;
+  private Fighter fighter;
 
   /**
    * Set up the main unit that's going to be tested in the test set
    */
   @Override
   public void setTestUnit() {
-    swordMaster = new SwordMaster(50, 2, field.getCell(0, 0));
-    hero = new Hero(50, 2, field.getCell(1, 1));
+    this.setWeapons();
+    swordMaster = new SwordMaster(100, 2, field.getCell(0, 0), spear, sword, axe);
+    hero = new Hero(100, 2, field.getCell(1, 1), spear);
+    fighter = new Fighter(100, 2, field.getCell(1, 1), axe);
   }
 
   /**
@@ -32,19 +35,24 @@ public class SwordMasterTest extends AbstractTestUnit {
   }
 
   @Override
+  @Test
   public void equipSwordTest() {
     assertNull(swordMaster.getEquippedItem());
     swordMaster.equipItem(sword);
     assertEquals(sword, swordMaster.getEquippedItem());
   }
 
-  @Test
+
   @Override
+  @Test
   public void attackTest() {
-    assertEquals(50, swordMaster.getCurrentHitPoints());
+    assertEquals(100, swordMaster.getCurrentHitPoints());
     hero.equipItem(spear);
+    fighter.equipItem(axe);
     swordMaster.equipItem(sword);
     hero.attack(swordMaster);
-    assertEquals(35, swordMaster.getCurrentHitPoints());
+    assertEquals(55, swordMaster.getCurrentHitPoints());
+    fighter.attack(swordMaster);
+    assertEquals(45, swordMaster.getCurrentHitPoints());
   }
 }

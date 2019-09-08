@@ -20,7 +20,13 @@ public class Fighter extends AbstractUnit {
 
 
   public void equipAxe(Axe axe){
-    equippedItem = axe;
+    for (IEquipableItem i: this.getItems()){
+      if(axe.equals(i)){
+        equippedItem = axe;
+        return;
+      }
+    }
+    axe.setOwner(null);
   }
 
   public void attack(IUnit unit){

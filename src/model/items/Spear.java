@@ -34,4 +34,15 @@ public class Spear extends AbstractItem {
     unit.equipSpear(this);
   }
 
+  @Override
+  public boolean equals(Object o){
+    if (this == o) return true;
+    if (!(o instanceof Spear)) return false;
+    Spear that = (Spear) o;
+    return this.getPower() == that.getPower() &&
+            this.getMinRange() == that.getMinRange() &&
+            this.getMaxRange() == that.getMaxRange() &&
+            getName().equals(that.getName());
+  }
+
 }

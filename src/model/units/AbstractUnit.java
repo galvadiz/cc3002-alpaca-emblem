@@ -38,8 +38,7 @@ public abstract class AbstractUnit implements IUnit {
    * @param maxItems
    *     maximum amount of items this unit can carry
    */
-  protected AbstractUnit(int hitPoints, final int movement,
-      final Location location, final int maxItems, final IEquipableItem... items) {
+  protected AbstractUnit(int hitPoints, int movement, Location location, int maxItems, IEquipableItem... items) {
     this.currentHitPoints = hitPoints;
     this.movement = movement;
     this.location = location;
@@ -64,7 +63,12 @@ public abstract class AbstractUnit implements IUnit {
   @Override
   public void equipItem(IEquipableItem item) {
     //item.setOwner(this);
-    item.equipTo(this);
+    for (IEquipableItem i: this.getItems()){
+      if(item.equals(i)){
+        item.equipTo(this);
+        return;
+      }
+    }
   }
 
   @Override
@@ -86,6 +90,10 @@ public abstract class AbstractUnit implements IUnit {
   public void equipAxe(Axe axe){
   }
 
+  /**{@inheritDoc}
+   *
+   * @param bow
+   */
   @Override
   public void equipBow(Bow bow){
   }
@@ -163,5 +171,8 @@ public abstract class AbstractUnit implements IUnit {
   public void receiveWeakenedAttack(IEquipableItem item){
     currentHitPoints -= (item.getPower()-20);
   }
+
+  //@Override
+  //public abstract boolean equals(Object o);
 
 }

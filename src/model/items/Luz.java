@@ -28,4 +28,15 @@ public class Luz extends AbstractMagia {
         super(name, power, minRange, maxRange);
     }
 
+    @Override
+    public boolean equals(Object o){
+        if (this == o) return true;
+        if (!(o instanceof Luz)) return false;
+        Luz that = (Luz) o;
+        return this.getPower() == that.getPower() &&
+                this.getMinRange() == that.getMinRange() &&
+                this.getMaxRange() == that.getMaxRange() &&
+                getName().equals(that.getName());
+    }
+
 }

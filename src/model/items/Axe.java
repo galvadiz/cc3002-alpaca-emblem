@@ -34,4 +34,15 @@ public class Axe extends AbstractItem {
     unit.equipAxe(this);
   }
 
+  @Override
+  public boolean equals(Object o){
+    if (this == o) return true;
+    if (!(o instanceof Axe)) return false;
+    Axe that = (Axe) o;
+    return this.getPower() == that.getPower() &&
+            this.getMinRange() == that.getMinRange() &&
+            this.getMaxRange() == that.getMaxRange() &&
+            getName().equals(that.getName());
+  }
+
 }

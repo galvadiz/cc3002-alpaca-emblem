@@ -34,4 +34,16 @@ public class Sword extends AbstractItem {
     unit.equipSword(this);
   }
 
+  @Override
+  public boolean equals(Object o){
+    if (o == null) return false;
+    if (this == o) return true;
+    if (!(o instanceof Sword)) return false;
+    Sword that = (Sword) o;
+    return this.getPower() == that.getPower() &&
+            this.getMinRange() == that.getMinRange() &&
+            this.getMaxRange() == that.getMaxRange() &&
+            getName().equals(that.getName());
+  }
+
 }

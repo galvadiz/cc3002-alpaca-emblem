@@ -21,8 +21,8 @@ public class ArcherTest extends AbstractTestUnit {
    */
   @Override
   public void setTestUnit() {
-    archer = new Archer(50, 2, field.getCell(0, 0));
-    archer2 = new Archer(50, 2, field.getCell(1, 2));
+    archer = new Archer(100, 2, field.getCell(0, 0));
+    archer2 = new Archer(100, 2, field.getCell(1, 2));
   }
 
   /**
@@ -47,9 +47,9 @@ public class ArcherTest extends AbstractTestUnit {
   @Test
   @Override
   public void attackTest() {
-    assertEquals(50, archer.getCurrentHitPoints());
+    assertEquals(100, archer.getCurrentHitPoints());
     archer2.equipItem(bow);
     archer2.attack(archer);
-    assertEquals(40, archer.getCurrentHitPoints());
+    assertEquals(70, archer.getCurrentHitPoints());
   }
 }
