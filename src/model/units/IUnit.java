@@ -73,7 +73,7 @@ public interface IUnit {
    * @param magia
    *     the item to equip
    */
-  void equipMagia(Magia magia);
+  void equipMagia(IMagia magia);
 
   /**
    * @return hit points of the unit

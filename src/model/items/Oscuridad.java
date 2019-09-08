@@ -10,7 +10,7 @@ import model.units.*;
  * @author Ignacio Slater Muñoz
  * @since 1.0
  */
-public class Oscuridad extends Magia {
+public class Oscuridad extends AbstractMagia {
 
     /**
      * Creates a new Oscuridad item

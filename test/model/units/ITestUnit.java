@@ -98,7 +98,7 @@ public interface ITestUnit {
   /**
    * @return the test magia
    */
-  Magia getMagia();
+  IMagia getMagia();
 
   /**
    * Checks if the unit moves correctly
