@@ -39,4 +39,9 @@ public class Anima extends AbstractMagia {
                 getName().equals(that.getName());
     }
 
+    @Override
+    public void attackTo(IUnit unit){
+        unit.receiveAnimaAttack(this);
+    }
+
 }

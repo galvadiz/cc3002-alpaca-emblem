@@ -120,6 +120,9 @@ public abstract class AbstractUnit implements IUnit {
   }
 
   @Override
+  public boolean isAlive(){ return this.currentHitPoints > 0; }
+
+  @Override
   public void attack(IUnit unit){
 
   }
@@ -157,6 +160,11 @@ public abstract class AbstractUnit implements IUnit {
   @Override
   public void receiveOscuridadAttack(IEquipableItem item){
     receiveAttack(item);
+  }
+
+  @Override
+  public void receiveMagicAttack(IEquipableItem item){
+
   }
 
   @Override

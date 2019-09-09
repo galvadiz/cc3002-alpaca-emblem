@@ -39,4 +39,8 @@ public class Oscuridad extends AbstractMagia {
                 getName().equals(that.getName());
     }
 
+    @Override
+    public void attackTo(IUnit unit){
+        unit.receiveOscuridadAttack(this);
+    }
 }

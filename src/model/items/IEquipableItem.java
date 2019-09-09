@@ -53,6 +53,14 @@ public interface IEquipableItem {
    */
   int getMaxRange();
 
+  void attackTo(IUnit unit);
+
+  void receiveAnimaAttackItem(IEquipableItem item);
+
+  void receiveLuzAttackItem(IEquipableItem item);
+
+  void receiveOscuridadAttackItem(IEquipableItem item);
+
   @Override
   boolean equals(Object o);
 }

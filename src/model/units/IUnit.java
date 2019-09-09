@@ -113,6 +113,7 @@ public interface IUnit {
    */
   void moveTo(Location targetLocation);
 
+  boolean isAlive();
 
   void attack(IUnit unit);
 
@@ -129,6 +130,8 @@ public interface IUnit {
   void receiveLuzAttack(IEquipableItem luz);
 
   void receiveOscuridadAttack(IEquipableItem oscuridad);
+
+  void receiveMagicAttack(IEquipableItem magia);
 
   void receiveStrengthenedAttack(IEquipableItem item);
 

@@ -71,5 +71,21 @@ public abstract class AbstractItem implements IEquipableItem {
   }
 
   @Override
+  public void attackTo(IUnit unit){
+
+  }
+
+  public void receiveAnimaAttackItem(IEquipableItem item) {
+
+  }
+
+  public void receiveLuzAttackItem(IEquipableItem item){
+
+  }
+
+  public void receiveOscuridadAttackItem(IEquipableItem item){
+
+  }
+  @Override
   public abstract boolean equals(Object o);
 }

@@ -35,4 +35,20 @@ public abstract class AbstractMagia extends AbstractItem implements IMagia {
         super.setOwner(unit);
         unit.equipMagia(this);
     }
+
+    @Override
+    public void receiveAnimaAttackItem(IEquipableItem item){
+
+    }
+
+    @Override
+    public void receiveLuzAttackItem(IEquipableItem item){
+
+    }
+
+    @Override
+    public void receiveOscuridadAttackItem(IEquipableItem item){
+
+    }
+
 }

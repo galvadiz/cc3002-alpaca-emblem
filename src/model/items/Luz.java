@@ -39,4 +39,14 @@ public class Luz extends AbstractMagia {
                 getName().equals(that.getName());
     }
 
+    @Override
+    public void receiveAnimaAttackItem(IEquipableItem anima){
+        getOwner().receiveStrengthenedAttack(anima);
+    }
+
+    @Override
+    public void receiveOscuridadAttackItem(IEquipableItem oscuridad){
+        getOwner().receiveWeakenedAttack(oscuridad);
+    }
+
 }

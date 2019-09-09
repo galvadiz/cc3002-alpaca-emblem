@@ -26,7 +26,7 @@ public class SwordMaster extends AbstractUnit {
   public void attack(IUnit unit){
     if(equippedItem != null && this.getLocation().distanceTo(unit.getLocation()) >= equippedItem.getMinRange()
             && this.getLocation().distanceTo(unit.getLocation()) <= equippedItem.getMaxRange()){
-      unit.receiveSwordAttack(equippedItem);
+      equippedItem.attackTo(unit);
     }
   }
 
@@ -45,6 +45,15 @@ public class SwordMaster extends AbstractUnit {
       return;
     }
     super.receiveAxeAttack(axe); }
+
+  @Override
+  public void receiveMagicAttack(IEquipableItem magia){
+    if(equippedItem != null){
+      super.receiveStrengthenedAttack(magia);
+      return;
+    }
+    super.receiveMagicAttack(magia); }
+
 
   @Override
   public void receiveAnimaAttack(IEquipableItem anima){

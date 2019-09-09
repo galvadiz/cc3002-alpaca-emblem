@@ -35,6 +35,11 @@ public class Sword extends AbstractItem {
   }
 
   @Override
+  public void attackTo(IUnit unit){
+    unit.receiveSwordAttack(this);
+  }
+
+  @Override
   public boolean equals(Object o){
     if (o == null) return false;
     if (this == o) return true;

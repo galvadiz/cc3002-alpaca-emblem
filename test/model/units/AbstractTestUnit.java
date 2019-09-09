@@ -15,13 +15,13 @@ import static org.junit.jupiter.api.Assertions.*;
 public abstract class AbstractTestUnit implements ITestUnit {
 
   protected Alpaca targetAlpaca;
-  protected Bow bow;
+  protected Bow bow, bow2;
   protected Field field;
-  protected Axe axe;
-  protected Sword sword;
-  protected Staff staff;
-  protected Spear spear;
-  protected IMagia magia;
+  protected Axe axe, axe2;
+  protected Sword sword, sword2;
+  protected Staff staff, staff2;
+  protected Spear spear, spear2;
+  protected IMagia magia, magia2, magia3;
 
   @Override
   public void setTargetAlpaca() {
@@ -67,6 +67,15 @@ public abstract class AbstractTestUnit implements ITestUnit {
     this.staff = new Staff("Staff", 30, 1, 2);
     this.bow = new Bow("Bow", 30, 2, 3);
     this.magia = new Anima("Anima", 30, 1, 2);
+
+    this.axe2 = new Axe("Axe", 30, 1, 2);
+    this.sword2 = new Sword("Sword", 30, 1, 2);
+    this.spear2 = new Spear("Spear", 30, 1, 2);
+    this.staff2 = new Staff("Staff", 30, 1, 2);
+    this.bow2 = new Bow("Bow", 30, 2, 3);
+    this.magia2 = new Luz("Luz", 30, 1, 2);
+
+    this.magia3 = new Oscuridad("Oscuridad", 30, 1, 2);
   }
 
   /**
