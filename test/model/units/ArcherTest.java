@@ -21,8 +21,9 @@ public class ArcherTest extends AbstractTestUnit {
    */
   @Override
   public void setTestUnit() {
-    archer = new Archer(100, 2, field.getCell(0, 0));
-    archer2 = new Archer(100, 2, field.getCell(1, 2));
+    this.setWeapons();
+    archer = new Archer(100, 2, field.getCell(0, 0), bow);
+    archer2 = new Archer(100, 2, field.getCell(1, 2), bow);
   }
 
   /**

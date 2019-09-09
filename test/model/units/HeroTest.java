@@ -17,7 +17,8 @@ public class HeroTest extends AbstractTestUnit {
    */
   @Override
   public void setTestUnit() {
-    hero = new Hero(100, 2, field.getCell(0, 0));
+    this.setWeapons();
+    hero = new Hero(100, 2, field.getCell(0, 0), spear);
   }
 
   /**

@@ -40,4 +40,45 @@ public class Hero extends AbstractUnit {
     }
   }
 
+  @Override
+  public void receiveAxeAttack(IEquipableItem axe){
+    if(equippedItem != null){
+      super.receiveStrengthenedAttack(axe);
+      return;
+    }
+    super.receiveAxeAttack(axe);
+  }
+
+  @Override
+  public void receiveSwordAttack(IEquipableItem sword){
+    if(equippedItem != null){
+      super.receiveWeakenedAttack(sword);
+      return;
+    }
+    super.receiveSwordAttack(sword);
+  }
+
+  @Override
+  public void receiveAnimaAttack(IEquipableItem anima){
+    if(equippedItem != null){
+      super.receiveStrengthenedAttack(anima);
+      return;
+    }
+    super.receiveAnimaAttack(anima); }
+
+  @Override
+  public void receiveLuzAttack(IEquipableItem luz){
+    if(equippedItem != null){
+      super.receiveStrengthenedAttack(luz);
+      return;
+    }
+    super.receiveLuzAttack(luz); }
+
+  @Override
+  public void receiveOscuridadAttack(IEquipableItem oscuridad){
+    if(equippedItem != null){
+      super.receiveStrengthenedAttack(oscuridad);
+      return;
+    }
+    super.receiveOscuridadAttack(oscuridad); }
 }

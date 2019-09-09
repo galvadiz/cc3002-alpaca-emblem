@@ -17,7 +17,8 @@ public class FighterTest extends AbstractTestUnit {
    */
   @Override
   public void setTestUnit() {
-    fighter = new Fighter(100, 2, field.getCell(0, 0));
+    this.setWeapons();
+    fighter = new Fighter(100, 2, field.getCell(0, 0), axe);
   }
 
   /**

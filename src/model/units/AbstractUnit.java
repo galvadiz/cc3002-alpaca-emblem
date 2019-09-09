@@ -90,10 +90,7 @@ public abstract class AbstractUnit implements IUnit {
   public void equipAxe(Axe axe){
   }
 
-  /**{@inheritDoc}
-   *
-   * @param bow
-   */
+
   @Override
   public void equipBow(Bow bow){
   }
@@ -128,38 +125,38 @@ public abstract class AbstractUnit implements IUnit {
   }
 
   @Override
-  public void receiveAxeAttack(IEquipableItem axe){
-    currentHitPoints -= axe.getPower();
+  public void receiveAxeAttack(IEquipableItem item){
+    receiveAttack(item);
   }
 
   @Override
-  public void receiveBowAttack(IEquipableItem bow){
-    currentHitPoints -= bow.getPower();
+  public void receiveBowAttack(IEquipableItem item){
+    receiveAttack(item);
   }
 
   @Override
-  public void receiveSpearAttack(IEquipableItem spear){
-    currentHitPoints -= spear.getPower();
+  public void receiveSpearAttack(IEquipableItem item){
+    receiveAttack(item);
   }
 
   @Override
-  public void receiveSwordAttack(IEquipableItem sword){
-    currentHitPoints -= sword.getPower();
+  public void receiveSwordAttack(IEquipableItem item){
+    receiveAttack(item);
   }
 
   @Override
-  public void receiveAnimaAttack(IEquipableItem anima){
-    currentHitPoints -= anima.getPower();
+  public void receiveAnimaAttack(IEquipableItem item){
+    receiveAttack(item);
   }
 
   @Override
-  public void receiveLuzAttack(IEquipableItem luz){
-    currentHitPoints -= luz.getPower();
+  public void receiveLuzAttack(IEquipableItem item){
+    receiveAttack(item);
   }
 
   @Override
-  public void receiveOscuridadAttack(IEquipableItem oscuridad){
-    currentHitPoints -= oscuridad.getPower();
+  public void receiveOscuridadAttack(IEquipableItem item){
+    receiveAttack(item);
   }
 
   @Override
@@ -169,7 +166,12 @@ public abstract class AbstractUnit implements IUnit {
 
   @Override
   public void receiveWeakenedAttack(IEquipableItem item){
-    currentHitPoints -= (item.getPower()-20);
+    int aux = item.getPower()-20;
+    if (aux > 0) currentHitPoints -= (item.getPower()-20);
+  }
+
+  public void receiveAttack(IEquipableItem item){
+    currentHitPoints -= item.getPower();
   }
 
   //@Override

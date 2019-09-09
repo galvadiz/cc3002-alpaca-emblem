@@ -17,10 +17,12 @@ public class SwordMaster extends AbstractUnit {
     super(hitPoints, movement, location, 3, items);
   }
 
+  @Override
   public void equipSword(Sword sword){
     equippedItem = sword;
   }
 
+  @Override
   public void attack(IUnit unit){
     if(equippedItem != null && this.getLocation().distanceTo(unit.getLocation()) >= equippedItem.getMinRange()
             && this.getLocation().distanceTo(unit.getLocation()) <= equippedItem.getMaxRange()){
@@ -31,21 +33,42 @@ public class SwordMaster extends AbstractUnit {
   @Override
   public void receiveSpearAttack(IEquipableItem spear){
     if(equippedItem != null){
-      this.receiveStrengthenedAttack(spear);
+      super.receiveStrengthenedAttack(spear);
       return;
     }
-    super.receiveSpearAttack(spear);
-  }
+    super.receiveSpearAttack(spear); }
 
   @Override
   public void receiveAxeAttack(IEquipableItem axe){
     if(equippedItem != null){
-      this.receiveWeakenedAttack(axe);
+      super.receiveWeakenedAttack(axe);
       return;
     }
-    super.receiveAxeAttack(axe);
-  }
+    super.receiveAxeAttack(axe); }
 
+  @Override
+  public void receiveAnimaAttack(IEquipableItem anima){
+    if(equippedItem != null){
+      super.receiveStrengthenedAttack(anima);
+      return;
+    }
+    super.receiveAnimaAttack(anima); }
+
+  @Override
+  public void receiveLuzAttack(IEquipableItem luz){
+    if(equippedItem != null){
+      super.receiveStrengthenedAttack(luz);
+      return;
+    }
+    super.receiveLuzAttack(luz); }
+
+  @Override
+  public void receiveOscuridadAttack(IEquipableItem oscuridad){
+    if(equippedItem != null){
+      super.receiveStrengthenedAttack(oscuridad);
+      return;
+    }
+    super.receiveOscuridadAttack(oscuridad); }
   //@Override
   //public boolean equals(Object o) {
   //  if (this == o) return true;
