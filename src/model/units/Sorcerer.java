@@ -41,37 +41,5 @@ public class Sorcerer extends AbstractUnit {
             equippedItem.attackTo(unit);
         }
     }
-
-    @Override
-    public void receiveMagicAttack(IEquipableItem magia){
-        if (equippedItem != null){
-            equippedItem.attackTo(this);
-        }
-        super.receiveMagicAttack(magia);
-    }
-
-    @Override
-    public void receiveAnimaAttack(IEquipableItem anima){
-        if(equippedItem != null){
-            equippedItem.receiveAnimaAttackItem(anima);
-            return;
-        }
-        super.receiveAnimaAttack(anima); }
-
-    @Override
-    public void receiveLuzAttack(IEquipableItem luz){
-        if(equippedItem != null){
-            equippedItem.receiveLuzAttackItem(luz);
-            return;
-        }
-        super.receiveLuzAttack(luz); }
-
-    @Override
-    public void receiveOscuridadAttack(IEquipableItem oscuridad){
-        if(equippedItem != null){
-            equippedItem.receiveOscuridadAttackItem(oscuridad);
-            return;
-        }
-        super.receiveOscuridadAttack(oscuridad); }
 }
 

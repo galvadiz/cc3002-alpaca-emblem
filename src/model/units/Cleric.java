@@ -30,4 +30,5 @@ public class Cleric extends AbstractUnit {
   public void equipStaff(Staff staff){
     equippedItem = staff;
   }
+
 }

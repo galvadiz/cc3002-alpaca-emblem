@@ -29,55 +29,6 @@ public class SwordMaster extends AbstractUnit {
       equippedItem.attackTo(unit);
     }
   }
-
-  @Override
-  public void receiveSpearAttack(IEquipableItem spear){
-    if(equippedItem != null){
-      super.receiveStrengthenedAttack(spear);
-      return;
-    }
-    super.receiveSpearAttack(spear); }
-
-  @Override
-  public void receiveAxeAttack(IEquipableItem axe){
-    if(equippedItem != null){
-      super.receiveWeakenedAttack(axe);
-      return;
-    }
-    super.receiveAxeAttack(axe); }
-
-  @Override
-  public void receiveMagicAttack(IEquipableItem magia){
-    if(equippedItem != null){
-      super.receiveStrengthenedAttack(magia);
-      return;
-    }
-    super.receiveMagicAttack(magia); }
-
-
-  @Override
-  public void receiveAnimaAttack(IEquipableItem anima){
-    if(equippedItem != null){
-      super.receiveStrengthenedAttack(anima);
-      return;
-    }
-    super.receiveAnimaAttack(anima); }
-
-  @Override
-  public void receiveLuzAttack(IEquipableItem luz){
-    if(equippedItem != null){
-      super.receiveStrengthenedAttack(luz);
-      return;
-    }
-    super.receiveLuzAttack(luz); }
-
-  @Override
-  public void receiveOscuridadAttack(IEquipableItem oscuridad){
-    if(equippedItem != null){
-      super.receiveStrengthenedAttack(oscuridad);
-      return;
-    }
-    super.receiveOscuridadAttack(oscuridad); }
   //@Override
   //public boolean equals(Object o) {
   //  if (this == o) return true;

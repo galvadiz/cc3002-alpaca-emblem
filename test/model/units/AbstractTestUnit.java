@@ -21,7 +21,7 @@ public abstract class AbstractTestUnit implements ITestUnit {
   protected Sword sword, sword2;
   protected Staff staff, staff2;
   protected Spear spear, spear2;
-  protected IMagia magia, magia2, magia3;
+  protected IMagia anima, anima2, luz, luz2, oscuridad, oscuridad2;
 
   @Override
   public void setTargetAlpaca() {
@@ -66,16 +66,18 @@ public abstract class AbstractTestUnit implements ITestUnit {
     this.spear = new Spear("Spear", 30, 1, 2);
     this.staff = new Staff("Staff", 30, 1, 2);
     this.bow = new Bow("Bow", 30, 2, 3);
-    this.magia = new Anima("Anima", 30, 1, 2);
+    this.anima = new Anima("Anima", 30, 1, 2);
+    this.luz = new Luz("Luz", 30, 1, 2);
+    this.oscuridad = new Oscuridad("Oscuridad", 30, 1, 2);
 
     this.axe2 = new Axe("Axe", 30, 1, 2);
     this.sword2 = new Sword("Sword", 30, 1, 2);
     this.spear2 = new Spear("Spear", 30, 1, 2);
     this.staff2 = new Staff("Staff", 30, 1, 2);
     this.bow2 = new Bow("Bow", 30, 2, 3);
-    this.magia2 = new Luz("Luz", 30, 1, 2);
-
-    this.magia3 = new Oscuridad("Oscuridad", 30, 1, 2);
+    this.anima2 = new Anima("Anima", 30, 1, 2);
+    this.luz2 = new Luz("Luz", 30, 1, 2);
+    this.oscuridad2 = new Oscuridad("Oscuridad", 30, 1, 2);
   }
 
   /**
@@ -84,7 +86,7 @@ public abstract class AbstractTestUnit implements ITestUnit {
   @Override
   @Test
   public void constructorTest() {
-    assertEquals(100, getTestUnit().getCurrentHitPoints());
+    assertEquals(300, getTestUnit().getCurrentHitPoints());
     assertEquals(2, getTestUnit().getMovement());
     assertEquals(new Location(0, 0), getTestUnit().getLocation());
     assertFalse(getTestUnit().getItems().isEmpty());
@@ -186,15 +188,15 @@ public abstract class AbstractTestUnit implements ITestUnit {
   @Override
   @Test
   public void equipMagiaTest() {
-    checkEquippedItem(getMagia());
+    checkEquippedItem(getAnima());
   }
 
   /**
    * @return the test bow
    */
   @Override
-  public IMagia getMagia() {
-    return magia;
+  public IMagia getAnima() {
+    return anima;
   }
 
 

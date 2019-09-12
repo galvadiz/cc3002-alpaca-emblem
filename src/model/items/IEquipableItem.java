@@ -61,6 +61,15 @@ public interface IEquipableItem {
 
   void receiveOscuridadAttackItem(IEquipableItem item);
 
+  void receiveAxeAttackItem(IEquipableItem item);
+
+  void receiveBowAttackItem(IEquipableItem item);
+
+  void receiveSpearAttackItem(IEquipableItem item);
+
+  void receiveSwordAttackItem(IEquipableItem item);
+
+
   @Override
   boolean equals(Object o);
 }

@@ -44,4 +44,14 @@ public class Anima extends AbstractMagia {
         unit.receiveAnimaAttack(this);
     }
 
+    @Override
+    public void receiveOscuridadAttackItem(IEquipableItem anima){
+        getOwner().receiveStrengthenedAttack(anima);
+    }
+
+    @Override
+    public void receiveLuzAttackItem(IEquipableItem oscuridad){
+        getOwner().receiveWeakenedAttack(oscuridad);
+    }
+
 }

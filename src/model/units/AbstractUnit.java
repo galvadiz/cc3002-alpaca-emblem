@@ -123,49 +123,67 @@ public abstract class AbstractUnit implements IUnit {
   public boolean isAlive(){ return this.currentHitPoints > 0; }
 
   @Override
-  public void attack(IUnit unit){
+  public void attack(IUnit unit){ }
 
+  @Override
+  public void receiveAxeAttack(IEquipableItem axe){
+    if(equippedItem != null){
+      equippedItem.receiveAxeAttackItem(axe);
+      return;
+    }
+    this.receiveAttack(axe); }
+
+  @Override
+  public void receiveBowAttack(IEquipableItem bow){
+    if (equippedItem != null){
+      equippedItem.receiveBowAttackItem(bow);
+      return;
+    }
+    this.receiveAttack(bow);
   }
 
   @Override
-  public void receiveAxeAttack(IEquipableItem item){
-    receiveAttack(item);
+  public void receiveSwordAttack(IEquipableItem sword){
+    if(equippedItem != null){
+      equippedItem.receiveSwordAttackItem(sword);
+      return;
+    }
+    this.receiveAttack(sword);
   }
 
   @Override
-  public void receiveBowAttack(IEquipableItem item){
-    receiveAttack(item);
+  public void receiveSpearAttack(IEquipableItem spear){
+    if(equippedItem != null){
+      equippedItem.receiveSpearAttackItem(spear);
+      return;
+    }
+    this.receiveAttack(spear);
   }
 
   @Override
-  public void receiveSpearAttack(IEquipableItem item){
-    receiveAttack(item);
-  }
+  public void receiveAnimaAttack(IEquipableItem anima){
+    if(equippedItem != null){
+      equippedItem.receiveAnimaAttackItem(anima);
+      return;
+    }
+    this.receiveAttack(anima); }
 
   @Override
-  public void receiveSwordAttack(IEquipableItem item){
-    receiveAttack(item);
-  }
+  public void receiveLuzAttack(IEquipableItem luz){
+    if(equippedItem != null){
+      equippedItem.receiveLuzAttackItem(luz);
+      return;
+    }
+    this.receiveAttack(luz); }
 
   @Override
-  public void receiveAnimaAttack(IEquipableItem item){
-    receiveAttack(item);
-  }
+  public void receiveOscuridadAttack(IEquipableItem oscuridad){
+    if(equippedItem != null){
+      equippedItem.receiveOscuridadAttackItem(oscuridad);
+      return;
+    }
+    this.receiveAttack(oscuridad); }
 
-  @Override
-  public void receiveLuzAttack(IEquipableItem item){
-    receiveAttack(item);
-  }
-
-  @Override
-  public void receiveOscuridadAttack(IEquipableItem item){
-    receiveAttack(item);
-  }
-
-  @Override
-  public void receiveMagicAttack(IEquipableItem item){
-
-  }
 
   @Override
   public void receiveStrengthenedAttack(IEquipableItem item){
@@ -178,8 +196,47 @@ public abstract class AbstractUnit implements IUnit {
     if (aux > 0) currentHitPoints -= (item.getPower()-20);
   }
 
+  @Override
   public void receiveAttack(IEquipableItem item){
     currentHitPoints -= item.getPower();
+  }
+
+  @Override
+  public boolean estaItem(IEquipableItem item){
+    for (IEquipableItem i: items){
+      if (item.equals(i)){
+        return true;
+      }
+    }
+    return false;
+  }
+
+  @Override
+  public void addItem(IEquipableItem item){
+    if (hayEspacio()){
+      items.add(item);
+    }
+  }
+
+  @Override
+  public void deleteItem(IEquipableItem item){
+    if (estaItem(item)){
+      items.remove(item);
+    }
+
+  }
+
+  @Override
+  public void darItem(IUnit unit, IEquipableItem item){
+    if(unit.hayEspacio() && getLocation().distanceTo(unit.getLocation()) == 1 && this.estaItem(item)){
+      unit.addItem(item);
+      this.deleteItem(item);
+    }
+  }
+
+  @Override
+  public boolean hayEspacio(){
+    return items.size() < 3;
   }
 
   //@Override

@@ -13,11 +13,13 @@ public class AlpacaTest extends AbstractTestUnit {
   @Override
   public void setTestUnit() {
     this.setWeapons();
-    alpaca = new Alpaca(100, 2, field.getCell(0, 0), axe);
+    alpaca = new Alpaca(300, 2, field.getCell(0, 0), axe);
   }
 
   @Override
   public Alpaca getTestUnit() {
     return alpaca;
   }
+
+
 }

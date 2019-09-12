@@ -76,15 +76,31 @@ public abstract class AbstractItem implements IEquipableItem {
   }
 
   public void receiveAnimaAttackItem(IEquipableItem item) {
-
+    getOwner().receiveAttack(item);
   }
 
   public void receiveLuzAttackItem(IEquipableItem item){
-
+    getOwner().receiveAttack(item);
   }
 
   public void receiveOscuridadAttackItem(IEquipableItem item){
+    getOwner().receiveAttack(item);
+  }
 
+  public void receiveAxeAttackItem(IEquipableItem item){
+    getOwner().receiveAttack(item);
+  }
+
+  public void receiveBowAttackItem(IEquipableItem item){
+    getOwner().receiveAttack(item);
+  }
+
+  public void receiveSpearAttackItem(IEquipableItem item){
+    getOwner().receiveAttack(item);
+  }
+
+  public void receiveSwordAttackItem(IEquipableItem item){
+    getOwner().receiveAttack(item);
   }
   @Override
   public abstract boolean equals(Object o);

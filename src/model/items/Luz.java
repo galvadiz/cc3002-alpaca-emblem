@@ -40,6 +40,11 @@ public class Luz extends AbstractMagia {
     }
 
     @Override
+    public void attackTo(IUnit unit){
+        unit.receiveLuzAttack(this);
+    }
+
+    @Override
     public void receiveAnimaAttackItem(IEquipableItem anima){
         getOwner().receiveStrengthenedAttack(anima);
     }

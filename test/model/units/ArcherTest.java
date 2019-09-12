@@ -28,14 +28,14 @@ public class ArcherTest extends AbstractTestUnit {
   @Override
   public void setTestUnit() {
     this.setWeapons();
-    archer = new Archer(100, 2, field.getCell(0, 0), bow);
+    archer = new Archer(300, 2, field.getCell(0, 0), bow);
     archer2 = new Archer(100, 2, field.getCell(1, 2), bow);
-    swordMaster = new SwordMaster(100, 2, field.getCell(1, 2), spear, sword, axe);
-    hero = new Hero(100, 2, field.getCell(1, 2), spear);
-    fighter = new Fighter(100, 2, field.getCell(1, 2), axe);
-    sorcerer = new Sorcerer(100, 2, field.getCell(1, 2), magia);
-    alpaca = new Alpaca(100, 2, field.getCell(1, 2), axe, spear, magia, sword);
-    cleric = new Cleric(100, 2, field.getCell(1, 2), staff);
+    swordMaster = new SwordMaster(100, 2, field.getCell(1, 1), spear, sword, axe);
+    hero = new Hero(100, 2, field.getCell(1, 1), spear);
+    fighter = new Fighter(100, 2, field.getCell(1, 1), axe);
+    sorcerer = new Sorcerer(100, 2, field.getCell(1, 1), anima, luz, oscuridad);
+    alpaca = new Alpaca(100, 2, field.getCell(1, 1), axe, spear, anima, sword);
+    cleric = new Cleric(100, 2, field.getCell(1, 1), staff);
   }
 
   /**
@@ -60,11 +60,42 @@ public class ArcherTest extends AbstractTestUnit {
   @Test
   @Override
   public void attackTest() {
-    assertEquals(100, archer.getCurrentHitPoints());
-    archer.equipItem(bow);
-    archer2.equipItem(bow);
+    assertEquals(300, archer.getCurrentHitPoints());
     archer2.attack(archer);
-    assertEquals(70, archer.getCurrentHitPoints());
+    assertEquals(300, archer.getCurrentHitPoints());
+
+    archer2.equipItem(bow2);
+    archer2.attack(archer);
+    assertEquals(270, archer.getCurrentHitPoints());
+
+    archer.equipItem(bow);
+    archer2.attack(archer);
+    assertEquals(240, archer.getCurrentHitPoints());
+
+    swordMaster.equipItem(sword);
+    swordMaster.attack(archer);
+    assertEquals(210, archer.getCurrentHitPoints());
+
+    hero.equipItem(spear);
+    hero.attack(archer);
+    assertEquals(180, archer.getCurrentHitPoints());
+
+    fighter.equipItem(axe);
+    fighter.attack(archer);
+    assertEquals(150, archer.getCurrentHitPoints());
+
+    sorcerer.equipItem(anima);
+    sorcerer.attack(archer);
+    assertEquals(105, archer.getCurrentHitPoints());
+
+    sorcerer.equipItem(luz);
+    sorcerer.attack(archer);
+    assertEquals(60, archer.getCurrentHitPoints());
+
+    sorcerer.equipItem(oscuridad);
+    sorcerer.attack(archer);
+    assertEquals(15, archer.getCurrentHitPoints());
+
 
   }
 }

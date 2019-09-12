@@ -117,6 +117,8 @@ public interface IUnit {
 
   void attack(IUnit unit);
 
+  void receiveAttack(IEquipableItem item);
+
   void receiveAxeAttack(IEquipableItem axe);
 
   void receiveBowAttack(IEquipableItem bow);
@@ -131,10 +133,18 @@ public interface IUnit {
 
   void receiveOscuridadAttack(IEquipableItem oscuridad);
 
-  void receiveMagicAttack(IEquipableItem magia);
-
   void receiveStrengthenedAttack(IEquipableItem item);
 
   void receiveWeakenedAttack(IEquipableItem item);
+
+  boolean estaItem(IEquipableItem item);
+
+  boolean hayEspacio();
+
+  void addItem(IEquipableItem item);
+
+  void deleteItem(IEquipableItem item);
+
+  void darItem(IUnit unit, IEquipableItem item);
 
 }

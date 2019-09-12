@@ -96,9 +96,9 @@ public interface ITestUnit {
   void equipMagiaTest();
 
   /**
-   * @return the test magia
+   * @return the test anima
    */
-  IMagia getMagia();
+  IMagia getAnima();
 
   /**
    * Checks if the unit moves correctly

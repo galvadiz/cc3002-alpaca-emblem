@@ -35,6 +35,37 @@ public class Spear extends AbstractItem {
   }
 
   @Override
+  public void attackTo(IUnit unit){
+    unit.receiveSpearAttack(this);
+  }
+
+  @Override
+  public void receiveLuzAttackItem(IEquipableItem luz){
+    getOwner().receiveStrengthenedAttack(luz);
+  }
+
+  @Override
+  public void receiveAnimaAttackItem(IEquipableItem anima){
+    getOwner().receiveStrengthenedAttack(anima);
+  }
+
+  @Override
+  public void receiveOscuridadAttackItem(IEquipableItem oscuridad){
+    getOwner().receiveStrengthenedAttack(oscuridad);
+  }
+
+  @Override
+  public void receiveAxeAttackItem(IEquipableItem axe){
+    getOwner().receiveStrengthenedAttack(axe);
+  }
+
+
+  @Override
+  public void receiveSwordAttackItem(IEquipableItem sword){
+    getOwner().receiveWeakenedAttack(sword);
+  }
+
+  @Override
   public boolean equals(Object o){
     if (this == o) return true;
     if (!(o instanceof Spear)) return false;

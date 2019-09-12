@@ -40,6 +40,32 @@ public class Sword extends AbstractItem {
   }
 
   @Override
+  public void receiveSpearAttackItem(IEquipableItem spear){
+    getOwner().receiveStrengthenedAttack(spear);
+  }
+
+  @Override
+  public void receiveAxeAttackItem(IEquipableItem axe){
+    getOwner().receiveWeakenedAttack(axe);
+  }
+
+  @Override
+  public void receiveLuzAttackItem(IEquipableItem luz){
+    getOwner().receiveStrengthenedAttack(luz);
+  }
+
+  @Override
+  public void receiveAnimaAttackItem(IEquipableItem anima){
+    getOwner().receiveStrengthenedAttack(anima);
+  }
+
+  @Override
+  public void receiveOscuridadAttackItem(IEquipableItem oscuridad){
+    getOwner().receiveStrengthenedAttack(oscuridad);
+  }
+
+
+  @Override
   public boolean equals(Object o){
     if (o == null) return false;
     if (this == o) return true;

@@ -36,6 +36,27 @@ public class Bow extends AbstractItem {
   }
 
   @Override
+  public void attackTo(IUnit unit){
+    unit.receiveBowAttack(this);
+  }
+
+  @Override
+  public void receiveLuzAttackItem(IEquipableItem luz){
+    getOwner().receiveStrengthenedAttack(luz);
+  }
+
+  @Override
+  public void receiveAnimaAttackItem(IEquipableItem anima){
+    getOwner().receiveStrengthenedAttack(anima);
+  }
+
+  @Override
+  public void receiveOscuridadAttackItem(IEquipableItem oscuridad){
+    getOwner().receiveStrengthenedAttack(oscuridad);
+  }
+
+
+  @Override
   public boolean equals(Object o){
     if (this == o) return true;
     if (!(o instanceof Bow)) return false;
