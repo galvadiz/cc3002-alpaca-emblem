@@ -2,8 +2,7 @@ package model.units;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Test set for the alpaca unit
@@ -52,6 +51,20 @@ public class AlpacaTest extends AbstractTestUnit {
     assertTrue(archer.estaItem(spear));
 
     assertFalse(archer.hayEspacio());
+
+    alpaca.darItem(archer, sword2);
+
+    assertTrue(alpaca.estaItem(sword2));
+    assertFalse(archer.estaItem(sword2));
+
+    archer.equipItem(bow);
+    archer.setLocation(field.getCell(1, 1));
+
+    archer.attack(alpaca);
+    assertEquals(270, alpaca.getCurrentHitPoints());
+    assertEquals(300, archer.getCurrentHitPoints());
+
+
 
   }
 }

@@ -15,12 +15,13 @@ import model.map.Location;
  * game, but that contains the implementation of some of the methods that are common for most
  * units.
  *
- * @author Ignacio Slater Muñoz
+ * @author Geraldine Alvadiz
  * @since 1.0
  */
 public abstract class AbstractUnit implements IUnit {
 
   protected List<IEquipableItem> items = new ArrayList<>();
+  private int hitPointsMax;
   private int currentHitPoints;
   private int movement;
   protected IEquipableItem equippedItem;
@@ -40,6 +41,7 @@ public abstract class AbstractUnit implements IUnit {
    */
   protected AbstractUnit(int hitPoints, int movement, Location location, int maxItems, IEquipableItem... items) {
     this.currentHitPoints = hitPoints;
+    this.hitPointsMax = hitPoints;
     this.movement = movement;
     this.location = location;
     this.items.addAll(Arrays.asList(items).subList(0, min(maxItems, items.length)));
@@ -285,6 +287,15 @@ public abstract class AbstractUnit implements IUnit {
   @Override
   public void receiveAttack(IEquipableItem item){
     currentHitPoints -= item.getPower();
+  }
+
+  @Override
+  public void receiveHeal(IUnit unit){
+    if (this.hitPointsMax - this.currentHitPoints < unit.getEquippedItem().getPower()){
+      this.currentHitPoints = this.hitPointsMax;
+      return;
+    }
+    this.currentHitPoints += unit.getEquippedItem().getPower();
   }
 
   @Override

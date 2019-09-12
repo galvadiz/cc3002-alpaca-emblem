@@ -14,7 +14,7 @@ import javax.imageio.event.IIOReadProgressListener;
  * The signature of all the common methods that a unit can execute are defined here. All units
  * except some special ones can carry at most 3 weapons.
  *
- * @author Ignacio Slater Muñoz
+ * @author Geraldine Alvadiz
  * @since 1.0
  */
 public interface IUnit {
@@ -113,56 +113,167 @@ public interface IUnit {
    */
   void moveTo(Location targetLocation);
 
+  /**
+   * Shows if the Unit is Alive. If the currentHitPoints is higher than 0, returns true, else returns false.
+   *
+   * @return a boolean with the alive status.
+   * */
   boolean isAlive();
 
-  void contraAttack(IUnit unit);
-
+  /**
+   * Performs the correct attack to the target Unit.
+   *
+   * @param unit the target Pokemon.
+   */
   void attack(IUnit unit);
 
+  /**
+   * Performs the correct contra attack to the target Unit.
+   *
+   * @param unit the target Pokemon.
+   */
+  void contraAttack(IUnit unit);
+
+  /**
+   * Lets the Unit receive a normal attack that doesn't has type-weakness or type-resistant to the item's unit that
+   * performs it.
+   * @param item the item that attack unit.
+   */
   void receiveAttack(IEquipableItem item);
 
+  /**
+   * Lets the Unit be attacked by an axe.
+   * @param axe the item that attack unit
+   */
   void receiveAxeAttack(IEquipableItem axe);
 
+  /**
+   * Lets the Unit be attacked by an bow.
+   * @param bow the item that attack unit
+   */
   void receiveBowAttack(IEquipableItem bow);
 
+  /**
+   * Lets the Unit be attacked by an spear.
+   * @param spear the item that attack unit
+   */
   void receiveSpearAttack(IEquipableItem spear);
 
+  /**
+   * Lets the Unit be attacked by an sword.
+   * @param sword the item that attack unit
+   */
   void receiveSwordAttack(IEquipableItem sword);
 
+  /**
+   * Lets the Unit be attacked by an anima.
+   * @param anima the item that attack unit
+   */
   void receiveAnimaAttack(IEquipableItem anima);
 
+  /**
+   * Lets the Unit be attacked by an luz.
+   * @param luz the item that attack unit
+   */
   void receiveLuzAttack(IEquipableItem luz);
 
+  /**
+   * Lets the Unit be attacked by an oscuridad.
+   * @param oscuridad the item that attack unit
+   */
   void receiveOscuridadAttack(IEquipableItem oscuridad);
 
-
+  /**
+   * Lets the Unit be contra attacked by an axe.
+   * @param axe the item that attack unit
+   */
   void receiveAxeContraAttack(IEquipableItem axe);
 
+  /**
+   * Lets the Unit be contra attacked by an bow.
+   * @param bow the item that attack unit
+   */
   void receiveBowContraAttack(IEquipableItem bow);
 
+  /**
+   * Lets the Unit be contra attacked by an spear.
+   * @param spear the item that attack unit
+   */
   void receiveSpearContraAttack(IEquipableItem spear);
 
+  /**
+   * Lets the Unit be contra attacked by an sword.
+   * @param sword the item that attack unit
+   */
   void receiveSwordContraAttack(IEquipableItem sword);
 
+  /**
+   * Lets the Unit be contra attacked by an anima.
+   * @param anima the item that attack unit
+   */
   void receiveAnimaContraAttack(IEquipableItem anima);
 
+  /**
+   * Lets the Unit be contra attacked by an luz.
+   * @param luz the item that attack unit
+   */
   void receiveLuzContraAttack(IEquipableItem luz);
 
+  /**
+   * Lets the Unit be contra attacked by an oscuridad.
+   * @param oscuridad the item that attack unit
+   */
   void receiveOscuridadContraAttack(IEquipableItem oscuridad);
 
-
+  /**
+   * Lets the Unit receive an strengthened attack that hits his base damage * 1.5.
+   * @param item the item that the unit receives attack.
+   */
   void receiveStrengthenedAttack(IEquipableItem item);
 
+  /**
+   * Lets the Unit receive an weakened attack that hits his base damage minus 20. If the attack has a
+   * base damage lower than 20, the unit currentHitPoints is not changed.
+   * @param item the item that the unit receives attack.
+   */
   void receiveWeakenedAttack(IEquipableItem item);
 
+  /**
+   * Lets the Unit heal.
+   * @param unit the unit that healing.
+   */
+  void receiveHeal(IUnit unit);
+
+  /**
+   * Check if the item is there.
+   * @param item the item that is being looked for.
+   * @return a boolean if the item is there.
+   */
   boolean estaItem(IEquipableItem item);
 
+  /**
+   * Check if there is any space left in the list.
+   * @return a boolean if there ani space in the list. False is full.
+   */
   boolean hayEspacio();
 
+  /**
+   * Add Item to the list of items.
+   * @param item the item to add.
+   */
   void addItem(IEquipableItem item);
 
+  /**
+   * Delete Item to the list of items.
+   * @param item the item to delete. If the item is not in list, it don't delete
+   */
   void deleteItem(IEquipableItem item);
 
+  /**
+   * Give an item to the unit.
+   * @param unit the unit that receive the item.
+   * @param item the item that give to the unit
+   */
   void darItem(IUnit unit, IEquipableItem item);
 
 }

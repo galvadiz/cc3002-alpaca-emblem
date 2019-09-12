@@ -132,6 +132,7 @@ public interface ITestUnit {
    */
   Alpaca getTargetAlpaca();
 
+  @Test
   void attackTest();
 
 }

@@ -31,4 +31,10 @@ public class Cleric extends AbstractUnit {
     equippedItem = staff;
   }
 
+  public void heal(IUnit unit){
+    if (equippedItem != null){
+      unit.receiveHeal(this);
+    }
+  }
+
 }

@@ -73,7 +73,7 @@ public abstract class AbstractTestUnit implements ITestUnit {
     this.axe2 = new Axe("Axe2", 30, 1, 2);
     this.sword2 = new Sword("Sword2", 30, 1, 2);
     this.spear2 = new Spear("Spear2", 30, 1, 2);
-    this.staff2 = new Staff("Staff2", 30, 1, 2);
+    this.staff2 = new Staff("Staff2", 60, 1, 2);
     this.bow2 = new Bow("Bow2", 30, 2, 3);
     this.anima2 = new Anima("Anima2", 30, 1, 2);
     this.luz2 = new Luz("Luz2", 30, 1, 2);
