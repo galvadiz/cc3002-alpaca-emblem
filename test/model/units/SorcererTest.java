@@ -13,7 +13,13 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 public class SorcererTest extends AbstractTestUnit {
 
-    private Sorcerer sorcerer, sorcerer2;
+    private Sorcerer sorcerer, sorcerer2, sorcerer3;
+    private Archer archer;
+    private Fighter fighter;
+    private Hero hero;
+    private SwordMaster swordMaster;
+    private Alpaca alpaca;
+    private Cleric cleric;
 
     @Override
     @Test
@@ -32,6 +38,13 @@ public class SorcererTest extends AbstractTestUnit {
         this.setWeapons();
         sorcerer = new Sorcerer(600, 2, field.getCell(0, 0), anima, luz, oscuridad);
         sorcerer2 = new Sorcerer(600, 2, field.getCell(1, 1), anima2, luz2, oscuridad2);
+        sorcerer3 = new Sorcerer(600, 2, field.getCell(0, 0), anima, luz, oscuridad);
+        archer = new Archer(150, 2, field.getCell(1, 1), bow);
+        swordMaster = new SwordMaster(150, 2, field.getCell(1, 1), spear, sword, axe);
+        hero = new Hero(150, 2, field.getCell(1, 1), spear);
+        fighter = new Fighter(150, 2, field.getCell(1, 1), axe);
+        alpaca = new Alpaca(150, 2, field.getCell(1, 1), axe, spear, anima, sword);
+        cleric = new Cleric(150, 2, field.getCell(1, 1), staff);
     }
 
     /**
@@ -144,6 +157,63 @@ public class SorcererTest extends AbstractTestUnit {
         sorcerer2.attack(sorcerer);
         assertEquals(315, sorcerer.getCurrentHitPoints());
         assertEquals(345, sorcerer2.getCurrentHitPoints());
+
+        sorcerer3.equipItem(anima);
+        archer.equipItem(bow);
+        archer.attack(sorcerer3);
+        assertEquals(555, sorcerer3.getCurrentHitPoints());
+        assertEquals(105, archer.getCurrentHitPoints());
+
+        fighter.equipItem(axe);
+        fighter.attack(sorcerer3);
+        assertEquals(510, sorcerer3.getCurrentHitPoints());
+        assertEquals(105, fighter.getCurrentHitPoints());
+
+        hero.equipItem(spear);
+        hero.attack(sorcerer3);
+        assertEquals(465, sorcerer3.getCurrentHitPoints());
+        assertEquals(105, hero.getCurrentHitPoints());
+
+        swordMaster.equipItem(sword);
+        swordMaster.attack(sorcerer3);
+        assertEquals(420, sorcerer3.getCurrentHitPoints());
+        assertEquals(105, swordMaster.getCurrentHitPoints());
+
+
+        sorcerer3.equipItem(luz);
+        archer.attack(sorcerer3);
+        assertEquals(375, sorcerer3.getCurrentHitPoints());
+        assertEquals(60, archer.getCurrentHitPoints());
+
+        fighter.attack(sorcerer3);
+        assertEquals(330, sorcerer3.getCurrentHitPoints());
+        assertEquals(60, fighter.getCurrentHitPoints());
+
+        hero.attack(sorcerer3);
+        assertEquals(285, sorcerer3.getCurrentHitPoints());
+        assertEquals(60, hero.getCurrentHitPoints());
+
+        swordMaster.attack(sorcerer3);
+        assertEquals(240, sorcerer3.getCurrentHitPoints());
+        assertEquals(60, swordMaster.getCurrentHitPoints());
+
+
+        sorcerer3.equipItem(oscuridad);
+        archer.attack(sorcerer3);
+        assertEquals(195, sorcerer3.getCurrentHitPoints());
+        assertEquals(15, archer.getCurrentHitPoints());
+
+        fighter.attack(sorcerer3);
+        assertEquals(150, sorcerer3.getCurrentHitPoints());
+        assertEquals(15, fighter.getCurrentHitPoints());
+
+        hero.attack(sorcerer3);
+        assertEquals(105, sorcerer3.getCurrentHitPoints());
+        assertEquals(15, hero.getCurrentHitPoints());
+
+        swordMaster.attack(sorcerer3);
+        assertEquals(60, sorcerer3.getCurrentHitPoints());
+        assertEquals(15, swordMaster.getCurrentHitPoints());
 
 
 
