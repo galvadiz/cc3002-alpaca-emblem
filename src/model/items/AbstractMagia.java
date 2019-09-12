@@ -36,42 +36,65 @@ public abstract class AbstractMagia extends AbstractItem implements IMagia {
         unit.equipMagia(this);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void receiveAxeAttackItem(IEquipableItem axe){
         getOwner().receiveStrengthenedAttack(axe);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void receiveBowAttackItem(IEquipableItem bow){
         getOwner().receiveStrengthenedAttack(bow);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void receiveSpearAttackItem(IEquipableItem spear){
         getOwner().receiveStrengthenedAttack(spear);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void receiveSwordAttackItem(IEquipableItem sword){
         getOwner().receiveStrengthenedAttack(sword);
     }
 
-
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void receiveAxeContraAttackItem(IEquipableItem axe){
         getOwner().receiveStrengthenedAttack(axe);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void receiveBowContraAttackItem(IEquipableItem bow){
         getOwner().receiveStrengthenedAttack(bow);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void receiveSpearContraAttackItem(IEquipableItem spear){
         getOwner().receiveStrengthenedAttack(spear);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void receiveSwordContraAttackItem(IEquipableItem sword){
         getOwner().receiveStrengthenedAttack(sword);

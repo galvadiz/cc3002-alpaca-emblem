@@ -35,104 +35,195 @@ public abstract class AbstractItem implements IEquipableItem {
     this.maxRange = Math.max(maxRange, this.minRange);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public abstract void equipTo(IUnit unit);
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void setOwner(IUnit unit) {
     owner = unit;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IUnit getOwner() {
     return owner;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public String getName() {
     return name;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public int getPower() {
     return power;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public int getMinRange() {
     return minRange;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public int getMaxRange() {
     return maxRange;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void attackTo(IUnit unit){
 
   }
 
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public void contraAttackTo(IUnit unit){
 
   }
 
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public void receiveAnimaAttackItem(IEquipableItem item) {
     getOwner().receiveAttack(item);
   }
 
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public void receiveLuzAttackItem(IEquipableItem item){
     getOwner().receiveAttack(item);
   }
 
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public void receiveOscuridadAttackItem(IEquipableItem item){
     getOwner().receiveAttack(item);
   }
 
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public void receiveAxeAttackItem(IEquipableItem item){
     getOwner().receiveAttack(item);
   }
 
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public void receiveBowAttackItem(IEquipableItem item){
     getOwner().receiveAttack(item);
   }
 
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public void receiveSpearAttackItem(IEquipableItem item){
     getOwner().receiveAttack(item);
   }
 
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public void receiveSwordAttackItem(IEquipableItem item){
     getOwner().receiveAttack(item);
   }
 
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public void receiveAnimaContraAttackItem(IEquipableItem item) {
     getOwner().receiveAttack(item);
   }
 
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public void receiveLuzContraAttackItem(IEquipableItem item){
     getOwner().receiveAttack(item);
   }
 
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public void receiveOscuridadContraAttackItem(IEquipableItem item){
     getOwner().receiveAttack(item);
   }
 
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public void receiveAxeContraAttackItem(IEquipableItem item){
     getOwner().receiveAttack(item);
   }
 
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public void receiveBowContraAttackItem(IEquipableItem item){
     getOwner().receiveAttack(item);
   }
 
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public void receiveSpearContraAttackItem(IEquipableItem item){
     getOwner().receiveAttack(item);
   }
 
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public void receiveSwordContraAttackItem(IEquipableItem item){
     getOwner().receiveAttack(item);
   }
 
+
+  /**
+   * {@inheritDoc}
+   *
+   * @param o The target item object
+   * @return True if are equals, false otherwise
+   */
   @Override
   public abstract boolean equals(Object o);
 }

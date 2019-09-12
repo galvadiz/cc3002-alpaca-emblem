@@ -89,6 +89,6 @@ public class ClericTest extends AbstractTestUnit {
 
     cleric.equipItem(staff);
     cleric.heal(fighter);
-      assertEquals(300, fighter.getCurrentHitPoints());
+    assertEquals(300, fighter.getCurrentHitPoints());
   }
 }

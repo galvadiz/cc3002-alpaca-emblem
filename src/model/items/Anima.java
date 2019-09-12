@@ -28,6 +28,9 @@ public class Anima extends AbstractMagia {
         super(name, power, minRange, maxRange);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean equals(Object o){
         if (this == o) return true;
@@ -39,33 +42,50 @@ public class Anima extends AbstractMagia {
                 getName().equals(that.getName());
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void attackTo(IUnit unit){
         unit.receiveAnimaAttack(this);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void contraAttackTo(IUnit unit){
         unit.receiveAnimaContraAttack(this);
     }
 
 
-
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void receiveOscuridadAttackItem(IEquipableItem anima){
         getOwner().receiveStrengthenedAttack(anima);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void receiveOscuridadContraAttackItem(IEquipableItem anima){
         getOwner().receiveStrengthenedAttack(anima);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void receiveLuzAttackItem(IEquipableItem oscuridad){
         getOwner().receiveWeakenedAttack(oscuridad);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void receiveLuzContraAttackItem(IEquipableItem oscuridad){
         getOwner().receiveWeakenedAttack(oscuridad);

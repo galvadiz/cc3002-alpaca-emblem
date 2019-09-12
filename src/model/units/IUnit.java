@@ -123,14 +123,14 @@ public interface IUnit {
   /**
    * Performs the correct attack to the target Unit.
    *
-   * @param unit the target Pokemon.
+   * @param unit the target unit.
    */
   void attack(IUnit unit);
 
   /**
    * Performs the correct contra attack to the target Unit.
    *
-   * @param unit the target Pokemon.
+   * @param unit the target unit.
    */
   void contraAttack(IUnit unit);
 

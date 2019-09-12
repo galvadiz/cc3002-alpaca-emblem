@@ -53,40 +53,100 @@ public interface IEquipableItem {
    */
   int getMaxRange();
 
+  /**
+   * Performs the correct attack to the target Unit.
+   * @param unit the target unit.
+   */
   void attackTo(IUnit unit);
 
+  /**
+   * Performs the correct contra attack to the target Unit.
+   * @param unit the target unit.
+   */
   void contraAttackTo(IUnit unit);
 
+  /**
+   * Lets the Item be attacked by an anima.
+   * @param item the item that attack this item.
+   */
   void receiveAnimaAttackItem(IEquipableItem item);
 
+  /**
+   * Lets the Item be attacked by an luz.
+   * @param item the item that attack this item.
+   */
   void receiveLuzAttackItem(IEquipableItem item);
 
+  /**
+   * Lets the Item be attacked by an oscuridad.
+   * @param item the item that attack this item.
+   */
   void receiveOscuridadAttackItem(IEquipableItem item);
 
+  /**
+   * Lets the Item be attacked by an axe.
+   * @param item the item that attack this item.
+   */
   void receiveAxeAttackItem(IEquipableItem item);
 
+  /**
+   * Lets the Item be attacked by an bow.
+   * @param item the item that attack this item.
+   */
   void receiveBowAttackItem(IEquipableItem item);
 
+  /**
+   * Lets the Item be attacked by an spear.
+   * @param item the item that attack this item.
+   */
   void receiveSpearAttackItem(IEquipableItem item);
 
+  /**
+   * Lets the Item be attacked by an sword.
+   * @param item the item that attack this item.
+   */
   void receiveSwordAttackItem(IEquipableItem item);
 
-
+  /**
+   * Lets the Item be contra attacked by an anima.
+   * @param item the item that attack this item.
+   */
   void receiveAnimaContraAttackItem(IEquipableItem item);
 
+  /**
+   * Lets the Item be contra attacked by an luz.
+   * @param item the item that attack this item.
+   */
   void receiveLuzContraAttackItem(IEquipableItem item);
 
+  /**
+   * Lets the Item be contra attacked by an oscuridad.
+   * @param item the item that attack this item.
+   */
   void receiveOscuridadContraAttackItem(IEquipableItem item);
 
+  /**
+   * Lets the Item be contra attacked by an axe.
+   * @param item the item that attack this item.
+   */
   void receiveAxeContraAttackItem(IEquipableItem item);
 
+  /**
+   * Lets the Item be contra attacked by an bow.
+   * @param item the item that attack this item.
+   */
   void receiveBowContraAttackItem(IEquipableItem item);
 
+  /**
+   * Lets the Item be contra attacked by an spear.
+   * @param item the item that attack this item.
+   */
   void receiveSpearContraAttackItem(IEquipableItem item);
 
+  /**
+   * Lets the Item be contra attacked by an sword.
+   * @param item the item that attack this item.
+   */
   void receiveSwordContraAttackItem(IEquipableItem item);
 
-
-  @Override
-  boolean equals(Object o);
 }
