@@ -45,6 +45,11 @@ public class Oscuridad extends AbstractMagia {
     }
 
     @Override
+    public void contraAttackTo(IUnit unit){
+        unit.receiveOscuridadContraAttack(this);
+    }
+
+    @Override
     public void receiveLuzAttackItem(IEquipableItem luz){
         getOwner().receiveStrengthenedAttack(luz);
     }
@@ -53,4 +58,15 @@ public class Oscuridad extends AbstractMagia {
     public void receiveAnimaAttackItem(IEquipableItem anima){
         getOwner().receiveWeakenedAttack(anima);
     }
+
+    @Override
+    public void receiveLuzContraAttackItem(IEquipableItem luz){
+        getOwner().receiveStrengthenedAttack(luz);
+    }
+
+    @Override
+    public void receiveAnimaContraAttackItem(IEquipableItem anima){
+        getOwner().receiveWeakenedAttack(anima);
+    }
+
 }

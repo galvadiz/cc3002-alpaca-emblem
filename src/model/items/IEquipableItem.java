@@ -55,6 +55,8 @@ public interface IEquipableItem {
 
   void attackTo(IUnit unit);
 
+  void contraAttackTo(IUnit unit);
+
   void receiveAnimaAttackItem(IEquipableItem item);
 
   void receiveLuzAttackItem(IEquipableItem item);
@@ -68,6 +70,21 @@ public interface IEquipableItem {
   void receiveSpearAttackItem(IEquipableItem item);
 
   void receiveSwordAttackItem(IEquipableItem item);
+
+
+  void receiveAnimaContraAttackItem(IEquipableItem item);
+
+  void receiveLuzContraAttackItem(IEquipableItem item);
+
+  void receiveOscuridadContraAttackItem(IEquipableItem item);
+
+  void receiveAxeContraAttackItem(IEquipableItem item);
+
+  void receiveBowContraAttackItem(IEquipableItem item);
+
+  void receiveSpearContraAttackItem(IEquipableItem item);
+
+  void receiveSwordContraAttackItem(IEquipableItem item);
 
 
   @Override

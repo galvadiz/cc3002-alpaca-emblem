@@ -22,13 +22,6 @@ public class SwordMaster extends AbstractUnit {
     equippedItem = sword;
   }
 
-  @Override
-  public void attack(IUnit unit){
-    if(equippedItem != null && this.getLocation().distanceTo(unit.getLocation()) >= equippedItem.getMinRange()
-            && this.getLocation().distanceTo(unit.getLocation()) <= equippedItem.getMaxRange()){
-      equippedItem.attackTo(unit);
-    }
-  }
   //@Override
   //public boolean equals(Object o) {
   //  if (this == o) return true;

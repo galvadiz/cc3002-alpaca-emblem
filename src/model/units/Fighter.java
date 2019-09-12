@@ -20,19 +20,8 @@ public class Fighter extends AbstractUnit {
 
 
   public void equipAxe(Axe axe){
-    for (IEquipableItem i: this.getItems()){
-      if(axe.equals(i)){
         equippedItem = axe;
-        return;
-      }
-    }
-    axe.setOwner(null);
   }
 
-  public void attack(IUnit unit){
-    if(equippedItem != null && this.getLocation().distanceTo(unit.getLocation()) >= equippedItem.getMinRange()
-            && this.getLocation().distanceTo(unit.getLocation()) <= equippedItem.getMaxRange()){
-      equippedItem.attackTo(unit);
-    }
-  }
+
 }

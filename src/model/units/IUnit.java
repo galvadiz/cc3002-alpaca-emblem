@@ -115,6 +115,8 @@ public interface IUnit {
 
   boolean isAlive();
 
+  void contraAttack(IUnit unit);
+
   void attack(IUnit unit);
 
   void receiveAttack(IEquipableItem item);
@@ -132,6 +134,22 @@ public interface IUnit {
   void receiveLuzAttack(IEquipableItem luz);
 
   void receiveOscuridadAttack(IEquipableItem oscuridad);
+
+
+  void receiveAxeContraAttack(IEquipableItem axe);
+
+  void receiveBowContraAttack(IEquipableItem bow);
+
+  void receiveSpearContraAttack(IEquipableItem spear);
+
+  void receiveSwordContraAttack(IEquipableItem sword);
+
+  void receiveAnimaContraAttack(IEquipableItem anima);
+
+  void receiveLuzContraAttack(IEquipableItem luz);
+
+  void receiveOscuridadContraAttack(IEquipableItem oscuridad);
+
 
   void receiveStrengthenedAttack(IEquipableItem item);
 

@@ -34,12 +34,5 @@ public class Sorcerer extends AbstractUnit {
         equippedItem = magia;
     }
 
-    public void attack(IUnit unit){
-        if(equippedItem != null && this.getLocation().distanceTo(unit.getLocation()) >= equippedItem.getMinRange()
-                && this.getLocation().distanceTo(unit.getLocation()) <= equippedItem.getMaxRange()){
-
-            equippedItem.attackTo(unit);
-        }
-    }
 }
 

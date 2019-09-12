@@ -75,6 +75,10 @@ public abstract class AbstractItem implements IEquipableItem {
 
   }
 
+  public void contraAttackTo(IUnit unit){
+
+  }
+
   public void receiveAnimaAttackItem(IEquipableItem item) {
     getOwner().receiveAttack(item);
   }
@@ -102,6 +106,35 @@ public abstract class AbstractItem implements IEquipableItem {
   public void receiveSwordAttackItem(IEquipableItem item){
     getOwner().receiveAttack(item);
   }
+
+  public void receiveAnimaContraAttackItem(IEquipableItem item) {
+    getOwner().receiveAttack(item);
+  }
+
+  public void receiveLuzContraAttackItem(IEquipableItem item){
+    getOwner().receiveAttack(item);
+  }
+
+  public void receiveOscuridadContraAttackItem(IEquipableItem item){
+    getOwner().receiveAttack(item);
+  }
+
+  public void receiveAxeContraAttackItem(IEquipableItem item){
+    getOwner().receiveAttack(item);
+  }
+
+  public void receiveBowContraAttackItem(IEquipableItem item){
+    getOwner().receiveAttack(item);
+  }
+
+  public void receiveSpearContraAttackItem(IEquipableItem item){
+    getOwner().receiveAttack(item);
+  }
+
+  public void receiveSwordContraAttackItem(IEquipableItem item){
+    getOwner().receiveAttack(item);
+  }
+
   @Override
   public abstract boolean equals(Object o);
 }

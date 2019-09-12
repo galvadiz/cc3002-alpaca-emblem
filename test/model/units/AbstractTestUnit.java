@@ -70,14 +70,14 @@ public abstract class AbstractTestUnit implements ITestUnit {
     this.luz = new Luz("Luz", 30, 1, 2);
     this.oscuridad = new Oscuridad("Oscuridad", 30, 1, 2);
 
-    this.axe2 = new Axe("Axe", 30, 1, 2);
-    this.sword2 = new Sword("Sword", 30, 1, 2);
-    this.spear2 = new Spear("Spear", 30, 1, 2);
-    this.staff2 = new Staff("Staff", 30, 1, 2);
-    this.bow2 = new Bow("Bow", 30, 2, 3);
-    this.anima2 = new Anima("Anima", 30, 1, 2);
-    this.luz2 = new Luz("Luz", 30, 1, 2);
-    this.oscuridad2 = new Oscuridad("Oscuridad", 30, 1, 2);
+    this.axe2 = new Axe("Axe2", 30, 1, 2);
+    this.sword2 = new Sword("Sword2", 30, 1, 2);
+    this.spear2 = new Spear("Spear2", 30, 1, 2);
+    this.staff2 = new Staff("Staff2", 30, 1, 2);
+    this.bow2 = new Bow("Bow2", 30, 2, 3);
+    this.anima2 = new Anima("Anima2", 30, 1, 2);
+    this.luz2 = new Luz("Luz2", 30, 1, 2);
+    this.oscuridad2 = new Oscuridad("Oscuridad2", 30, 1, 2);
   }
 
   /**
@@ -187,7 +187,7 @@ public abstract class AbstractTestUnit implements ITestUnit {
 
   @Override
   @Test
-  public void equipMagiaTest() {
+  public void equipAnimaTest() {
     checkEquippedItem(getAnima());
   }
 
@@ -197,6 +197,34 @@ public abstract class AbstractTestUnit implements ITestUnit {
   @Override
   public IMagia getAnima() {
     return anima;
+  }
+
+  @Override
+  @Test
+  public void equipLuzTest() {
+    checkEquippedItem(getLuz());
+  }
+
+  /**
+   * @return the test bow
+   */
+  @Override
+  public IMagia getLuz() {
+    return luz;
+  }
+
+  @Override
+  @Test
+  public void equipOscuridadTest() {
+    checkEquippedItem(getOscuridad());
+  }
+
+  /**
+   * @return the test bow
+   */
+  @Override
+  public IMagia getOscuridad() {
+    return oscuridad;
   }
 
 

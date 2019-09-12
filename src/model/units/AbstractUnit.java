@@ -123,12 +123,28 @@ public abstract class AbstractUnit implements IUnit {
   public boolean isAlive(){ return this.currentHitPoints > 0; }
 
   @Override
-  public void attack(IUnit unit){ }
+  public void attack(IUnit unit){
+    if(equippedItem != null && this.getLocation().distanceTo(unit.getLocation()) >= equippedItem.getMinRange()
+            && this.getLocation().distanceTo(unit.getLocation()) <= equippedItem.getMaxRange() && isAlive()){
+      equippedItem.attackTo(unit);
+    }
+  }
+
+  @Override
+  public void contraAttack(IUnit unit){
+    if(equippedItem != null && this.getLocation().distanceTo(unit.getLocation()) >= equippedItem.getMinRange()
+          && this.getLocation().distanceTo(unit.getLocation()) <= equippedItem.getMaxRange() && isAlive()){
+      equippedItem.contraAttackTo(unit);
+    }
+  }
 
   @Override
   public void receiveAxeAttack(IEquipableItem axe){
     if(equippedItem != null){
       equippedItem.receiveAxeAttackItem(axe);
+
+      contraAttack(axe.getOwner());
+
       return;
     }
     this.receiveAttack(axe); }
@@ -137,6 +153,7 @@ public abstract class AbstractUnit implements IUnit {
   public void receiveBowAttack(IEquipableItem bow){
     if (equippedItem != null){
       equippedItem.receiveBowAttackItem(bow);
+      contraAttack(bow.getOwner());
       return;
     }
     this.receiveAttack(bow);
@@ -146,6 +163,7 @@ public abstract class AbstractUnit implements IUnit {
   public void receiveSwordAttack(IEquipableItem sword){
     if(equippedItem != null){
       equippedItem.receiveSwordAttackItem(sword);
+      contraAttack(sword.getOwner());
       return;
     }
     this.receiveAttack(sword);
@@ -155,6 +173,7 @@ public abstract class AbstractUnit implements IUnit {
   public void receiveSpearAttack(IEquipableItem spear){
     if(equippedItem != null){
       equippedItem.receiveSpearAttackItem(spear);
+      contraAttack(spear.getOwner());
       return;
     }
     this.receiveAttack(spear);
@@ -164,6 +183,7 @@ public abstract class AbstractUnit implements IUnit {
   public void receiveAnimaAttack(IEquipableItem anima){
     if(equippedItem != null){
       equippedItem.receiveAnimaAttackItem(anima);
+      contraAttack(anima.getOwner());
       return;
     }
     this.receiveAttack(anima); }
@@ -172,6 +192,7 @@ public abstract class AbstractUnit implements IUnit {
   public void receiveLuzAttack(IEquipableItem luz){
     if(equippedItem != null){
       equippedItem.receiveLuzAttackItem(luz);
+      contraAttack(luz.getOwner());
       return;
     }
     this.receiveAttack(luz); }
@@ -180,9 +201,74 @@ public abstract class AbstractUnit implements IUnit {
   public void receiveOscuridadAttack(IEquipableItem oscuridad){
     if(equippedItem != null){
       equippedItem.receiveOscuridadAttackItem(oscuridad);
+      contraAttack(oscuridad.getOwner());
       return;
     }
     this.receiveAttack(oscuridad); }
+
+
+
+    // contraataque
+
+  @Override
+  public void receiveAxeContraAttack(IEquipableItem axe){
+    if(equippedItem != null){
+      equippedItem.receiveAxeContraAttackItem(axe);
+      return;
+    }
+    this.receiveAttack(axe); }
+
+  @Override
+  public void receiveBowContraAttack(IEquipableItem bow){
+    if (equippedItem != null){
+      equippedItem.receiveBowContraAttackItem(bow);
+      return;
+    }
+    this.receiveAttack(bow);
+  }
+
+  @Override
+  public void receiveSwordContraAttack(IEquipableItem sword){
+    if(equippedItem != null){
+      equippedItem.receiveSwordContraAttackItem(sword);
+      return;
+    }
+    this.receiveAttack(sword);
+  }
+
+  @Override
+  public void receiveSpearContraAttack(IEquipableItem spear){
+    if(equippedItem != null){
+      equippedItem.receiveSpearContraAttackItem(spear);
+      return;
+    }
+    this.receiveAttack(spear);
+  }
+
+  @Override
+  public void receiveAnimaContraAttack(IEquipableItem anima){
+    if(equippedItem != null){
+      equippedItem.receiveAnimaContraAttackItem(anima);
+      return;
+    }
+    this.receiveAttack(anima); }
+
+  @Override
+  public void receiveLuzContraAttack(IEquipableItem luz){
+    if(equippedItem != null){
+      equippedItem.receiveLuzContraAttackItem(luz);
+      return;
+    }
+    this.receiveAttack(luz); }
+
+  @Override
+  public void receiveOscuridadContraAttack(IEquipableItem oscuridad){
+    if(equippedItem != null){
+      equippedItem.receiveOscuridadContraAttackItem(oscuridad);
+      return;
+    }
+    this.receiveAttack(oscuridad); }
+
 
 
   @Override

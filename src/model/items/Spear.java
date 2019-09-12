@@ -40,6 +40,11 @@ public class Spear extends AbstractItem {
   }
 
   @Override
+  public void contraAttackTo(IUnit unit){
+    unit.receiveSpearContraAttack(this);
+  }
+
+  @Override
   public void receiveLuzAttackItem(IEquipableItem luz){
     getOwner().receiveStrengthenedAttack(luz);
   }
@@ -62,6 +67,33 @@ public class Spear extends AbstractItem {
 
   @Override
   public void receiveSwordAttackItem(IEquipableItem sword){
+    getOwner().receiveWeakenedAttack(sword);
+  }
+
+
+  @Override
+  public void receiveLuzContraAttackItem(IEquipableItem luz){
+    getOwner().receiveStrengthenedAttack(luz);
+  }
+
+  @Override
+  public void receiveAnimaContraAttackItem(IEquipableItem anima){
+    getOwner().receiveStrengthenedAttack(anima);
+  }
+
+  @Override
+  public void receiveOscuridadContraAttackItem(IEquipableItem oscuridad){
+    getOwner().receiveStrengthenedAttack(oscuridad);
+  }
+
+  @Override
+  public void receiveAxeContraAttackItem(IEquipableItem axe){
+    getOwner().receiveStrengthenedAttack(axe);
+  }
+
+
+  @Override
+  public void receiveSwordContraAttackItem(IEquipableItem sword){
     getOwner().receiveWeakenedAttack(sword);
   }
 

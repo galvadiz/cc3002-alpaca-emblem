@@ -13,8 +13,7 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 public class SorcererTest extends AbstractTestUnit {
 
-    private Sorcerer sorcerer;
-    private Sorcerer sorcerer2;
+    private Sorcerer sorcerer, sorcerer2;
 
     @Override
     @Test
@@ -48,11 +47,28 @@ public class SorcererTest extends AbstractTestUnit {
      */
     @Test
     @Override
-    public void equipMagiaTest() {
+    public void equipAnimaTest() {
         assertNull(sorcerer.getEquippedItem());
         sorcerer.equipItem(anima);
         assertEquals(anima, sorcerer.getEquippedItem());
     }
+
+    @Test
+    @Override
+    public void equipLuzTest() {
+        assertNull(sorcerer.getEquippedItem());
+        sorcerer.equipItem(luz);
+        assertEquals(luz, sorcerer.getEquippedItem());
+    }
+
+    @Test
+    @Override
+    public void equipOscuridadTest() {
+        assertNull(sorcerer.getEquippedItem());
+        sorcerer.equipItem(oscuridad);
+        assertEquals(oscuridad, sorcerer.getEquippedItem());
+    }
+
     @Test
     @Override
     public void attackTest(){
@@ -63,21 +79,73 @@ public class SorcererTest extends AbstractTestUnit {
         sorcerer2.equipItem(luz2);
         sorcerer2.attack(sorcerer);
         assertEquals(570, sorcerer.getCurrentHitPoints());
+        assertEquals(600, sorcerer2.getCurrentHitPoints());
 
         sorcerer.equipItem(anima);
         sorcerer2.attack(sorcerer);
         assertEquals(560, sorcerer.getCurrentHitPoints());
+        assertEquals(555, sorcerer2.getCurrentHitPoints());
 
         sorcerer2.equipItem(oscuridad2);
         assertEquals(oscuridad2, sorcerer2.getEquippedItem());
 
         sorcerer2.attack(sorcerer);
         assertEquals(515, sorcerer.getCurrentHitPoints());
+        assertEquals(545, sorcerer2.getCurrentHitPoints());
 
         sorcerer2.equipItem(anima2);
         assertEquals(anima2, sorcerer2.getEquippedItem());
         sorcerer2.attack(sorcerer);
         assertEquals(485, sorcerer.getCurrentHitPoints());
+        assertEquals(515, sorcerer2.getCurrentHitPoints());
+
+
+        sorcerer.equipItem(luz);
+        assertEquals(luz, sorcerer.getEquippedItem());
+
+        sorcerer2.equipItem(luz2);
+        sorcerer2.attack(sorcerer);
+        assertEquals(455, sorcerer.getCurrentHitPoints());
+        assertEquals(485, sorcerer2.getCurrentHitPoints());
+
+
+        sorcerer2.equipItem(oscuridad2);
+        assertEquals(oscuridad2, sorcerer2.getEquippedItem());
+
+        sorcerer2.attack(sorcerer);
+        assertEquals(445, sorcerer.getCurrentHitPoints());
+        assertEquals(440, sorcerer2.getCurrentHitPoints());
+
+        sorcerer2.equipItem(anima2);
+        assertEquals(anima2, sorcerer2.getEquippedItem());
+        sorcerer2.attack(sorcerer);
+        assertEquals(400, sorcerer.getCurrentHitPoints());
+        assertEquals(430, sorcerer2.getCurrentHitPoints());
+
+
+        sorcerer.equipItem(oscuridad);
+        assertEquals(oscuridad, sorcerer.getEquippedItem());
+
+        sorcerer2.equipItem(luz2);
+        sorcerer2.attack(sorcerer);
+        assertEquals(355, sorcerer.getCurrentHitPoints());
+        assertEquals(420, sorcerer2.getCurrentHitPoints());
+
+
+        sorcerer2.equipItem(oscuridad2);
+        assertEquals(oscuridad2, sorcerer2.getEquippedItem());
+
+        sorcerer2.attack(sorcerer);
+        assertEquals(325, sorcerer.getCurrentHitPoints());
+        assertEquals(390, sorcerer2.getCurrentHitPoints());
+
+        sorcerer2.equipItem(anima2);
+        assertEquals(anima2, sorcerer2.getEquippedItem());
+        sorcerer2.attack(sorcerer);
+        assertEquals(315, sorcerer.getCurrentHitPoints());
+        assertEquals(345, sorcerer2.getCurrentHitPoints());
+
+
 
     }
 }

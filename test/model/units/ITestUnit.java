@@ -93,12 +93,28 @@ public interface ITestUnit {
   Bow getBow();
 
   @Test
-  void equipMagiaTest();
+  void equipAnimaTest();
 
   /**
    * @return the test anima
    */
   IMagia getAnima();
+
+  @Test
+  void equipLuzTest();
+
+  /**
+   * @return the test luz
+   */
+  IMagia getLuz();
+
+  @Test
+  void equipOscuridadTest();
+
+  /**
+   * @return the test oscuridad
+   */
+  IMagia getOscuridad();
 
   /**
    * Checks if the unit moves correctly

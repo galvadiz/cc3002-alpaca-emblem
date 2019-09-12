@@ -36,4 +36,45 @@ public abstract class AbstractMagia extends AbstractItem implements IMagia {
         unit.equipMagia(this);
     }
 
+    @Override
+    public void receiveAxeAttackItem(IEquipableItem axe){
+        getOwner().receiveStrengthenedAttack(axe);
+    }
+
+    @Override
+    public void receiveBowAttackItem(IEquipableItem bow){
+        getOwner().receiveStrengthenedAttack(bow);
+    }
+
+    @Override
+    public void receiveSpearAttackItem(IEquipableItem spear){
+        getOwner().receiveStrengthenedAttack(spear);
+    }
+
+    @Override
+    public void receiveSwordAttackItem(IEquipableItem sword){
+        getOwner().receiveStrengthenedAttack(sword);
+    }
+
+
+    @Override
+    public void receiveAxeContraAttackItem(IEquipableItem axe){
+        getOwner().receiveStrengthenedAttack(axe);
+    }
+
+    @Override
+    public void receiveBowContraAttackItem(IEquipableItem bow){
+        getOwner().receiveStrengthenedAttack(bow);
+    }
+
+    @Override
+    public void receiveSpearContraAttackItem(IEquipableItem spear){
+        getOwner().receiveStrengthenedAttack(spear);
+    }
+
+    @Override
+    public void receiveSwordContraAttackItem(IEquipableItem sword){
+        getOwner().receiveStrengthenedAttack(sword);
+    }
+
 }

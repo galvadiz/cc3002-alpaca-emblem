@@ -29,8 +29,8 @@ public class SwordMasterTest extends AbstractTestUnit {
     hero = new Hero(100, 2, field.getCell(1, 1), spear);
     fighter = new Fighter(300, 2, field.getCell(1, 1), axe);
     archer = new Archer(300, 2, field.getCell(1, 2), bow);
-    swordMaster2 = new SwordMaster(100, 2, field.getCell(1, 1), spear, sword, axe);
-    sorcerer = new Sorcerer(100, 2, field.getCell(1, 1), anima);
+    swordMaster2 = new SwordMaster(100, 2, field.getCell(1, 1), spear, sword2, axe);
+    sorcerer = new Sorcerer(100, 2, field.getCell(1, 1), anima, luz, oscuridad);
     alpaca = new Alpaca(100, 2, field.getCell(1, 1), axe, spear, anima, sword);
     cleric = new Cleric(100, 2, field.getCell(1, 1), staff);
   }

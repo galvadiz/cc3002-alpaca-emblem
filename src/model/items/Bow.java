@@ -41,6 +41,11 @@ public class Bow extends AbstractItem {
   }
 
   @Override
+  public void contraAttackTo(IUnit unit){
+    unit.receiveBowContraAttack(this);
+  }
+
+  @Override
   public void receiveLuzAttackItem(IEquipableItem luz){
     getOwner().receiveStrengthenedAttack(luz);
   }
@@ -52,6 +57,21 @@ public class Bow extends AbstractItem {
 
   @Override
   public void receiveOscuridadAttackItem(IEquipableItem oscuridad){
+    getOwner().receiveStrengthenedAttack(oscuridad);
+  }
+
+  @Override
+  public void receiveLuzContraAttackItem(IEquipableItem luz){
+    getOwner().receiveStrengthenedAttack(luz);
+  }
+
+  @Override
+  public void receiveAnimaContraAttackItem(IEquipableItem anima){
+    getOwner().receiveStrengthenedAttack(anima);
+  }
+
+  @Override
+  public void receiveOscuridadContraAttackItem(IEquipableItem oscuridad){
     getOwner().receiveStrengthenedAttack(oscuridad);
   }
 

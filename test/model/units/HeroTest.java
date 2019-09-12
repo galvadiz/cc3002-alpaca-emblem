@@ -25,12 +25,12 @@ public class HeroTest extends AbstractTestUnit {
   @Override
   public void setTestUnit() {
     this.setWeapons();
-    hero = new Hero(300, 2, field.getCell(0, 0), spear);
+    hero = new Hero(300, 2, field.getCell(0, 0), spear, axe, bow);
     fighter = new Fighter(300, 2, field.getCell(1, 1), axe);
     archer = new Archer(300, 2, field.getCell(1, 2), bow);
     swordMaster = new SwordMaster(100, 2, field.getCell(1, 1), spear, sword, axe);
-    hero2 = new Hero(300, 2, field.getCell(1, 1), spear);
-    sorcerer = new Sorcerer(100, 2, field.getCell(1, 1), anima);
+    hero2 = new Hero(300, 2, field.getCell(1, 1), spear2);
+    sorcerer = new Sorcerer(100, 2, field.getCell(1, 1), anima, luz, oscuridad);
     alpaca = new Alpaca(100, 2, field.getCell(1, 1), axe, spear, anima, sword);
     cleric = new Cleric(100, 2, field.getCell(1, 1), staff);
   }
