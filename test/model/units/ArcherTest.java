@@ -104,7 +104,5 @@ public class ArcherTest extends AbstractTestUnit {
     sorcerer.attack(archer);
     assertEquals(15, archer.getCurrentHitPoints());
     assertEquals(15, sorcerer.getCurrentHitPoints());
-
-
   }
 }

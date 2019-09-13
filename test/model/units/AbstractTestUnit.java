@@ -17,7 +17,7 @@ public abstract class AbstractTestUnit implements ITestUnit {
   protected Alpaca targetAlpaca;
   protected Bow bow, bow2;
   protected Field field;
-  protected Axe axe, axe2;
+  protected Axe axe, axe2, axe3;
   protected Sword sword, sword2;
   protected Staff staff, staff2;
   protected Spear spear, spear2;
@@ -78,6 +78,8 @@ public abstract class AbstractTestUnit implements ITestUnit {
     this.anima2 = new Anima("Anima2", 30, 1, 2);
     this.luz2 = new Luz("Luz2", 30, 1, 2);
     this.oscuridad2 = new Oscuridad("Oscuridad2", 30, 1, 2);
+
+    this.axe3 = new Axe("Axe", 10, 1, 2);
   }
 
   /**

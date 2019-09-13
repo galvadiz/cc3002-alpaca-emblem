@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>model.units.Cleric</OriginalElement>
+  <nodes>
+    <node x="3993.6000379650704" y="374.4920273348521">model.map.Field</node>
+    <node x="3578.6000379650704" y="374.4920273348521">model.map.Location</node>
+    <node x="0.0" y="1972.0">model.units.Alpaca</node>
+    <node x="509.0" y="1983.0">model.units.Fighter</node>
+    <node x="717.0" y="1983.0">model.units.SwordMaster</node>
+    <node x="3750.4405846621107" y="1240.4646924829158">model.items.Spear</node>
+    <node x="1661.440584662111" y="1295.4646924829158">model.items.AbstractMagia</node>
+    <node x="634.5" y="0.0">model.units.IUnit</node>
+    <node x="634.5" y="981.0">model.units.AbstractUnit</node>
+    <node x="1173.0" y="1972.0">model.units.Cleric</node>
+    <node x="957.0" y="1983.0">model.units.Archer</node>
+    <node x="3361.4405846621107" y="1339.4646924829158">model.items.Staff</node>
+    <node x="2499.440584662111" y="1240.4646924829158">model.items.Sword</node>
+    <node x="2736.023917995444" y="623.4646924829158">model.items.AbstractItem</node>
+    <node x="1264.5239179954442" y="1627.4646924829158">model.items.Oscuridad</node>
+    <node x="2930.440584662111" y="1284.4646924829158">model.items.Bow</node>
+    <node x="277.0" y="1983.0">model.units.Hero</node>
+    <node x="2068.4405846621107" y="1240.4646924829158">model.items.Axe</node>
+    <node x="1395.0" y="1983.0">model.units.Sorcerer</node>
+    <node x="1664.690584662111" y="876.4646924829158">model.items.IMagia</node>
+    <node x="3639.1000379650704" y="739.4920273348521">model.map.InvalidLocation</node>
+    <node x="2101.523917995444" y="1627.4646924829158">model.items.Luz</node>
+    <node x="2245.523917995444" y="38.46469248291578">model.items.IEquipableItem</node>
+    <node x="1670.5239179954442" y="1627.4646924829158">model.items.Anima</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="model.items.AbstractMagia" target="model.items.IMagia">
+      <point x="-96.75" y="-113.5" />
+      <point x="0.0" y="25.5" />
+    </edge>
+    <edge source="model.items.Spear" target="model.items.AbstractItem">
+      <point x="0.0" y="-168.5" />
+      <point x="3955.9405846621107" y="1200.4646924829158" />
+      <point x="3112.773917995444" y="1200.4646924829158" />
+      <point x="171.25" y="278.5" />
+    </edge>
+    <edge source="model.units.Archer" target="model.units.AbstractUnit">
+      <point x="0.0" y="-25.5" />
+      <point x="1055.0" y="1952.0" />
+      <point x="882.0" y="1952.0" />
+      <point x="55.0" y="465.5" />
+    </edge>
+    <edge source="model.map.InvalidLocation" target="model.map.Location">
+      <point x="0.0" y="-36.5" />
+      <point x="0.0" y="157.5" />
+    </edge>
+    <edge source="model.units.Cleric" target="model.units.AbstractUnit">
+      <point x="0.0" y="-36.5" />
+      <point x="1274.0" y="1942.0" />
+      <point x="937.0" y="1942.0" />
+      <point x="110.0" y="465.5" />
+    </edge>
+    <edge source="model.items.Bow" target="model.items.AbstractItem">
+      <point x="2.2737367544323206E-13" y="-124.5" />
+      <point x="3135.940584662111" y="1220.4646924829158" />
+      <point x="2975.773917995444" y="1220.4646924829158" />
+      <point x="34.25" y="278.5" />
+    </edge>
+    <edge source="model.items.Oscuridad" target="model.items.AbstractMagia">
+      <point x="0.0" y="-91.5" />
+      <point x="1457.5239179954442" y="1602.4646924829158" />
+      <point x="1725.940584662111" y="1602.4646924829158" />
+      <point x="-129.0" y="113.5" />
+    </edge>
+    <edge source="model.units.Sorcerer" target="model.units.AbstractUnit">
+      <point x="0.0" y="-25.5" />
+      <point x="1503.5" y="1932.0" />
+      <point x="992.0" y="1932.0" />
+      <point x="165.0" y="465.5" />
+    </edge>
+    <edge source="model.items.Staff" target="model.items.AbstractItem">
+      <point x="0.0" y="-69.5" />
+      <point x="3545.9405846621107" y="1210.4646924829158" />
+      <point x="3044.273917995444" y="1210.4646924829158" />
+      <point x="102.75" y="278.5" />
+    </edge>
+    <edge source="model.items.Anima" target="model.items.AbstractMagia">
+      <point x="0.0" y="-91.5" />
+      <point x="1876.0239179954442" y="1602.4646924829158" />
+      <point x="1854.940584662111" y="1602.4646924829158" />
+      <point x="0.0" y="113.5" />
+    </edge>
+    <edge source="model.items.IMagia" target="model.items.IEquipableItem">
+      <point x="0.0" y="-25.5" />
+      <point x="1758.190584662111" y="598.4646924829158" />
+      <point x="2348.273917995444" y="598.4646924829158" />
+      <point x="-102.75" y="267.5" />
+    </edge>
+    <edge source="model.units.AbstractUnit" target="model.units.IUnit">
+      <point x="0.0" y="-465.5" />
+      <point x="0.0" y="465.5" />
+    </edge>
+    <edge source="model.items.Axe" target="model.items.AbstractItem">
+      <point x="0.0" y="-168.5" />
+      <point x="2273.9405846621107" y="1210.4646924829158" />
+      <point x="2838.773917995444" y="1210.4646924829158" />
+      <point x="-102.75" y="278.5" />
+    </edge>
+    <edge source="model.units.Fighter" target="model.units.AbstractUnit">
+      <point x="0.0" y="-25.5" />
+      <point x="603.0" y="1952.0" />
+      <point x="772.0" y="1952.0" />
+      <point x="-55.0" y="465.5" />
+    </edge>
+    <edge source="model.units.SwordMaster" target="model.units.AbstractUnit">
+      <point x="0.0" y="-25.5" />
+      <point x="0.0" y="465.5" />
+    </edge>
+    <edge source="model.items.Sword" target="model.items.AbstractItem">
+      <point x="0.0" y="-168.5" />
+      <point x="2704.940584662111" y="1220.4646924829158" />
+      <point x="2907.273917995444" y="1220.4646924829158" />
+      <point x="-34.25" y="278.5" />
+    </edge>
+    <edge source="model.units.Hero" target="model.units.AbstractUnit">
+      <point x="0.0" y="-25.5" />
+      <point x="383.0" y="1942.0" />
+      <point x="717.0" y="1942.0" />
+      <point x="-110.0" y="465.5" />
+    </edge>
+    <edge source="model.items.AbstractItem" target="model.items.IEquipableItem">
+      <point x="0.0" y="-278.5" />
+      <point x="2941.523917995444" y="598.4646924829158" />
+      <point x="2553.773917995444" y="598.4646924829158" />
+      <point x="102.75" y="267.5" />
+    </edge>
+    <edge source="model.units.Alpaca" target="model.units.AbstractUnit">
+      <point x="0.0" y="-36.5" />
+      <point x="128.5" y="1932.0" />
+      <point x="662.0" y="1932.0" />
+      <point x="-165.0" y="465.5" />
+    </edge>
+    <edge source="model.items.Luz" target="model.items.AbstractMagia">
+      <point x="0.0" y="-91.5" />
+      <point x="2307.023917995444" y="1602.4646924829158" />
+      <point x="1983.940584662111" y="1602.4646924829158" />
+      <point x="129.0" y="113.5" />
+    </edge>
+    <edge source="model.items.AbstractMagia" target="model.items.AbstractItem">
+      <point x="96.75" y="-113.5" />
+      <point x="1951.690584662111" y="1200.4646924829158" />
+      <point x="2770.273917995444" y="1200.4646924829158" />
+      <point x="-171.25" y="278.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.113086038124678" x="2559.277904328018" y="904.0" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

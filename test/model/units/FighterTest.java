@@ -28,7 +28,7 @@ public class FighterTest extends AbstractTestUnit {
     archer = new Archer(300, 2, field.getCell(1, 2), bow);
     swordMaster = new SwordMaster(100, 2, field.getCell(1, 1), spear, sword, axe, luz, anima);
     hero = new Hero(100, 2, field.getCell(1, 1), spear);
-    fighter2 = new Fighter(100, 2, field.getCell(1, 1), axe2);
+    fighter2 = new Fighter(100, 2, field.getCell(1, 1), axe2, axe3);
     sorcerer = new Sorcerer(100, 2, field.getCell(1, 1), anima, luz, oscuridad);
     alpaca = new Alpaca(100, 2, field.getCell(1, 1), axe, spear, anima, sword);
     cleric = new Cleric(100, 2, field.getCell(1, 1), staff);
@@ -68,6 +68,7 @@ public class FighterTest extends AbstractTestUnit {
     swordMaster.equipItem(sword);
     swordMaster.attack(fighter);
     assertEquals(195, fighter.getCurrentHitPoints());
+    assertEquals(90, swordMaster.getCurrentHitPoints());
 
     hero.equipItem(spear);
     hero.attack(fighter);
@@ -89,6 +90,9 @@ public class FighterTest extends AbstractTestUnit {
     sorcerer.attack(fighter);
     assertEquals(20, fighter.getCurrentHitPoints());
 
+    fighter2.equipItem(axe3);
+    fighter2.attack(swordMaster);
+    assertEquals(90, swordMaster.getCurrentHitPoints());
 
   }
 }
