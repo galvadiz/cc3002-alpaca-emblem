@@ -3,16 +3,21 @@ package model.items;
 import model.units.*;
 
 /**
- * @author Ignacio Slater Muñoz
- * @since
+ * This class represents an Bow.
+ * <p>
+ * Bows are weapons that can't attack adjacent units, so it's minimum range must me greater than
+ * one.
+ *
+ * Bows are strong against magias.
+ *
+ * @author Geraldine Alvadiz
+ * @since 1.0
  */
 public class Bow extends AbstractItem {
 
   /**
    * Creates a new bow.
    * <p>
-   * Bows are weapons that can't attack adjacent units, so it's minimum range must me greater than
-   * one.
    *
    * @param name
    *     the name of the bow

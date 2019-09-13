@@ -6,7 +6,7 @@ import model.units.*;
 /**
  * This class represents a sword type item.
  * <p>
- * Swords are strong against axes and weak against spears.
+ * Swords are strong against axes and magic items but weak against spears.
  *
  * @author Ignacio Slater Muñoz
  * @since 1.0

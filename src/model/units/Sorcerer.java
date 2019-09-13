@@ -15,7 +15,7 @@ import model.map.Location;
 public class Sorcerer extends AbstractUnit {
 
     /**
-     * Creates a new archer
+     * Creates a new sorcerer
      *
      * @param hitPoints
      *     maximum hit points of the unit
@@ -30,6 +30,12 @@ public class Sorcerer extends AbstractUnit {
         super(hitPoints, movement, position, 3, items);
     }
 
+    /**
+     * {@inheritDoc}
+     *
+     * sorcerer only can equip magia
+     */
+    @Override
     public void equipMagia(IMagia magia){
         equippedItem = magia;
     }

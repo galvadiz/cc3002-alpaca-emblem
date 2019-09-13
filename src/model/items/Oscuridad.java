@@ -5,7 +5,7 @@ import model.units.*;
 /**
  * This class represents an Oscuridad.
  * <p>
- * Axes are strong against spears but weak agains swords.
+ * Oscuridad are strong against anima and normal items but weak agains luz.
  *
  * @author Ignacio Slater Muñoz
  * @since 1.0

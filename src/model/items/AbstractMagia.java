@@ -3,9 +3,9 @@ package model.items;
 import model.units.*;
 
 /**
- * Abstract class that defines some common information and behaviour between all items.
+ * Abstract class that defines some common information and behaviour between all magic items.
  *
- * @author Ignacio Slater Muñoz
+ * @author Geraldine Alvadiz
  * @since 1.0
  */
 public abstract class AbstractMagia extends AbstractItem implements IMagia {

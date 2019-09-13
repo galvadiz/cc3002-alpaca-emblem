@@ -15,19 +15,27 @@ import model.map.Location;
 public class Hero extends AbstractUnit {
 
   /**
-   * Creates a new Unit.
+   * Creates a new hero
    *
    * @param hitPoints
-   *     the maximum amount of damage a unit can sustain
+   *     maximum hit points of the unit
    * @param movement
-   *     the number of panels a unit can move
+   *     the amount of cells this unit can move
+   * @param location
+   *     the initial position of this unit
+   * @param items
+   *     the items carried by this unit
    */
   public Hero(final int hitPoints, final int movement, final Location location,
       IEquipableItem... items) {
     super(hitPoints, movement, location, 3, items);
   }
 
-
+  /**
+   * {@inheritDoc}
+   *
+   * hero only can equip spear
+   */
   @Override
   public void equipSpear(Spear spear){
     equippedItem = spear;

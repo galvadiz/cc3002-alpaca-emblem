@@ -2,10 +2,14 @@ package model.items;
 
 import model.units.*;
 
+
 /**
- * Abstract class that defines some common information and behaviour between all items.
+ * This interface represents the <i>magic weapons</i> that the units of the game can use.
+ * <p>
+ * The signature for all the common methods of the magic weapons are defined here. Every magic weapon have a
+ * base damage and is strong or weak against other type of weapons.
  *
- * @author Ignacio Slater Muñoz
+ * @author Geraldine Alvadiz
  * @since 1.0
  */
 public interface IMagia extends IEquipableItem {

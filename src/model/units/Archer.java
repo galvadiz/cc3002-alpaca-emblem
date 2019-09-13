@@ -32,8 +32,9 @@ public class Archer extends AbstractUnit {
   }
 
   /**
+   *{@inheritDoc}
    *
-   * @param bow
+   * archer only can equip bow
    */
   public void equipBow(Bow bow){
     equippedItem = bow;

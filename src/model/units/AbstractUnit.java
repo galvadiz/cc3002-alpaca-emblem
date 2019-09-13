@@ -47,21 +47,33 @@ public abstract class AbstractUnit implements IUnit {
     this.items.addAll(Arrays.asList(items).subList(0, min(maxItems, items.length)));
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public int getCurrentHitPoints() {
     return currentHitPoints;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public List<IEquipableItem> getItems() {
     return List.copyOf(items);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public IEquipableItem getEquippedItem() {
     return equippedItem;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void equipItem(IEquipableItem item) {
     //item.setOwner(this);
@@ -73,46 +85,75 @@ public abstract class AbstractUnit implements IUnit {
     }
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public Location getLocation() {
     return location;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void setLocation(Location location) {
     this.location = location;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public int getMovement() {
     return movement;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void equipAxe(Axe axe){
   }
 
-
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void equipBow(Bow bow){
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void equipSpear(Spear spear){
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void equipStaff(Staff staff){
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void equipSword(Sword sword){
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void equipMagia(IMagia magia){
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void moveTo(final Location targetLocation) {
     if (getLocation().distanceTo(targetLocation) <= getMovement()
@@ -121,9 +162,17 @@ public abstract class AbstractUnit implements IUnit {
     }
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean isAlive(){ return this.currentHitPoints > 0; }
 
+  /**
+   * {@inheritDoc}
+   *
+   *  attack if there is an equippedItem, the distance is in range and is alive.
+   */
   @Override
   public void attack(IUnit unit){
     if(equippedItem != null && this.getLocation().distanceTo(unit.getLocation()) >= equippedItem.getMinRange()
@@ -132,6 +181,11 @@ public abstract class AbstractUnit implements IUnit {
     }
   }
 
+  /**
+   * {@inheritDoc}
+   *
+   *  contra attack if there is an equippedItem, the distance is in range and is alive.
+   */
   @Override
   public void contraAttack(IUnit unit){
     if(equippedItem != null && this.getLocation().distanceTo(unit.getLocation()) >= equippedItem.getMinRange()
@@ -140,6 +194,11 @@ public abstract class AbstractUnit implements IUnit {
     }
   }
 
+  /**
+   * {@inheritDoc}
+   *
+   * receive axe attack if there is an equippedItem. if there isn't and equippedItem, receive base attack.
+   */
   @Override
   public void receiveAxeAttack(IEquipableItem axe){
     if(equippedItem != null){
@@ -151,6 +210,11 @@ public abstract class AbstractUnit implements IUnit {
     }
     this.receiveAttack(axe); }
 
+  /**
+   * {@inheritDoc}
+   *
+   * receive bow attack if there is an equippedItem. if there isn't and equippedItem, receive base attack.
+   */
   @Override
   public void receiveBowAttack(IEquipableItem bow){
     if (equippedItem != null){
@@ -161,6 +225,11 @@ public abstract class AbstractUnit implements IUnit {
     this.receiveAttack(bow);
   }
 
+  /**
+   * {@inheritDoc}
+   *
+   * receive sword attack if there is an equippedItem. if there isn't and equippedItem, receive base attack.
+   */
   @Override
   public void receiveSwordAttack(IEquipableItem sword){
     if(equippedItem != null){
@@ -171,6 +240,11 @@ public abstract class AbstractUnit implements IUnit {
     this.receiveAttack(sword);
   }
 
+  /**
+   * {@inheritDoc}
+   *
+   * receive spear attack if there is an equippedItem. if there isn't and equippedItem, receive base attack.
+   */
   @Override
   public void receiveSpearAttack(IEquipableItem spear){
     if(equippedItem != null){
@@ -181,6 +255,11 @@ public abstract class AbstractUnit implements IUnit {
     this.receiveAttack(spear);
   }
 
+  /**
+   * {@inheritDoc}
+   *
+   * receive anima attack if there is an equippedItem. if there isn't and equippedItem, receive base attack.
+   */
   @Override
   public void receiveAnimaAttack(IEquipableItem anima){
     if(equippedItem != null){
@@ -190,6 +269,11 @@ public abstract class AbstractUnit implements IUnit {
     }
     this.receiveAttack(anima); }
 
+  /**
+   * {@inheritDoc}
+   *
+   * receive luz attack if there is an equippedItem. if there isn't and equippedItem, receive base attack.
+   */
   @Override
   public void receiveLuzAttack(IEquipableItem luz){
     if(equippedItem != null){
@@ -199,6 +283,11 @@ public abstract class AbstractUnit implements IUnit {
     }
     this.receiveAttack(luz); }
 
+  /**
+   * {@inheritDoc}
+   *
+   * receive oscuridad attack if there is an equippedItem. if there isn't and equippedItem, receive base attack.
+   */
   @Override
   public void receiveOscuridadAttack(IEquipableItem oscuridad){
     if(equippedItem != null){
@@ -209,9 +298,11 @@ public abstract class AbstractUnit implements IUnit {
     this.receiveAttack(oscuridad); }
 
 
-
-    // contraataque
-
+  /**
+   * {@inheritDoc}
+   *
+   * receive axe contra attack if there is an equippedItem. if there isn't and equippedItem, receive base attack.
+   */
   @Override
   public void receiveAxeContraAttack(IEquipableItem axe){
     if(equippedItem != null){
@@ -220,6 +311,11 @@ public abstract class AbstractUnit implements IUnit {
     }
     this.receiveAttack(axe); }
 
+  /**
+   * {@inheritDoc}
+   *
+   * receive bow contra attack if there is an equippedItem. if there isn't and equippedItem, receive base attack.
+   */
   @Override
   public void receiveBowContraAttack(IEquipableItem bow){
     if (equippedItem != null){
@@ -229,6 +325,11 @@ public abstract class AbstractUnit implements IUnit {
     this.receiveAttack(bow);
   }
 
+  /**
+   * {@inheritDoc}
+   *
+   * receive sword contra attack if there is an equippedItem. if there isn't and equippedItem, receive base attack.
+   */
   @Override
   public void receiveSwordContraAttack(IEquipableItem sword){
     if(equippedItem != null){
@@ -238,6 +339,11 @@ public abstract class AbstractUnit implements IUnit {
     this.receiveAttack(sword);
   }
 
+  /**
+   * {@inheritDoc}
+   *
+   * receive spear contra attack if there is an equippedItem. if there isn't and equippedItem, receive base attack.
+   */
   @Override
   public void receiveSpearContraAttack(IEquipableItem spear){
     if(equippedItem != null){
@@ -247,6 +353,11 @@ public abstract class AbstractUnit implements IUnit {
     this.receiveAttack(spear);
   }
 
+  /**
+   * {@inheritDoc}
+   *
+   * receive anima contra attack if there is an equippedItem. if there isn't and equippedItem, receive base attack.
+   */
   @Override
   public void receiveAnimaContraAttack(IEquipableItem anima){
     if(equippedItem != null){
@@ -255,6 +366,11 @@ public abstract class AbstractUnit implements IUnit {
     }
     this.receiveAttack(anima); }
 
+  /**
+   * {@inheritDoc}
+   *
+   * receive luz contra attack if there is an equippedItem. if there isn't and equippedItem, receive base attack.
+   */
   @Override
   public void receiveLuzContraAttack(IEquipableItem luz){
     if(equippedItem != null){
@@ -263,6 +379,11 @@ public abstract class AbstractUnit implements IUnit {
     }
     this.receiveAttack(luz); }
 
+  /**
+   * {@inheritDoc}
+   *
+   * receive oscuridad contra attack if there is an equippedItem. if there isn't and equippedItem, receive base attack.
+   */
   @Override
   public void receiveOscuridadContraAttack(IEquipableItem oscuridad){
     if(equippedItem != null){
@@ -272,23 +393,47 @@ public abstract class AbstractUnit implements IUnit {
     this.receiveAttack(oscuridad); }
 
 
-
+  /**
+   * {@inheritDoc}
+   *
+   */
   @Override
   public void receiveStrengthenedAttack(IEquipableItem item){
     currentHitPoints -= (item.getPower()*1.5);
+    if(!isAlive()){
+      currentHitPoints = 0;
+    }
   }
 
+  /**
+   * {@inheritDoc}
+   *
+   */
   @Override
   public void receiveWeakenedAttack(IEquipableItem item){
     int aux = item.getPower()-20;
     if (aux > 0) currentHitPoints -= (item.getPower()-20);
+    if(!isAlive()){
+      currentHitPoints = 0;
+    }
   }
 
+  /**
+   * {@inheritDoc}
+   *
+   */
   @Override
   public void receiveAttack(IEquipableItem item){
     currentHitPoints -= item.getPower();
+    if(!isAlive()){
+      currentHitPoints = 0;
+    }
   }
 
+  /**
+   * {@inheritDoc}
+   *
+   */
   @Override
   public void receiveHeal(IUnit unit){
     if (this.hitPointsMax - this.currentHitPoints < unit.getEquippedItem().getPower()){
@@ -298,6 +443,10 @@ public abstract class AbstractUnit implements IUnit {
     this.currentHitPoints += unit.getEquippedItem().getPower();
   }
 
+  /**
+   * {@inheritDoc}
+   *
+   */
   @Override
   public boolean estaItem(IEquipableItem item){
     for (IEquipableItem i: items){
@@ -308,6 +457,10 @@ public abstract class AbstractUnit implements IUnit {
     return false;
   }
 
+  /**
+   * {@inheritDoc}
+   *
+   */
   @Override
   public void addItem(IEquipableItem item){
     if (hayEspacio()){
@@ -315,6 +468,10 @@ public abstract class AbstractUnit implements IUnit {
     }
   }
 
+  /**
+   * {@inheritDoc}
+   *
+   */
   @Override
   public void deleteItem(IEquipableItem item){
     if (estaItem(item)){
@@ -323,6 +480,10 @@ public abstract class AbstractUnit implements IUnit {
 
   }
 
+  /**
+   * {@inheritDoc}
+   *
+   */
   @Override
   public void darItem(IUnit unit, IEquipableItem item){
     if(unit.hayEspacio() && getLocation().distanceTo(unit.getLocation()) == 1 && this.estaItem(item)){
@@ -331,12 +492,21 @@ public abstract class AbstractUnit implements IUnit {
     }
   }
 
+  /**
+   * {@inheritDoc}
+   *
+   */
   @Override
   public boolean hayEspacio(){
     return items.size() < 3;
   }
 
-  //@Override
-  //public abstract boolean equals(Object o);
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public void heal(IUnit unit){
+    //vacio ya que solo cura el cleric con staff equipado.
+  }
 
 }

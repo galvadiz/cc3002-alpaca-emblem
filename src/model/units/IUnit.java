@@ -276,4 +276,10 @@ public interface IUnit {
    */
   void darItem(IUnit unit, IEquipableItem item);
 
+  /**
+   * Performs the correct heal to the target Unit.
+   * @param unit the target unit.
+   */
+  void heal(IUnit unit);
+
 }

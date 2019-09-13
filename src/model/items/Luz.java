@@ -5,7 +5,7 @@ import model.units.*;
 /**
  * This class represents an Luz.
  * <p>
- * Axes are strong against spears but weak agains swords.
+ * Luz are strong against oscuridad and normal items but weak agains anima.
  *
  * @author Ignacio Slater Muñoz
  * @since 1.0

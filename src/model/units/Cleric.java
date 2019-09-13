@@ -14,12 +14,16 @@ import model.map.Location;
 public class Cleric extends AbstractUnit {
 
   /**
-   * Creates a new Unit.
+   * Creates a new cleric
    *
    * @param hitPoints
-   *     the maximum amount of damage a unit can sustain
+   *     maximum hit points of the unit
    * @param movement
-   *     the number of panels a unit can move
+   *     the amount of cells this unit can move
+   * @param location
+   *     the initial position of this unit
+   * @param items
+   *     the items carried by this unit
    */
   public Cleric(final int hitPoints, final int movement, final Location location,
       IEquipableItem... items) {
@@ -27,14 +31,24 @@ public class Cleric extends AbstractUnit {
   }
 
 
+  /**
+   * {@inheritDoc}
+   *
+   * cleric only can equip staff
+   */
   public void equipStaff(Staff staff){
     equippedItem = staff;
   }
 
+  /**
+   * {@inheritDoc}
+   *
+   */
   public void heal(IUnit unit){
     if (equippedItem != null){
       unit.receiveHeal(this);
     }
+    super.heal(unit);
   }
 
 }

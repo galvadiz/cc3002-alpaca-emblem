@@ -13,10 +13,27 @@ import model.map.Location;
  */
 public class SwordMaster extends AbstractUnit {
 
+  /**
+   * Creates a new swordMaster
+   *
+   * @param hitPoints
+   *     maximum hit points of the unit
+   * @param movement
+   *     the amount of cells this unit can move
+   * @param location
+   *     the initial position of this unit
+   * @param items
+   *     the items carried by this unit
+   */
   public SwordMaster(int hitPoints, int movement, Location location, IEquipableItem... items) {
     super(hitPoints, movement, location, 3, items);
   }
 
+  /**
+   * {@inheritDoc}
+   *
+   * swordMaster only can equip sword
+   */
   @Override
   public void equipSword(Sword sword){
     equippedItem = sword;

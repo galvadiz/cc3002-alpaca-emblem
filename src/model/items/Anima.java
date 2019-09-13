@@ -5,9 +5,9 @@ import model.units.*;
 /**
  * This class represents an Anima.
  * <p>
- * Axes are strong against spears but weak agains swords.
+ * Anima are strong against luz and normal items but weak agains oscuridad.
  *
- * @author Ignacio Slater Muñoz
+ * @author Geraldine Alvadiz
  * @since 1.0
  */
 public class Anima extends AbstractMagia {

@@ -39,6 +39,10 @@ public class Alpaca extends AbstractUnit {
     // Method body intentionally left empty
   }
 
+  /**
+   * {@inheritDoc}
+   *
+   */
   @Override
   public boolean hayEspacio(){
     return items.size() < Integer.MAX_VALUE;
