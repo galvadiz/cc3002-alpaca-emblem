@@ -159,7 +159,7 @@ public class Axe extends AbstractItem {
 
   /**
    * {@inheritDoc}
-   * 
+   *
    */
   @Override
   public boolean equals(Object o){

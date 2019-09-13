@@ -28,6 +28,9 @@ public class Luz extends AbstractMagia {
         super(name, power, minRange, maxRange);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean equals(Object o){
         if (this == o) return true;
@@ -39,31 +42,61 @@ public class Luz extends AbstractMagia {
                 getName().equals(that.getName());
     }
 
+    /**
+     * {@inheritDoc}
+     *
+     * attack the unit with luz
+     */
     @Override
     public void attackTo(IUnit unit){
         unit.receiveLuzAttack(this);
     }
 
+    /**
+     * {@inheritDoc}
+     *
+     * contra attack the unit with luz
+     */
     @Override
     public void contraAttackTo(IUnit unit){
         unit.receiveLuzContraAttack(this);
     }
 
+    /**
+     * {@inheritDoc}
+     *
+     * receive strengthened attack from anima
+     */
     @Override
     public void receiveAnimaAttackItem(IEquipableItem anima){
         getOwner().receiveStrengthenedAttack(anima);
     }
 
+    /**
+     * {@inheritDoc}
+     *
+     * receive weakened attack from oscuridad
+     */
     @Override
     public void receiveOscuridadAttackItem(IEquipableItem oscuridad){
         getOwner().receiveWeakenedAttack(oscuridad);
     }
 
+    /**
+     * {@inheritDoc}
+     *
+     * receive strengthened contra attack from anima
+     */
     @Override
     public void receiveAnimaContraAttackItem(IEquipableItem anima){
         getOwner().receiveStrengthenedAttack(anima);
     }
 
+    /**
+     * {@inheritDoc}
+     *
+     * receive weakened contra attack from oscuridad
+     */
     @Override
     public void receiveOscuridadContraAttackItem(IEquipableItem oscuridad){
         getOwner().receiveWeakenedAttack(oscuridad);

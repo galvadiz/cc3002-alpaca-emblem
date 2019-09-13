@@ -29,53 +29,100 @@ public class Bow extends AbstractItem {
     this.maxRange = Math.max(maxRange, this.minRange);
   }
 
+  /**
+   * {@inheritDoc}
+   *
+   * equip bow to unit
+   */
   @Override
   public void equipTo(IUnit unit){
     super.setOwner(unit);
     unit.equipBow(this);
   }
 
+  /**
+   * {@inheritDoc}
+   *
+   * attack the unit with a bow
+   */
   @Override
   public void attackTo(IUnit unit){
     unit.receiveBowAttack(this);
   }
 
+  /**
+   * {@inheritDoc}
+   *
+   * contra attack the unit with an bow
+   */
   @Override
   public void contraAttackTo(IUnit unit){
     unit.receiveBowContraAttack(this);
   }
 
+  /**
+   * {@inheritDoc}
+   *
+   * receive strengthened attack from luz
+   */
   @Override
   public void receiveLuzAttackItem(IEquipableItem luz){
     getOwner().receiveStrengthenedAttack(luz);
   }
 
+  /**
+   * {@inheritDoc}
+   *
+   * receive strengthened attack from anima
+   */
   @Override
   public void receiveAnimaAttackItem(IEquipableItem anima){
     getOwner().receiveStrengthenedAttack(anima);
   }
 
+  /**
+   * {@inheritDoc}
+   *
+   * receive strengthened attack from oscuridad
+   */
   @Override
   public void receiveOscuridadAttackItem(IEquipableItem oscuridad){
     getOwner().receiveStrengthenedAttack(oscuridad);
   }
 
+  /**
+   * {@inheritDoc}
+   *
+   * receive strengthened contra attack from luz
+   */
   @Override
   public void receiveLuzContraAttackItem(IEquipableItem luz){
     getOwner().receiveStrengthenedAttack(luz);
   }
 
+  /**
+   * {@inheritDoc}
+   *
+   * receive strengthened contra attack from anima
+   */
   @Override
   public void receiveAnimaContraAttackItem(IEquipableItem anima){
     getOwner().receiveStrengthenedAttack(anima);
   }
 
+  /**
+   * {@inheritDoc}
+   *
+   * receive strengthened contra attack from oscuridad
+   */
   @Override
   public void receiveOscuridadContraAttackItem(IEquipableItem oscuridad){
     getOwner().receiveStrengthenedAttack(oscuridad);
   }
 
-
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean equals(Object o){
     if (this == o) return true;

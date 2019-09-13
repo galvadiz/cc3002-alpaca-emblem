@@ -27,26 +27,50 @@ public class Staff extends AbstractItem {
   public Staff(String name, int power, int minRange, int maxRange) {
     super(name, power, minRange, maxRange);
   }
+
+  /**
+   * {@inheritDoc}
+   *
+   * equip staff to unit
+   */
   @Override
   public void equipTo(IUnit unit){
     super.setOwner(unit);
     unit.equipStaff(this);
   }
+  /**
+   * {@inheritDoc}
+   *
+   * receive strengthened attack from luz
+   */
   @Override
   public void receiveLuzAttackItem(IEquipableItem luz){
     getOwner().receiveStrengthenedAttack(luz);
   }
 
+  /**
+   * {@inheritDoc}
+   *
+   * receive strengthened attack from anima
+   */
   @Override
   public void receiveAnimaAttackItem(IEquipableItem anima){
     getOwner().receiveStrengthenedAttack(anima);
   }
 
+  /**
+   * {@inheritDoc}
+   *
+   * receive strengthened attack from oscuridad
+   */
   @Override
   public void receiveOscuridadAttackItem(IEquipableItem oscuridad){
     getOwner().receiveStrengthenedAttack(oscuridad);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean equals(Object o){
     if (this == o) return true;
