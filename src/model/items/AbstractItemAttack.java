@@ -1,6 +1,6 @@
 package model.items;
 
-import model.units.*;
+import model.units.IUnit;
 
 /**
  * Abstract class that defines some common information and behaviour between all items.
@@ -8,7 +8,7 @@ import model.units.*;
  * @author Geraldine Alvadiz
  * @since 1.0
  */
-public abstract class AbstractItemNoAttack implements IEquipableItemNoAttack {
+public abstract class AbstractItemAttack implements IEquipableItemAttack {
 
   private final String name;
   private final int power;

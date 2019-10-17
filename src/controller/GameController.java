@@ -1,5 +1,6 @@
 package controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import model.Tactician;
 import model.items.IEquipableItem;
@@ -16,6 +17,13 @@ import model.units.IUnit;
  */
 public class GameController {
 
+  private int numberOfPlayers = 0;
+  private int mapSize = 0;
+  private List<Tactician> tacticians = new ArrayList<>();
+  private Tactician actual_tactician;
+  private int round_number = 0;
+  private int max_rounds = 0;
+
   /**
    * Creates the controller for a new game.
    *
@@ -25,14 +33,15 @@ public class GameController {
    *     the dimensions of the map, for simplicity, all maps are squares
    */
   public GameController(int numberOfPlayers, int mapSize) {
-
+    this.numberOfPlayers = numberOfPlayers;
+    this.mapSize = mapSize;
   }
 
   /**
    * @return the list of all the tacticians participating in the game.
    */
   public List<Tactician> getTacticians() {
-    return null;
+    return tacticians;
   }
 
   /**
@@ -46,21 +55,21 @@ public class GameController {
    * @return the tactician that's currently playing
    */
   public Tactician getTurnOwner() {
-    return null;
+    return actual_tactician;
   }
 
   /**
    * @return the number of rounds since the start of the game.
    */
   public int getRoundNumber() {
-    return 0;
+    return round_number;
   }
 
   /**
    * @return the maximum number of rounds a match can last
    */
   public int getMaxRounds() {
-    return 0;
+    return max_rounds;
   }
 
   /**
@@ -77,7 +86,7 @@ public class GameController {
    *     the player to be removed
    */
   public void removeTactician(String tactician) {
-
+    tacticians.remove(tactician);
   }
 
   /**
@@ -86,14 +95,14 @@ public class GameController {
    *  the maximum number of turns the game can last
    */
   public void initGame(final int maxTurns) {
-
+    max_rounds = maxTurns;
   }
 
   /**
    * Starts a game without a limit of turns.
    */
   public void initEndlessGame() {
-
+    max_rounds = Integer.MAX_VALUE;
   }
 
   /**
@@ -107,7 +116,7 @@ public class GameController {
    * @return the current player's selected unit
    */
   public IUnit getSelectedUnit() {
-    return null;
+    return actual_tactician.getUnitSelection();
   }
 
   /**
@@ -126,7 +135,7 @@ public class GameController {
    * @return the inventory of the currently selected unit.
    */
   public List<IEquipableItem> getItems() {
-    return null;
+    return this.getSelectedUnit().getItems();
   }
 
   /**
@@ -136,7 +145,7 @@ public class GameController {
    *     the location of the item in the inventory.
    */
   public void equipItem(int index) {
-
+    this.getSelectedUnit().equipItem(this.getItems().get(index));
   }
 
   /**
