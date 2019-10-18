@@ -240,9 +240,9 @@ public interface IUnit {
 
   /**
    * Lets the Unit heal.
-   * @param unit the unit that healing.
+   * @param item the unit that healing.
    */
-  void receiveHeal(IUnit unit);
+  void receiveHeal(IEquipableItem item);
 
   /**
    * Check if the item is there.

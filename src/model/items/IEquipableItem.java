@@ -53,17 +53,9 @@ public interface IEquipableItem {
    */
   int getMaxRange();
 
-  /**
-   * Performs the correct attack to the target Unit.
-   * @param unit the target unit.
-   */
-  void attackTo(IUnit unit);
+  void useItem(IUnit unit);
 
-  /**
-   * Performs the correct contra attack to the target Unit.
-   * @param unit the target unit.
-   */
-  void contraAttackTo(IUnit unit);
+  void useItem2(IUnit unit);
 
   /**
    * Lets the Item be attacked by an anima.
@@ -148,5 +140,6 @@ public interface IEquipableItem {
    * @param item the item that attack this item.
    */
   void receiveSwordContraAttackItem(IEquipableItem item);
+
 
 }

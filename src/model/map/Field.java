@@ -1,6 +1,8 @@
 package model.map;
 
 import java.util.*;
+import java.util.function.IntToDoubleFunction;
+import java.lang.*;
 
 /**
  * This class represents the map where the units are located and the game is played.
@@ -26,7 +28,7 @@ public class Field {
    * @param cells
    *     the locations that are going to be added to the map
    */
-  public void addCells(final boolean connectAll, final Location... cells) {
+  public void addCells(boolean connectAll, Location... cells) {
     for (Location cell : cells) {
       addCell(cell);
       Location[] adjacentCells = getAdjacentCells(cell);
@@ -140,4 +142,14 @@ public class Field {
   public boolean checkConnection(final Location cell1, final Location cell2) {
     return cell1.isNeighbour(cell2);
   }
+
+
+  /**
+   *
+   */
+  public int getSize(){
+    double sizeMap = (double)map.size();
+    return (int)Math.sqrt(sizeMap);
+  }
+
 }

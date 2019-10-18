@@ -1,6 +1,6 @@
 package model.items;
 
-import model.units.*;
+import model.units.IUnit;
 
 /**
  * Abstract class that defines some common information and behaviour between all items.
@@ -8,12 +8,12 @@ import model.units.*;
  * @author Geraldine Alvadiz
  * @since 1.0
  */
-public abstract class AbstractItemNoAttack implements IEquipableItemNoAttack {
+public abstract class AbstractItem implements IEquipableItem{
 
   private final String name;
   private final int power;
-  protected int maxRange;
-  protected int minRange;
+  private int maxRange;
+  private int minRange;
   private IUnit owner;
 
   /**
@@ -45,8 +45,30 @@ public abstract class AbstractItemNoAttack implements IEquipableItemNoAttack {
    * {@inheritDoc}
    */
   @Override
+  public abstract void useItem(IUnit unit);
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public void useItem2(IUnit unit){
+
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public void setOwner(IUnit unit) {
     owner = unit;
+  }
+
+  public void setMinRange(int min){
+    minRange = min;
+  }
+
+  public void setMaxRange(int max){
+    maxRange = max;
   }
 
   /**
@@ -89,21 +111,6 @@ public abstract class AbstractItemNoAttack implements IEquipableItemNoAttack {
     return maxRange;
   }
 
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public void attackTo(IUnit unit){
-
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public void contraAttackTo(IUnit unit){
-
-  }
 
   /**
    * {@inheritDoc}
@@ -160,6 +167,7 @@ public abstract class AbstractItemNoAttack implements IEquipableItemNoAttack {
   public void receiveSwordAttackItem(IEquipableItem item){
     getOwner().receiveAttack(item);
   }
+
 
   /**
    * {@inheritDoc}

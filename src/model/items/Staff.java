@@ -10,7 +10,7 @@ import model.units.*;
  * @author Ignacio Slater Muñoz
  * @since 1.0
  */
-public class Staff extends AbstractItem {
+public class Staff extends AbstractItemNoAttack {
 
   /**
    * Creates a new Staff item.
@@ -38,6 +38,12 @@ public class Staff extends AbstractItem {
     super.setOwner(unit);
     unit.equipStaff(this);
   }
+
+  @Override
+  public void useItem(IUnit unit) {
+    unit.receiveHeal(this);
+  }
+
   /**
    * {@inheritDoc}
    *

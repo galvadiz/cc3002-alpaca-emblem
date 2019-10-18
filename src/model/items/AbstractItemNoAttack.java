@@ -1,6 +1,6 @@
 package model.items;
 
-import model.units.IUnit;
+import model.units.*;
 
 /**
  * Abstract class that defines some common information and behaviour between all items.
@@ -8,7 +8,8 @@ import model.units.IUnit;
  * @author Geraldine Alvadiz
  * @since 1.0
  */
-public abstract class AbstractItemAttack extends AbstractItem implements IEquipableItemAttack {
+public abstract class AbstractItemNoAttack extends AbstractItem implements IEquipableItemNoAttack {
+
 
   /**
    * Constructor for a default item without any special behaviour.
@@ -22,7 +23,7 @@ public abstract class AbstractItemAttack extends AbstractItem implements IEquipa
    * @param maxRange
    *     the maximum range of the item
    */
-  public AbstractItemAttack(String name, int power, int minRange, int maxRange) {
+  public AbstractItemNoAttack(String name, int power, int minRange, int maxRange) {
     super(name, power, minRange, maxRange);
   }
 
@@ -31,42 +32,6 @@ public abstract class AbstractItemAttack extends AbstractItem implements IEquipa
    */
   @Override
   public abstract void equipTo(IUnit unit);
-
-
-  /**
-   *
-   * @param unit
-   */
-  @Override
-  public void useItem(IUnit unit){
-    this.attackTo(unit);
-  }
-
-  /**
-   *
-   * @param unit
-   */
-  @Override
-  public void useItem2(IUnit unit){
-    this.contraAttackTo(unit);
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public void attackTo(IUnit unit){
-
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public void contraAttackTo(IUnit unit){
-
-  }
-
 
 
   /**

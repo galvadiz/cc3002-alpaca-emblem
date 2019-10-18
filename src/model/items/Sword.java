@@ -11,7 +11,7 @@ import model.units.*;
  * @author Ignacio Slater Muñoz
  * @since 1.0
  */
-public class Sword extends AbstractItem {
+public class Sword extends AbstractItemAttack {
 
   /**
    * Creates a new Sword.

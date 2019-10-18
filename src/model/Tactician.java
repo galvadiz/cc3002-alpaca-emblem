@@ -8,7 +8,7 @@ public class Tactician {
 
     private  String name;
     private List<IUnit> units = new ArrayList<>();
-    private IUnit unit_selection;
+    private IUnit unitSelection;
 
     /**
      * Creates a new Tactician
@@ -29,11 +29,19 @@ public class Tactician {
     }
 
     public IUnit getUnitSelection(){
-        return unit_selection;
+        return unitSelection;
     }
 
     public void setUnitSelection(IUnit unit){
-        unit_selection = unit;
+        for (IUnit u: units){
+            if (u.equals(unit)){
+                unitSelection = unit;
+            }
+        }
+
+    }
+    public void setUnits(List<IUnit> units){
+        this.units = units;
     }
 
 

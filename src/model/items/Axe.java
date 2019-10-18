@@ -10,7 +10,7 @@ import model.units.*;
  * @author Geraldine Alvadiz
  * @since 1.0
  */
-public class Axe extends AbstractItem {
+public class Axe extends AbstractItemAttack {
 
   /**
    * Creates a new Axe item

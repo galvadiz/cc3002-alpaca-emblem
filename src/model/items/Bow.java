@@ -13,7 +13,7 @@ import model.units.*;
  * @author Geraldine Alvadiz
  * @since 1.0
  */
-public class Bow extends AbstractItem {
+public class Bow extends AbstractItemAttack {
 
   /**
    * Creates a new bow.
@@ -30,8 +30,8 @@ public class Bow extends AbstractItem {
    */
   public Bow(final String name, final int power, final int minRange, final int maxRange) {
     super(name, power, minRange, maxRange);
-    this.minRange = Math.max(minRange, 2);
-    this.maxRange = Math.max(maxRange, this.minRange);
+    this.setMinRange(Math.max(minRange, 2));
+    this.setMaxRange(Math.max(maxRange, this.getMinRange()));
   }
 
   /**

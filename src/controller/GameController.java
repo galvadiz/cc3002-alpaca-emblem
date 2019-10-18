@@ -5,6 +5,7 @@ import java.util.List;
 import model.Tactician;
 import model.items.IEquipableItem;
 import model.map.Field;
+import model.map.Location;
 import model.units.IUnit;
 
 /**
@@ -20,9 +21,13 @@ public class GameController {
   private int numberOfPlayers = 0;
   private int mapSize = 0;
   private List<Tactician> tacticians = new ArrayList<>();
-  private Tactician actual_tactician;
+  private Tactician actualTactician;
   private int round_number = 0;
+  private int jugadoresQueHanTerminadoTurno = 0;
   private int max_rounds = 0;
+  private IUnit unitSeleccionadaEnMapa;
+  private IEquipableItem itemUnitSeleccionada;
+  private Field gameMap;
 
   /**
    * Creates the controller for a new game.
@@ -35,6 +40,20 @@ public class GameController {
   public GameController(int numberOfPlayers, int mapSize) {
     this.numberOfPlayers = numberOfPlayers;
     this.mapSize = mapSize;
+    List<Location> locations = new ArrayList<>();
+    /*for(int i = 0; i < mapSize; i++){
+      for(int j = 0; j < mapSize; j++){
+        locations.add(new Location(i,j));
+      }
+    }
+    gameMap.addCells(false);*/
+  }
+
+  public void setTacticians(List<String> nombresJugadores){
+    tacticians.clear();
+    for (String s: nombresJugadores){
+      tacticians.add(new Tactician(s));
+    }
   }
 
   /**
@@ -48,14 +67,14 @@ public class GameController {
    * @return the map of the current game
    */
   public Field getGameMap() {
-    return null;
+    return gameMap;
   }
 
   /**
    * @return the tactician that's currently playing
    */
   public Tactician getTurnOwner() {
-    return actual_tactician;
+    return actualTactician;
   }
 
   /**
@@ -76,7 +95,11 @@ public class GameController {
    * Finishes the current player's turn.
    */
   public void endTurn() {
-
+    jugadoresQueHanTerminadoTurno++;
+    if (jugadoresQueHanTerminadoTurno == numberOfPlayers){
+      round_number++;
+      jugadoresQueHanTerminadoTurno = 0;
+    }
   }
 
   /**
@@ -86,7 +109,14 @@ public class GameController {
    *     the player to be removed
    */
   public void removeTactician(String tactician) {
-    tacticians.remove(tactician);
+    for (Tactician t: tacticians){
+      if(t.getName().equals(tactician)){
+        tacticians.remove(t);
+        numberOfPlayers--;
+        return;
+      }
+    }
+
   }
 
   /**
@@ -94,29 +124,47 @@ public class GameController {
    * @param maxTurns
    *  the maximum number of turns the game can last
    */
-  public void initGame(final int maxTurns) {
+  public void initGame(int maxTurns) {
     max_rounds = maxTurns;
+    round_number = 1;
   }
 
   /**
    * Starts a game without a limit of turns.
    */
   public void initEndlessGame() {
-    max_rounds = Integer.MAX_VALUE;
+    max_rounds = -1;
   }
 
   /**
    * @return the winner of this game, if the match ends in a draw returns a list of all the winners
    */
   public List<String> getWinners() {
-    return null;
+    List<String> winners = new ArrayList<>();
+    if (seAcaboJuego()) {
+      for (Tactician t : tacticians) {
+        winners.add(t.getName());
+      }
+    }
+    else{
+      winners = null;
+    }
+    return winners;
+  }
+
+  public boolean seAcaboJuego(){
+    return round_number == max_rounds + 1 || tacticians.size() == 1;
   }
 
   /**
    * @return the current player's selected unit
    */
   public IUnit getSelectedUnit() {
-    return actual_tactician.getUnitSelection();
+    return actualTactician.getUnitSelection();
+  }
+
+  public void setTurnOwner(Tactician tactician) {
+    actualTactician = tactician;
   }
 
   /**
@@ -128,7 +176,20 @@ public class GameController {
    *     vertical position of the unit
    */
   public void selectUnitIn(int x, int y) {
+    for (Tactician t: tacticians){
+      for (IUnit u: t.getUnits()){
+        Location l = u.getLocation();
+        if (l.getRow() == x && l.getColumn() == y){
+          unitSeleccionadaEnMapa = u;
+        }
 
+      }
+    }
+
+  }
+
+  public IUnit getSelectUnitIn(){
+    return unitSeleccionadaEnMapa;
   }
 
   /**
@@ -157,7 +218,8 @@ public class GameController {
    *     vertical position of the target
    */
   public void useItemOn(int x, int y) {
-
+    selectUnitIn(x, y);
+    this.getSelectedUnit().getEquippedItem().useItem(unitSeleccionadaEnMapa);
   }
 
   /**
@@ -167,7 +229,11 @@ public class GameController {
    *     the location of the item in the inventory.
    */
   public void selectItem(int index) {
+    itemUnitSeleccionada = this.getSelectedUnit().getItems().get(index);
+  }
 
+  public IEquipableItem getSelectItem(){
+    return itemUnitSeleccionada;
   }
 
   /**
@@ -179,6 +245,7 @@ public class GameController {
    *     vertical position of the target
    */
   public void giveItemTo(int x, int y) {
-
+    selectUnitIn(x, y);
+    this.getSelectedUnit().darItem(unitSeleccionadaEnMapa, itemUnitSeleccionada);
   }
 }

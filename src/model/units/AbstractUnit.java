@@ -177,7 +177,7 @@ public abstract class AbstractUnit implements IUnit {
   public void attack(IUnit unit){
     if(equippedItem != null && this.getLocation().distanceTo(unit.getLocation()) >= equippedItem.getMinRange()
             && this.getLocation().distanceTo(unit.getLocation()) <= equippedItem.getMaxRange() && isAlive()){
-      equippedItem.attackTo(unit);
+      equippedItem.useItem(unit);
     }
   }
 
@@ -190,7 +190,7 @@ public abstract class AbstractUnit implements IUnit {
   public void contraAttack(IUnit unit){
     if(equippedItem != null && this.getLocation().distanceTo(unit.getLocation()) >= equippedItem.getMinRange()
           && this.getLocation().distanceTo(unit.getLocation()) <= equippedItem.getMaxRange() && isAlive()){
-      equippedItem.contraAttackTo(unit);
+      equippedItem.useItem2(unit);
     }
   }
 
@@ -435,12 +435,12 @@ public abstract class AbstractUnit implements IUnit {
    *
    */
   @Override
-  public void receiveHeal(IUnit unit){
-    if (this.hitPointsMax - this.currentHitPoints < unit.getEquippedItem().getPower()){
+  public void receiveHeal(IEquipableItem item){
+    if (this.hitPointsMax - this.currentHitPoints < item.getPower()){
       this.currentHitPoints = this.hitPointsMax;
       return;
     }
-    this.currentHitPoints += unit.getEquippedItem().getPower();
+    this.currentHitPoints += item.getPower();
   }
 
   /**

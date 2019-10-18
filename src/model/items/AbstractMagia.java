@@ -8,12 +8,7 @@ import model.units.*;
  * @author Geraldine Alvadiz
  * @since 1.0
  */
-public abstract class AbstractMagia extends AbstractItem implements IMagia {
-
-    private String name;
-    private int power;
-    protected int maxRange;
-    protected int minRange;
+public abstract class AbstractMagia extends AbstractItemAttack implements IMagia {
 
     /**
      * Constructor for a default item Magia.
