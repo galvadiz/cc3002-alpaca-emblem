@@ -45,6 +45,7 @@ public abstract class AbstractUnit implements IUnit {
     this.movement = movement;
     this.location = location;
     this.items.addAll(Arrays.asList(items).subList(0, min(maxItems, items.length)));
+    this.equipItem(new NullItem());
   }
 
   /**
@@ -77,6 +78,10 @@ public abstract class AbstractUnit implements IUnit {
   @Override
   public void equipItem(IEquipableItem item) {
     //item.setOwner(this);
+    if (item.equals(new NullItem())){
+      item.equipTo(this);
+      return;
+    }
     for (IEquipableItem i: this.getItems()){
       if(item.equals(i)){
         item.equipTo(this);
@@ -99,6 +104,7 @@ public abstract class AbstractUnit implements IUnit {
   @Override
   public void setLocation(Location location) {
     this.location = location;
+
   }
 
   /**
@@ -151,6 +157,11 @@ public abstract class AbstractUnit implements IUnit {
   public void equipMagia(IMagia magia){
   }
 
+  @Override
+  public void equipNull(NullItem nItem){
+    equippedItem = nItem;
+  }
+
   /**
    * {@inheritDoc}
    */
@@ -158,7 +169,9 @@ public abstract class AbstractUnit implements IUnit {
   public void moveTo(final Location targetLocation) {
     if (getLocation().distanceTo(targetLocation) <= getMovement()
         && targetLocation.getUnit() == null) {
+
       setLocation(targetLocation);
+      targetLocation.setUnit(this);
     }
   }
 
@@ -175,7 +188,7 @@ public abstract class AbstractUnit implements IUnit {
    */
   @Override
   public void attack(IUnit unit){
-    if(equippedItem != null && this.getLocation().distanceTo(unit.getLocation()) >= equippedItem.getMinRange()
+    if(this.getLocation().distanceTo(unit.getLocation()) >= equippedItem.getMinRange()
             && this.getLocation().distanceTo(unit.getLocation()) <= equippedItem.getMaxRange() && isAlive()){
       equippedItem.useItem(unit);
     }
@@ -188,7 +201,7 @@ public abstract class AbstractUnit implements IUnit {
    */
   @Override
   public void contraAttack(IUnit unit){
-    if(equippedItem != null && this.getLocation().distanceTo(unit.getLocation()) >= equippedItem.getMinRange()
+    if(this.getLocation().distanceTo(unit.getLocation()) >= equippedItem.getMinRange()
           && this.getLocation().distanceTo(unit.getLocation()) <= equippedItem.getMaxRange() && isAlive()){
       equippedItem.useItem2(unit);
     }
@@ -201,14 +214,9 @@ public abstract class AbstractUnit implements IUnit {
    */
   @Override
   public void receiveAxeAttack(IEquipableItem axe){
-    if(equippedItem != null){
-      equippedItem.receiveAxeAttackItem(axe);
-
-      contraAttack(axe.getOwner());
-
-      return;
+    equippedItem.receiveAxeAttackItem(axe);
+    contraAttack(axe.getOwner());
     }
-    this.receiveAttack(axe); }
 
   /**
    * {@inheritDoc}
@@ -217,12 +225,8 @@ public abstract class AbstractUnit implements IUnit {
    */
   @Override
   public void receiveBowAttack(IEquipableItem bow){
-    if (equippedItem != null){
-      equippedItem.receiveBowAttackItem(bow);
-      contraAttack(bow.getOwner());
-      return;
-    }
-    this.receiveAttack(bow);
+    equippedItem.receiveBowAttackItem(bow);
+    contraAttack(bow.getOwner());
   }
 
   /**
@@ -232,12 +236,8 @@ public abstract class AbstractUnit implements IUnit {
    */
   @Override
   public void receiveSwordAttack(IEquipableItem sword){
-    if(equippedItem != null){
       equippedItem.receiveSwordAttackItem(sword);
       contraAttack(sword.getOwner());
-      return;
-    }
-    this.receiveAttack(sword);
   }
 
   /**
@@ -247,12 +247,8 @@ public abstract class AbstractUnit implements IUnit {
    */
   @Override
   public void receiveSpearAttack(IEquipableItem spear){
-    if(equippedItem != null){
       equippedItem.receiveSpearAttackItem(spear);
       contraAttack(spear.getOwner());
-      return;
-    }
-    this.receiveAttack(spear);
   }
 
   /**
@@ -262,12 +258,9 @@ public abstract class AbstractUnit implements IUnit {
    */
   @Override
   public void receiveAnimaAttack(IEquipableItem anima){
-    if(equippedItem != null){
       equippedItem.receiveAnimaAttackItem(anima);
       contraAttack(anima.getOwner());
-      return;
-    }
-    this.receiveAttack(anima); }
+  }
 
   /**
    * {@inheritDoc}
@@ -276,12 +269,8 @@ public abstract class AbstractUnit implements IUnit {
    */
   @Override
   public void receiveLuzAttack(IEquipableItem luz){
-    if(equippedItem != null){
       equippedItem.receiveLuzAttackItem(luz);
-      contraAttack(luz.getOwner());
-      return;
-    }
-    this.receiveAttack(luz); }
+      contraAttack(luz.getOwner());}
 
   /**
    * {@inheritDoc}
@@ -290,12 +279,8 @@ public abstract class AbstractUnit implements IUnit {
    */
   @Override
   public void receiveOscuridadAttack(IEquipableItem oscuridad){
-    if(equippedItem != null){
       equippedItem.receiveOscuridadAttackItem(oscuridad);
-      contraAttack(oscuridad.getOwner());
-      return;
-    }
-    this.receiveAttack(oscuridad); }
+      contraAttack(oscuridad.getOwner());}
 
 
   /**
@@ -305,11 +290,8 @@ public abstract class AbstractUnit implements IUnit {
    */
   @Override
   public void receiveAxeContraAttack(IEquipableItem axe){
-    if(equippedItem != null){
       equippedItem.receiveAxeContraAttackItem(axe);
-      return;
-    }
-    this.receiveAttack(axe); }
+  }
 
   /**
    * {@inheritDoc}
@@ -318,11 +300,7 @@ public abstract class AbstractUnit implements IUnit {
    */
   @Override
   public void receiveBowContraAttack(IEquipableItem bow){
-    if (equippedItem != null){
       equippedItem.receiveBowContraAttackItem(bow);
-      return;
-    }
-    this.receiveAttack(bow);
   }
 
   /**
@@ -332,11 +310,7 @@ public abstract class AbstractUnit implements IUnit {
    */
   @Override
   public void receiveSwordContraAttack(IEquipableItem sword){
-    if(equippedItem != null){
-      equippedItem.receiveSwordContraAttackItem(sword);
-      return;
-    }
-    this.receiveAttack(sword);
+    equippedItem.receiveSwordContraAttackItem(sword);
   }
 
   /**
@@ -346,11 +320,7 @@ public abstract class AbstractUnit implements IUnit {
    */
   @Override
   public void receiveSpearContraAttack(IEquipableItem spear){
-    if(equippedItem != null){
       equippedItem.receiveSpearContraAttackItem(spear);
-      return;
-    }
-    this.receiveAttack(spear);
   }
 
   /**
@@ -360,11 +330,7 @@ public abstract class AbstractUnit implements IUnit {
    */
   @Override
   public void receiveAnimaContraAttack(IEquipableItem anima){
-    if(equippedItem != null){
-      equippedItem.receiveAnimaContraAttackItem(anima);
-      return;
-    }
-    this.receiveAttack(anima); }
+      equippedItem.receiveAnimaContraAttackItem(anima);}
 
   /**
    * {@inheritDoc}
@@ -373,11 +339,8 @@ public abstract class AbstractUnit implements IUnit {
    */
   @Override
   public void receiveLuzContraAttack(IEquipableItem luz){
-    if(equippedItem != null){
       equippedItem.receiveLuzContraAttackItem(luz);
-      return;
-    }
-    this.receiveAttack(luz); }
+  }
 
   /**
    * {@inheritDoc}
@@ -386,11 +349,8 @@ public abstract class AbstractUnit implements IUnit {
    */
   @Override
   public void receiveOscuridadContraAttack(IEquipableItem oscuridad){
-    if(equippedItem != null){
       equippedItem.receiveOscuridadContraAttackItem(oscuridad);
-      return;
     }
-    this.receiveAttack(oscuridad); }
 
 
   /**

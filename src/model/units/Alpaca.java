@@ -33,11 +33,11 @@ public class Alpaca extends AbstractUnit {
    * {@inheritDoc}
    * <p>
    * The <i>Alpaca</i> cannot equip any item.
-   */
+
   @Override
   public void equipItem(final IEquipableItem item) {
     // Method body intentionally left empty
-  }
+  }*/
 
   /**
    * {@inheritDoc}

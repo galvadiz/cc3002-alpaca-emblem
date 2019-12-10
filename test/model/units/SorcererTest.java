@@ -1,5 +1,6 @@
 package model.units;
 
+import model.items.NullItem;
 import model.map.Location;
 import org.junit.jupiter.api.Test;
 
@@ -61,7 +62,7 @@ public class SorcererTest extends AbstractTestUnit {
     @Test
     @Override
     public void equipAnimaTest() {
-        assertNull(sorcerer.getEquippedItem());
+        assertEquals(new NullItem(), sorcerer.getEquippedItem());
         sorcerer.equipItem(anima);
         assertEquals(anima, sorcerer.getEquippedItem());
     }
@@ -69,7 +70,7 @@ public class SorcererTest extends AbstractTestUnit {
     @Test
     @Override
     public void equipLuzTest() {
-        assertNull(sorcerer.getEquippedItem());
+        assertEquals(new NullItem(), sorcerer.getEquippedItem());
         sorcerer.equipItem(luz);
         assertEquals(luz, sorcerer.getEquippedItem());
     }
@@ -77,7 +78,7 @@ public class SorcererTest extends AbstractTestUnit {
     @Test
     @Override
     public void equipOscuridadTest() {
-        assertNull(sorcerer.getEquippedItem());
+        assertEquals(new NullItem(), sorcerer.getEquippedItem());
         sorcerer.equipItem(oscuridad);
         assertEquals(oscuridad, sorcerer.getEquippedItem());
     }

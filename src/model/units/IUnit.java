@@ -282,4 +282,6 @@ public interface IUnit {
    */
   void heal(IUnit unit);
 
+  void equipNull(NullItem nItem);
+
 }

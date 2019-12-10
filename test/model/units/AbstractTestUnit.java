@@ -6,6 +6,9 @@ import model.map.Location;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
@@ -45,9 +48,12 @@ public abstract class AbstractTestUnit implements ITestUnit {
   @Override
   public void setField() {
     this.field = new Field();
-    this.field.addCells(true, new Location(0, 0), new Location(0, 1), new Location(0, 2),
-        new Location(1, 0), new Location(1, 1), new Location(1, 2), new Location(2, 0),
-        new Location(2, 1), new Location(2, 2));
+    for(int i = 0; i < 3; i++) {
+      for (int j = 0; j < 3; j++) {
+        this.field.addCells(false, new Location(i, j));
+
+      }
+    }
   }
 
   /**
@@ -106,7 +112,6 @@ public abstract class AbstractTestUnit implements ITestUnit {
   @Override
   @Test
   public void equipAxeTest() {
-    assertNull(getTestUnit().getEquippedItem());
     checkEquippedItem(getAxe());
   }
 
@@ -118,9 +123,9 @@ public abstract class AbstractTestUnit implements ITestUnit {
    */
   @Override
   public void checkEquippedItem(IEquipableItem item) {
-    assertNull(getTestUnit().getEquippedItem());
+    assertEquals(new NullItem(), getTestUnit().getEquippedItem());
     getTestUnit().equipItem(item);
-    assertNull(getTestUnit().getEquippedItem());
+    assertEquals(new NullItem(), getTestUnit().getEquippedItem());
   }
 
   /**

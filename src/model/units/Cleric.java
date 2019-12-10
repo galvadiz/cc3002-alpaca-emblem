@@ -44,11 +44,8 @@ public class Cleric extends AbstractUnit {
    * {@inheritDoc}
    *
    */
-  public void heal(IUnit unit){
-    if (equippedItem != null){
-      this.getEquippedItem().useItem(unit);
-    }
-    super.heal(unit);
+  public void heal(IUnit unit) {
+    this.getEquippedItem().useItem(unit);
   }
 
 }
