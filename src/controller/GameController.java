@@ -200,7 +200,9 @@ public class GameController {
    *     vertical position of the unit
    */
   public void selectUnitIn(int x, int y) {
-    for (Tactician t: tacticians){
+    unitSeleccionadaEnMapa = gameMap.getCell(x, y).getUnit();
+
+    /*for (Tactician t: tacticians){
       for (IUnit u: t.getUnits()){
         Location l = u.getLocation();
         if (l.getRow() == x && l.getColumn() == y){
@@ -208,7 +210,7 @@ public class GameController {
         }
 
       }
-    }
+    }*/
 
   }
 
