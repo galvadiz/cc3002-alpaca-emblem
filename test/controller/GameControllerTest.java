@@ -46,15 +46,17 @@ class GameControllerTest {
   private Alpaca alpaca;
   private Cleric cleric;
 
-  public void setField() {
+  /*public void setField() {
     this.field = new Field();
-    for(int i = 0; i < 3; i++) {
+    for(int i = 0; i < controller.get; i++) {
       for (int j = 0; j < 3; j++) {
-        this.field.addCells(false, new Location(i, j));
+        Location actualLocation = new Location (i, j);
+        actualLocation.setUnit(new NullUnit(actualLocation));
+        this.field.addCells(false, actualLocation);
 
       }
     }
-  }
+  }*/
 
 
   public void setWeapons() {
@@ -82,10 +84,10 @@ class GameControllerTest {
   public void setUnits(){
     archer = new Archer(300, 2, field.getCell(0, 0), bow, staff, anima);
     swordMaster = new SwordMaster(100, 2, field.getCell(1, 0), spear, sword);
-    hero = new Hero(100, 2, field.getCell(1, 1), spear);
-    fighter = new Fighter(100, 2, field.getCell(1, 1), axe);
-    sorcerer = new Sorcerer(150, 2, field.getCell(1, 1), anima, luz, oscuridad);
-    alpaca = new Alpaca(100, 2, field.getCell(1, 1), axe, spear, anima, sword);
+    hero = new Hero(100, 2, field.getCell(0, 1), spear);
+    fighter = new Fighter(100, 2, field.getCell(1, 2), axe);
+    sorcerer = new Sorcerer(150, 2, field.getCell(2, 1), anima, luz, oscuridad);
+    alpaca = new Alpaca(100, 2, field.getCell(2, 2), axe, spear, anima, sword);
     cleric = new Cleric(100, 2, field.getCell(1, 1), staff);
   }
 
@@ -93,11 +95,12 @@ class GameControllerTest {
   void setUp() {
     // Se define la semilla como un número aleatorio para generar variedad en los tests
 
-    controller = new GameController(4, 128);
+    controller = new GameController(4, 4);
     randomSeed = controller.getSeed();
     testTacticians = List.of("Player 0", "Player 1", "Player 2", "Player 3");
     controller.setTacticians(testTacticians);
-    setField();
+    //setField();
+    field = controller.getGameMap();
     setWeapons();
     setUnits();
 
@@ -115,7 +118,7 @@ class GameControllerTest {
   @Test
   void getGameMap() {
     Field gameMap = controller.getGameMap();
-    assertEquals(128, gameMap.getSize()); // getSize deben definirlo
+    assertEquals(4, gameMap.getSize()); // getSize deben definirlo
     assertTrue(controller.getGameMap().isConnected());
     Random testRandom = new Random(randomSeed);
     // Para testear funcionalidades que dependen de valores aleatorios se hacen 2 cosas:
@@ -236,7 +239,7 @@ class GameControllerTest {
     controller.selectUnitIn(1, 0);
     assertEquals(swordMaster, controller.getSelectUnitIn());
     controller.selectUnitIn(1, 1);
-    assertEquals(hero, controller.getSelectUnitIn());
+    assertEquals(cleric, controller.getSelectUnitIn());
   }
 
   @Test

@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import model.units.NullUnit;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -25,7 +26,10 @@ class FieldTest {
     map = new Field();
     for(int i = 0; i < 3; i++) {
       for (int j = 0; j < 3; j++) {
-        map.addCells(true, new Location(i, j));
+        Location actualLocation = new Location (i, j);
+        actualLocation.setUnit(new NullUnit(actualLocation));
+        map.addCells(true, actualLocation);
+
       }
     }
   }
@@ -82,7 +86,9 @@ class FieldTest {
       Field randomField = new Field();
       for(int k = 0; k < 3; k++) {
         for (int j = 0; j < 3; j++) {
-          randomField.addCells(false, new Location(k, j));
+          Location actualLocation = new Location (k, j);
+          actualLocation.setUnit(new NullUnit(actualLocation));
+          randomField.addCells(false, actualLocation);
 
         }
       }

@@ -41,4 +41,20 @@ public class Hero extends AbstractUnit {
     equippedItem = spear;
   }
 
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public boolean equals(Object o){
+    if (this == o) return true;
+    if (!(o instanceof Hero)) return false;
+    Hero that = (Hero) o;
+    return this.getCurrentHitPoints() == that.getCurrentHitPoints() &&
+            this.getMovement() == that.getMovement() &&
+            this.getHitPointsMax() == that.getHitPointsMax() &&
+            //getLocation().getColumn() == that.getLocation().getColumn() &&
+            //getLocation().getRow() == that.getLocation().getRow() &&
+            getEquippedItem().equals(that.getEquippedItem()) &&
+            getItems().equals(that.getItems());
+  }
 }

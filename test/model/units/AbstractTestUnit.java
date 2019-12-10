@@ -50,7 +50,9 @@ public abstract class AbstractTestUnit implements ITestUnit {
     this.field = new Field();
     for(int i = 0; i < 3; i++) {
       for (int j = 0; j < 3; j++) {
-        this.field.addCells(false, new Location(i, j));
+        Location actualLocation = new Location (i, j);
+        actualLocation.setUnit(new NullUnit(actualLocation));
+        this.field.addCells(false, actualLocation);
 
       }
     }

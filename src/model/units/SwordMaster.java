@@ -39,6 +39,23 @@ public class SwordMaster extends AbstractUnit {
     equippedItem = sword;
   }
 
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public boolean equals(Object o){
+    if (this == o) return true;
+    if (!(o instanceof SwordMaster)) return false;
+    SwordMaster that = (SwordMaster) o;
+    return this.getCurrentHitPoints() == that.getCurrentHitPoints() &&
+            this.getMovement() == that.getMovement() &&
+            this.getHitPointsMax() == that.getHitPointsMax() &&
+            //getLocation().getColumn() == that.getLocation().getColumn() &&
+            //getLocation().getRow() == that.getLocation().getRow() &&
+            getEquippedItem().equals(that.getEquippedItem()) &&
+            getItems().equals(that.getItems());
+  }
+
   //@Override
   //public boolean equals(Object o) {
   //  if (this == o) return true;

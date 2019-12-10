@@ -81,6 +81,11 @@ public interface IUnit {
   int getCurrentHitPoints();
 
   /**
+   * @return hit points of the unit
+   */
+  int getHitPointsMax();
+
+  /**
    * @return the items carried by this unit
    */
   List<IEquipableItem> getItems();

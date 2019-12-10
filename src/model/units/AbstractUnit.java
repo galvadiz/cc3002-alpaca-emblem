@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import model.items.*;
+import model.map.InvalidLocation;
 import model.map.Location;
 
 /**
@@ -44,6 +45,7 @@ public abstract class AbstractUnit implements IUnit {
     this.hitPointsMax = hitPoints;
     this.movement = movement;
     this.location = location;
+    this.location.setUnit(this);
     this.items.addAll(Arrays.asList(items).subList(0, min(maxItems, items.length)));
     this.equipItem(new NullItem());
   }
@@ -54,6 +56,15 @@ public abstract class AbstractUnit implements IUnit {
   @Override
   public int getCurrentHitPoints() {
     return currentHitPoints;
+  }
+
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public int getHitPointsMax() {
+    return hitPointsMax;
   }
 
   /**
@@ -104,7 +115,7 @@ public abstract class AbstractUnit implements IUnit {
   @Override
   public void setLocation(Location location) {
     this.location = location;
-
+    this.location.setUnit(this);
   }
 
   /**
@@ -168,7 +179,7 @@ public abstract class AbstractUnit implements IUnit {
   @Override
   public void moveTo(final Location targetLocation) {
     if (getLocation().distanceTo(targetLocation) <= getMovement()
-        && targetLocation.getUnit() == null) {
+        && targetLocation.getUnit().equals(new NullUnit(new InvalidLocation()))) {
 
       setLocation(targetLocation);
       targetLocation.setUnit(this);
