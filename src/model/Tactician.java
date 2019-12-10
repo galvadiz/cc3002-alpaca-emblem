@@ -1,6 +1,9 @@
 package model;
 
+import model.map.Location;
 import model.units.IUnit;
+
+import java.beans.PropertyChangeSupport;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,7 +11,10 @@ public class Tactician {
 
     private  String name;
     private List<IUnit> units = new ArrayList<>();
+    private List<IUnit> unitsMovidas = new ArrayList<>();
     private IUnit unitSelection;
+    private PropertyChangeSupport finTurno = new PropertyChangeSupport(this);
+
 
     /**
      * Creates a new Tactician
@@ -42,6 +48,18 @@ public class Tactician {
     }
     public void setUnits(List<IUnit> units){
         this.units = units;
+    }
+
+    public void moveUnitSelection(Location location){
+        if (!unitsMovidas.contains(unitSelection)) {
+            unitSelection.moveTo(location);
+            unitsMovidas.add(unitSelection);
+        }
+    }
+
+    public void endTurn(){
+        unitsMovidas.clear();
+
     }
 
 
