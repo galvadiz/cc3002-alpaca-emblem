@@ -7,6 +7,9 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Test set for the field component of the game model.
  *
@@ -20,9 +23,11 @@ class FieldTest {
   @BeforeEach
   void setUp() {
     map = new Field();
-    map.addCells(true, new Location(0, 0), new Location(0, 1), new Location(0, 2),
-        new Location(1, 0), new Location(1, 1), new Location(1, 2), new Location(2, 0),
-        new Location(2, 1), new Location(2, 2));
+    for(int i = 0; i < 3; i++) {
+      for (int j = 0; j < 3; j++) {
+        map.addCells(true, new Location(i, j));
+      }
+    }
   }
 
   /**
@@ -75,9 +80,12 @@ class FieldTest {
   public void testConnectedness() {
     for (int i = 0; i < 50; i++) {
       Field randomField = new Field();
-      randomField.addCells(false, new Location(0, 0), new Location(0, 1), new Location(0, 2),
-          new Location(1, 0), new Location(1, 1), new Location(1, 2), new Location(2, 0),
-          new Location(2, 1), new Location(2, 2));
+      for(int k = 0; k < 3; k++) {
+        for (int j = 0; j < 3; j++) {
+          randomField.addCells(false, new Location(k, j));
+
+        }
+      }
       assertTrue(randomField.isConnected());
     }
   }

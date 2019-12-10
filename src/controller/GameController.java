@@ -2,6 +2,8 @@ package controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
+
 import model.Tactician;
 import model.items.IEquipableItem;
 import model.map.Field;
@@ -28,6 +30,7 @@ public class GameController {
   private IUnit unitSeleccionadaEnMapa;
   private IEquipableItem itemUnitSeleccionada;
   private Field gameMap;
+  private long randomSeed = new Random().nextLong();
 
   /**
    * Creates the controller for a new game.
@@ -40,13 +43,13 @@ public class GameController {
   public GameController(int numberOfPlayers, int mapSize) {
     this.numberOfPlayers = numberOfPlayers;
     this.mapSize = mapSize;
-    List<Location> locations = new ArrayList<>();
-    /*for(int i = 0; i < mapSize; i++){
+    this.gameMap = new Field();
+    for(int i = 0; i < mapSize; i++){
       for(int j = 0; j < mapSize; j++){
-        locations.add(new Location(i,j));
+        gameMap.addCells(false, new Location(i,j));
+
       }
     }
-    gameMap.addCells(false);*/
   }
 
   public void setTacticians(List<String> nombresJugadores){
@@ -70,6 +73,12 @@ public class GameController {
     return gameMap;
   }
 
+  /**
+   * @return seed of the current game
+   */
+  public long getSeed(){
+    return randomSeed;
+  }
   /**
    * @return the tactician that's currently playing
    */
@@ -134,6 +143,7 @@ public class GameController {
    */
   public void initEndlessGame() {
     max_rounds = -1;
+    round_number = 1;
   }
 
   /**
@@ -142,8 +152,22 @@ public class GameController {
   public List<String> getWinners() {
     List<String> winners = new ArrayList<>();
     if (seAcaboJuego()) {
-      for (Tactician t : tacticians) {
-        winners.add(t.getName());
+      int mayorActual = 0;
+      List<Integer> mayores = new ArrayList<>();
+      mayores.add(mayorActual);
+      for (int i = 1; i < tacticians.size(); i++) {
+        if (tacticians.get(i).getUnits().size() > tacticians.get(mayorActual).getUnits().size()){
+          mayorActual = i;
+          mayores.clear();
+          mayores.add(i);
+        }
+        else if (tacticians.get(i).getUnits().size() == tacticians.get(mayorActual).getUnits().size()){
+          mayorActual = i;
+          mayores.add(i);
+        }
+      }
+      for (Integer index: mayores){
+        winners.add(tacticians.get(index).getName());
       }
     }
     else{

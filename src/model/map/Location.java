@@ -68,7 +68,7 @@ public class Location {
    * @param neighbour
    *     the location to be added
    */
-  public void addNeighbour(final Location neighbour) {
+  public void addNeighbour(Location neighbour) {
     neighbour.addTo(this);
     neighbour.neighbours.add(this);
   }

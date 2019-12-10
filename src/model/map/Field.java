@@ -1,7 +1,6 @@
 package model.map;
 
 import java.util.*;
-import java.util.function.IntToDoubleFunction;
 import java.lang.*;
 
 /**
@@ -22,13 +21,11 @@ public class Field {
 
   /**
    * Add cells to the map.
-   *
-   * @param connectAll
+   *  @param connectAll
    *     a flag that indicates if all the cells should be connected to it's neighbours
    * @param cells
-   *     the locations that are going to be added to the map
    */
-  public void addCells(boolean connectAll, Location... cells) {
+  public void addCells(final boolean connectAll, final Location... cells) {
     for (Location cell : cells) {
       addCell(cell);
       Location[] adjacentCells = getAdjacentCells(cell);
@@ -46,7 +43,7 @@ public class Field {
    * @param cell
    *     the location to be added
    */
-  private void addCell(final Location cell) {
+  public void addCell(Location cell) {
     map.put(cell.toString(), cell);
   }
 
@@ -57,7 +54,7 @@ public class Field {
    *     the location of the current cell
    * @return an array of the adjacent cells
    */
-  private Location[] getAdjacentCells(final Location cell) {
+  public Location[] getAdjacentCells(final Location cell) {
     int row = cell.getRow(),
         col = cell.getColumn();
     return new Location[]{getCell(row - 1, col), getCell(row + 1, col), getCell(row, col - 1),
