@@ -1,5 +1,6 @@
 package controller;
 
+import java.beans.PropertyChangeSupport;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -31,6 +32,9 @@ public class GameController {
   private IEquipableItem itemUnitSeleccionada;
   private Field gameMap;
   private long randomSeed = new Random().nextLong();
+  private PropertyChangeSupport
+          endTurn = new PropertyChangeSupport(this),
+          postNotification = new PropertyChangeSupport(this);
 
   /**
    * Creates the controller for a new game.
@@ -41,17 +45,26 @@ public class GameController {
    *     the dimensions of the map, for simplicity, all maps are squares
    */
   public GameController(int numberOfPlayers, int mapSize) {
+    EndTurnHandler endTurnHandler = new EndTurnHandler(this);
+    this.endTurn.addPropertyChangeListener(endTurnHandler);
+
     this.numberOfPlayers = numberOfPlayers;
     this.mapSize = mapSize;
     this.gameMap = new Field();
-    for(int i = 0; i < mapSize; i++){
-      for(int j = 0; j < mapSize; j++){
+    for(int i = 0; i < this.mapSize; i++){
+      for(int j = 0; j < this.mapSize; j++){
         gameMap.addCells(false, new Location(i,j));
 
       }
     }
   }
 
+  /**
+   * Settea la lista de los Tacticians
+   *
+   * @param nombresJugadores
+   *    lista con los nombres de los jugadores
+   */
   public void setTacticians(List<String> nombresJugadores){
     tacticians.clear();
     for (String s: nombresJugadores){
@@ -176,6 +189,10 @@ public class GameController {
     return winners;
   }
 
+  /**
+   *
+   * @return si se acabo el juego o no.
+   */
   public boolean seAcaboJuego(){
     return round_number == max_rounds + 1 || tacticians.size() == 1;
   }
@@ -187,6 +204,13 @@ public class GameController {
     return actualTactician.getUnitSelection();
   }
 
+
+  /**
+   * Settea el turno actual al Tactician correspondiente
+   *
+   * @param tactician
+   *    Tactician que tiene el turno actual
+   */
   public void setTurnOwner(Tactician tactician) {
     actualTactician = tactician;
   }
@@ -258,6 +282,10 @@ public class GameController {
     itemUnitSeleccionada = this.getSelectedUnit().getItems().get(index);
   }
 
+  /**
+   *
+   * @return el item seleccionado de la unidad seleccionada
+   */
   public IEquipableItem getSelectItem(){
     return itemUnitSeleccionada;
   }
