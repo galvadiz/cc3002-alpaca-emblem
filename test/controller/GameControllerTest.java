@@ -13,6 +13,7 @@ import java.util.stream.IntStream;
 import model.Tactician;
 import model.items.*;
 import model.map.Field;
+import model.map.InvalidLocation;
 import model.map.Location;
 import model.units.*;
 import org.junit.jupiter.api.Assertions;
@@ -223,7 +224,8 @@ class GameControllerTest {
     Tactician t = controller.getTacticians().get(0);
     controller.setTurnOwner(t);
     t.setUnits(List.of(archer, swordMaster, hero));
-    assertNull(controller.getSelectedUnit());
+    assertEquals(new NullUnit(new InvalidLocation()), controller.getSelectedUnit());
+    //assertNull(controller.getSelectedUnit());
     controller.getTurnOwner().setUnitSelection(archer);
     assertEquals(archer, controller.getSelectedUnit());
   }
