@@ -2,6 +2,7 @@ package controller;
 
 import java.beans.PropertyChangeSupport;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
@@ -24,14 +25,18 @@ public class GameController {
   private int numberOfPlayers = 0;
   private int mapSize = 0;
   private List<Tactician> tacticians = new ArrayList<>();
-  private Tactician actualTactician;
+  private List<Tactician> ordenTurnos = new ArrayList<>();
+  private long seed = new Random().nextLong();
+  private Random random = new Random(seed);
+
+
+  private Tactician actualTactician = new Tactician("");
   private int round_number = 0;
   private int jugadoresQueHanTerminadoTurno = 0;
   private int max_rounds = 0;
   private IUnit unitSeleccionadaEnMapa;
   private IEquipableItem itemUnitSeleccionada;
   private Field gameMap;
-  private long randomSeed = new Random().nextLong();
   private PropertyChangeSupport
           endTurn = new PropertyChangeSupport(this),
           postNotification = new PropertyChangeSupport(this);
@@ -72,11 +77,27 @@ public class GameController {
     }
   }
 
+  public long getSeed(){
+    return seed;
+  }
+
+  public void setOrdenTurnos(){
+    ordenTurnos = tacticians;
+    Collections.shuffle(ordenTurnos, random);
+    while (!actualTactician.equals(new Tactician("")) && ordenTurnos.get(0).equals(actualTactician)){
+      Collections.shuffle(ordenTurnos, random);
+    }
+  }
+
+  public List<Tactician> getOrdenTurnos(){
+    return ordenTurnos;
+  }
+
   /**
    * @return the list of all the tacticians participating in the game.
    */
   public List<Tactician> getTacticians() {
-    return tacticians;
+    return List.copyOf(tacticians);
   }
 
   /**
@@ -86,12 +107,6 @@ public class GameController {
     return gameMap;
   }
 
-  /**
-   * @return seed of the current game
-   */
-  public long getSeed(){
-    return randomSeed;
-  }
   /**
    * @return the tactician that's currently playing
    */
@@ -121,7 +136,9 @@ public class GameController {
     if (jugadoresQueHanTerminadoTurno == numberOfPlayers){
       round_number++;
       jugadoresQueHanTerminadoTurno = 0;
+      setOrdenTurnos();
     }
+    setTurnOwner(ordenTurnos.get(jugadoresQueHanTerminadoTurno));
   }
 
   /**
@@ -149,14 +166,15 @@ public class GameController {
   public void initGame(int maxTurns) {
     max_rounds = maxTurns;
     round_number = 1;
+    setOrdenTurnos();
+    setTurnOwner(ordenTurnos.get(0));
   }
 
   /**
    * Starts a game without a limit of turns.
    */
   public void initEndlessGame() {
-    max_rounds = -1;
-    round_number = 1;
+    initGame(-1);
   }
 
   /**
@@ -225,17 +243,6 @@ public class GameController {
    */
   public void selectUnitIn(int x, int y) {
     unitSeleccionadaEnMapa = gameMap.getCell(x, y).getUnit();
-
-    /*for (Tactician t: tacticians){
-      for (IUnit u: t.getUnits()){
-        Location l = u.getLocation();
-        if (l.getRow() == x && l.getColumn() == y){
-          unitSeleccionadaEnMapa = u;
-        }
-
-      }
-    }*/
-
   }
 
   public IUnit getSelectUnitIn(){

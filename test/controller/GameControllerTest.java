@@ -5,7 +5,9 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 import java.util.stream.IntStream;
@@ -97,7 +99,7 @@ class GameControllerTest {
     // Se define la semilla como un número aleatorio para generar variedad en los tests
 
     controller = new GameController(4, 4);
-    randomSeed = controller.getSeed();
+    randomSeed = controller.getGameMap().getSeed();
     testTacticians = List.of("Player 0", "Player 1", "Player 2", "Player 3");
     controller.setTacticians(testTacticians);
     //setField();
@@ -119,23 +121,40 @@ class GameControllerTest {
   @Test
   void getGameMap() {
     Field gameMap = controller.getGameMap();
-    assertEquals(4, gameMap.getSize()); // getSize deben definirlo
+    assertEquals(4, gameMap.getSize());
     assertTrue(controller.getGameMap().isConnected());
+
     Random testRandom = new Random(randomSeed);
-    // Para testear funcionalidades que dependen de valores aleatorios se hacen 2 cosas:
-    //  - Comprobar las invariantes de las estructuras que se crean (en este caso que el mapa tenga
-    //    las dimensiones definidas y que sea conexo.
-    //  - Setear una semilla para el generador de números aleatorios. Hacer esto hace que la
-    //    secuencia de números generada sea siempre la misma, así pueden predecir los
-    //    resultados que van a obtener.
-    //    Hay 2 formas de hacer esto en Java, le pueden pasar el seed al constructor de Random, o
-    //    usar el método setSeed de Random.
-    //  ESTO ÚLTIMO NO ESTÁ IMPLEMENTADO EN EL MAPA, ASÍ QUE DEBEN AGREGARLO (!)
+    long nuevaSeed = testRandom.nextLong();
+    Field mapaDistinto = new Field();
+    mapaDistinto.setSeed(nuevaSeed);
+
+
+    Field gameMapIdentico = new Field();
+    gameMapIdentico.setSeed(randomSeed);
+
+    //se crean ambos mapas
+    for(int i = 0; i < 4; i++){
+      for(int j = 0; j < 4; j++){
+        gameMapIdentico.addCells(false, new Location(i, j));
+        mapaDistinto.addCells(false, new Location(i, j));
+      }
+    }
+
+
+    assertTrue(gameMap.equals(gameMapIdentico));
+    assertNotEquals(gameMap, mapaDistinto);
   }
 
   @Test
   void getTurnOwner() {
-    //  En este caso deben hacer lo mismo que para el mapa
+    assertEquals("", controller.getTurnOwner().getName());
+    long seed = controller.getSeed();
+    Random r = new Random(seed);
+    List<Tactician> copiaTactician = new ArrayList<>(controller.getTacticians());
+    controller.initGame(2);
+    Collections.shuffle(copiaTactician, r);
+    assertEquals(copiaTactician.get(0).getName(), controller.getTurnOwner().getName());
   }
 
   @Test
@@ -163,14 +182,15 @@ class GameControllerTest {
 
   @Test
   void endTurn() {
+    controller.initGame(2);
+
     Tactician firstPlayer = controller.getTurnOwner();
-    // Nuevamente, para determinar el orden de los jugadores se debe usar una semilla
-    Tactician secondPlayer = new Tactician("Holis"); // <- Deben cambiar esto (!)
-    //assertNotEquals(secondPlayer.getName(), firstPlayer.getName());
+    Tactician secondPlayer = controller.getOrdenTurnos().get(1);
+    assertNotEquals(secondPlayer.getName(), firstPlayer.getName());
 
     controller.endTurn();
-    //assertNotEquals(firstPlayer.getName(), controller.getTurnOwner().getName());
-    //assertEquals(secondPlayer.getName(), controller.getTurnOwner().getName());
+    assertNotEquals(firstPlayer.getName(), controller.getTurnOwner().getName());
+    assertEquals(secondPlayer.getName(), controller.getTurnOwner().getName());
   }
 
   @Test
@@ -225,7 +245,6 @@ class GameControllerTest {
     controller.setTurnOwner(t);
     t.setUnits(List.of(archer, swordMaster, hero));
     assertEquals(new NullUnit(new InvalidLocation()), controller.getSelectedUnit());
-    //assertNull(controller.getSelectedUnit());
     controller.getTurnOwner().setUnitSelection(archer);
     assertEquals(archer, controller.getSelectedUnit());
   }
