@@ -16,8 +16,26 @@ import java.lang.*;
 public class Field {
 
   private Map<String, Location> map = new HashMap<>();
-  private Random random = new Random();
+  private long randomSeed = new Random().nextLong();
+  private Random random = new Random(randomSeed);
   private StringBuilder builder = new StringBuilder();
+
+
+  /**
+   *
+   * @return seed of the current field
+   */
+  public long getSeed(){
+    return randomSeed;
+  }
+
+  /**
+   *
+   * @return seed of the current field
+   */
+  public void setSeed(long seed){
+    random = new Random(seed);
+  }
 
   /**
    * Add cells to the map.
@@ -143,10 +161,33 @@ public class Field {
 
   /**
    *
+   * @return
    */
   public int getSize(){
     double sizeMap = (double)map.size();
     return (int)Math.sqrt(sizeMap);
   }
+
+  @Override
+  public boolean equals(Object o){
+    if (this == o) return true;
+    if (!(o instanceof Field)) return false;
+    Field that = (Field) o;
+    if (this.getSize() != that.getSize()) return false;
+    for (String s: map.keySet()){
+      if (map.get(s).getNeighbours().size() != that.getMap().get(s).getNeighbours().size()) return false;
+      for (Location l: map.get(s).getNeighbours()){
+        boolean esta = false;
+        for (Location l2: that.getMap().get(s).getNeighbours()){
+          if (l2.equals(l)){
+            esta = true;
+          }
+        }
+        if (!esta) return false;
+      }
+    }
+    return true;
+  }
+
 
 }

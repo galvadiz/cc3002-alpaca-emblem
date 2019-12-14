@@ -173,5 +173,4 @@ public class Location {
   public int getColumn() {
     return column;
   }
-
 }
