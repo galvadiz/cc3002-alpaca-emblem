@@ -1,5 +1,6 @@
 package factory;
 
+import factory.items.FactoryItems;
 import model.items.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -35,44 +36,44 @@ public class FactoryItemsTest {
     }
 
     @Test
-    void createAxe(){
+    void createAxeTest(){
         axe = f.createAxe();
         assertEquals(axe2, axe);
     }
 
     @Test
-    void createBow(){
+    void createBowTest(){
         bow = f.createBow();
         assertEquals(bow2, bow);
     }
 
     @Test
-    void createSword(){
+    void createSwordTest(){
         sword = f.createSword();
         assertEquals(sword2, sword);
     }
     @Test
-    void createStaff(){
+    void createStaffTest(){
         staff = f.createStaff();
         assertEquals(staff2, staff);
     }
     @Test
-    void createSpear(){
+    void createSpearTest(){
         spear = f.createSpear();
         assertEquals(spear2, spear);
     }
     @Test
-    void createAnima(){
+    void createAnimaTest(){
         anima = f.createAnima();
         assertEquals(anima2, anima);
     }
     @Test
-    void createLuz(){
+    void createLuzTest(){
         luz = f.createLuz();
         assertEquals(luz2, luz);
     }
     @Test
-    void createOscuridad(){
+    void createOscuridadTest(){
         oscuridad = f.createOscuridad();
         assertEquals(oscuridad2, oscuridad);
     }
