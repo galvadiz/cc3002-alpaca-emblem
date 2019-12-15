@@ -25,6 +25,10 @@ public abstract class AbstractMagia extends AbstractItemAttack implements IMagia
     public AbstractMagia(String name, int power, int minRange, int maxRange){
         super(name, power, minRange, maxRange);
     }
+
+    /**
+     *{@inheritDoc}
+     */
     @Override
     public void equipTo(IUnit unit){
         super.setOwner(unit);

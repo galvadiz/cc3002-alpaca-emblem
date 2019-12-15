@@ -34,8 +34,10 @@ public abstract class AbstractItemAttack extends AbstractItem implements IEquipa
 
 
   /**
+   * Ataca a la unidad unit
    *
    * @param unit
+   *    unidad que sera atacada
    */
   @Override
   public void useItem(IUnit unit){
@@ -43,8 +45,10 @@ public abstract class AbstractItemAttack extends AbstractItem implements IEquipa
   }
 
   /**
+   * Contraataca a unidad unit
    *
    * @param unit
+   *    unidad que sera contraatacada
    */
   @Override
   public void useItem2(IUnit unit){

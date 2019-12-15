@@ -287,6 +287,12 @@ public interface IUnit {
    */
   void heal(IUnit unit);
 
+  /**
+   * Equipa item nulo
+   *
+   * @param nItem
+   *    item nulo a equipar
+   */
   void equipNull(NullItem nItem);
 
 }

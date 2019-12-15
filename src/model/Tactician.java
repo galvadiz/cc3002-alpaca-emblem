@@ -125,15 +125,25 @@ public class Tactician {
 
     }
 
+    /**
+     *
+     * @return propertyChangeSuport de termino de turno para poder utilizarlo fuera de la clase.
+     */
     public PropertyChangeSupport getEndTurn(){
         return endTurn;
     }
 
-
+    /**
+     * Avisa a GC que el heroe murio
+     */
     public void deadHero(){
         deadHero.firePropertyChange(new PropertyChangeEvent(this, this.name, "vivo", "muerto"));
     }
 
+    /**
+     *
+     * @return propertyChangeSuport de muerte de heroe para poder utilizarlo fuera de la clase.
+     */
     public PropertyChangeSupport getDeadHero(){
         return deadHero;
     }

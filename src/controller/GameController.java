@@ -147,10 +147,18 @@ public class GameController {
     return max_rounds;
   }
 
+  /**
+   *
+   * @return cantidad de jugvadores que han terminado su turno en la ronda actual
+   */
   public int getJugadoresQueHanTerminadoTurno(){
     return jugadoresQueHanTerminadoTurno;
   }
 
+  /**
+   *
+   * @return estado actual del juego (true si está activo)
+   */
   public boolean getEstadoDelJuego(){
     return estadoDelJuego;
   }

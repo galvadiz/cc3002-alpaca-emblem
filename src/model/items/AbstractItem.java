@@ -63,14 +63,26 @@ public abstract class AbstractItem implements IEquipableItem{
     owner = unit;
   }
 
+  /**
+   *{@inheritDoc}
+   */
+  @Override
   public void setPower(int power){
     this.power = power;
   }
 
+  /**
+   *{@inheritDoc}
+   */
+  @Override
   public void setMinRange(int min){
     minRange = min;
   }
 
+  /**
+   *{@inheritDoc}
+   */
+  @Override
   public void setMaxRange(int max){
     maxRange = max;
   }

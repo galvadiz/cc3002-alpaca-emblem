@@ -9,7 +9,7 @@ public class DeadHeroUnitTacticianHandler implements PropertyChangeListener {
     private Tactician tactician;
 
     /**
-     * Creates a new handler for the end Turn of Tactician
+     * Creates a new handler for hero's dead of Tactician
      *
      * @param tactician
      *     The object to be notified of the change.

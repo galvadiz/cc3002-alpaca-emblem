@@ -7,7 +7,7 @@ public class DeadHeroTacticianGCHandler implements PropertyChangeListener {
     private GameController controller;
 
     /**
-     * Creates a new handler for the end Turn of Tactician
+     * Creates a new handler for hero's dead of Tactician
      *
      * @param controller
      *     The object to be notified of the change.

@@ -161,13 +161,16 @@ public class Field {
 
   /**
    *
-   * @return
+   * @return tamano del mapa
    */
   public int getSize(){
     double sizeMap = (double)map.size();
     return (int)Math.sqrt(sizeMap);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean equals(Object o){
     if (this == o) return true;

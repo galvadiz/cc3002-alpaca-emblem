@@ -168,6 +168,9 @@ public abstract class AbstractUnit implements IUnit {
   public void equipMagia(IMagia magia){
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void equipNull(NullItem nItem){
     equippedItem = nItem;

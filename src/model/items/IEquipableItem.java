@@ -29,6 +29,27 @@ public interface IEquipableItem {
   void setOwner(IUnit unit);
 
   /**
+   *
+   * @param power
+   *    new IEquipableItem's power
+   */
+  void setPower(int power);
+
+  /**
+   *
+   * @param min
+   *    new IEquipableItem's minRange
+   */
+  void setMinRange(int min);
+
+  /**
+   *
+   * @param max
+   *    new IEquipableItem's maxRange
+   */
+  void setMaxRange(int max);
+
+  /**
    * @return the unit that has currently equipped this item
    */
   IUnit getOwner();
@@ -53,8 +74,20 @@ public interface IEquipableItem {
    */
   int getMaxRange();
 
+  /**
+   * Utiliza item sobre la unidad unit
+   *
+   * @param unit
+   *    unidad sobre la cual es utilizada el item
+   */
   void useItem(IUnit unit);
 
+  /**
+   * Utiliza item sobre la unidad unit
+   *
+   * @param unit
+   *    unidad sobre la cual es utilizada el item
+   */
   void useItem2(IUnit unit);
 
   /**

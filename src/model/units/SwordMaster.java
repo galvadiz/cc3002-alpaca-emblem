@@ -55,11 +55,4 @@ public class SwordMaster extends AbstractUnit {
             getEquippedItem().equals(that.getEquippedItem()) &&
             getItems().equals(that.getItems());
   }
-
-  //@Override
-  //public boolean equals(Object o) {
-  //  if (this == o) return true;
-  //  if (!(o instanceof SwordMaster)) return false;
-  //  SwordMaster that = (SwordMaster) o;
-  //}
 }
