@@ -51,22 +51,6 @@ public abstract class AbstractItemAttack extends AbstractItem implements IEquipa
     this.contraAttackTo(unit);
   }
 
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public void attackTo(IUnit unit){
-
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public void contraAttackTo(IUnit unit){
-
-  }
-
 
 
   /**
