@@ -227,7 +227,7 @@ public abstract class AbstractUnit implements IUnit {
   public void receiveAxeAttack(IEquipableItem axe){
     equippedItem.receiveAxeAttackItem(axe);
     contraAttack(axe.getOwner());
-    }
+  }
 
   /**
    * {@inheritDoc}
