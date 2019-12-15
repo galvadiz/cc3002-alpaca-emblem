@@ -16,10 +16,6 @@ public class InvalidLocation extends Location {
   }
 
   @Override
-  public void addNeighbour(final Location neighbour) {
-  }
-
-  @Override
   protected void addTo(final Location location) {
   }
 }
