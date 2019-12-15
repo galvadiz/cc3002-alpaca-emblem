@@ -4,6 +4,9 @@ import model.items.IEquipableItem;
 import model.items.*;
 import model.map.Location;
 
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeSupport;
+
 /**
  * A <i>Hero</i> is a special kind of unit, the player that defeats this unit wins the game.
  * <p>
@@ -13,6 +16,9 @@ import model.map.Location;
  * @since 1.0
  */
 public class Hero extends AbstractUnit {
+
+  private PropertyChangeSupport
+          deadHero = new PropertyChangeSupport(this);
 
   /**
    * Creates a new hero
@@ -29,6 +35,11 @@ public class Hero extends AbstractUnit {
   public Hero(final int hitPoints, final int movement, final Location location,
       IEquipableItem... items) {
     super(hitPoints, movement, location, 3, items);
+
+  }
+
+  public PropertyChangeSupport getDeadHero(){
+    return deadHero;
   }
 
   /**
@@ -39,6 +50,43 @@ public class Hero extends AbstractUnit {
   @Override
   public void equipSpear(Spear spear){
     equippedItem = spear;
+  }
+
+
+  /**
+   * {@inheritDoc}
+   *
+   */
+  @Override
+  public void receiveStrengthenedAttack(IEquipableItem item){
+    super.receiveStrengthenedAttack(item);
+    if (!isAlive()){
+      deadHero.firePropertyChange(new PropertyChangeEvent(this, "Dead Hero", "vivo", "muerto"));
+    }
+  }
+
+  /**
+   * {@inheritDoc}
+   *
+   */
+  @Override
+  public void receiveWeakenedAttack(IEquipableItem item){
+    super.receiveWeakenedAttack(item);
+    if (!isAlive()){
+      deadHero.firePropertyChange(new PropertyChangeEvent(this, "Dead Hero", "vivo", "muerto"));
+    }
+  }
+
+  /**
+   * {@inheritDoc}
+   *
+   */
+  @Override
+  public void receiveAttack(IEquipableItem item){
+    super.receiveAttack(item);
+    if (!isAlive()){
+      deadHero.firePropertyChange(new PropertyChangeEvent(this, "Dead Hero", "vivo", "muerto"));
+    }
   }
 
   /**

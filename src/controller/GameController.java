@@ -29,7 +29,7 @@ public class GameController {
   private long seed = new Random().nextLong();
   private Random random = new Random(seed);
 
-
+  private boolean estadoDelJuego = false;
   private Tactician actualTactician = new Tactician("");
   private int round_number = 0;
   private int jugadoresQueHanTerminadoTurno = 0;
@@ -41,6 +41,9 @@ public class GameController {
           endTurn = new PropertyChangeSupport(this),
           postNotification = new PropertyChangeSupport(this);
 
+  private EndTurnHandler endTurnHandler = new EndTurnHandler(this);
+  private DeadHeroTacticianGCHandler deadHeroTacticianGCHandler = new DeadHeroTacticianGCHandler(this);
+
   /**
    * Creates the controller for a new game.
    *
@@ -50,8 +53,6 @@ public class GameController {
    *     the dimensions of the map, for simplicity, all maps are squares
    */
   public GameController(int numberOfPlayers, int mapSize) {
-    EndTurnHandler endTurnHandler = new EndTurnHandler(this);
-    this.endTurn.addPropertyChangeListener(endTurnHandler);
 
     this.numberOfPlayers = numberOfPlayers;
     this.mapSize = mapSize;
@@ -61,6 +62,13 @@ public class GameController {
         gameMap.addCells(false, new Location(i,j));
 
       }
+    }
+    for (int i = 0; i < numberOfPlayers; i++) {
+      Tactician t = new Tactician("Player " + i);
+      t.setGameMap(gameMap);
+      tacticians.add(t);
+      t.getEndTurn().addPropertyChangeListener(endTurnHandler);
+      t.getDeadHero().addPropertyChangeListener(deadHeroTacticianGCHandler);
     }
   }
 
@@ -77,10 +85,17 @@ public class GameController {
     }
   }
 
+  /**
+   *
+   * @return seed del random utilizado en este GameController
+   */
   public long getSeed(){
     return seed;
   }
 
+  /**
+   * settea el orden de turnos de la ronda aleatoriamente sin permitir que un jugador juegue 2 veces seguidas
+   */
   public void setOrdenTurnos(){
     ordenTurnos = tacticians;
     Collections.shuffle(ordenTurnos, random);
@@ -89,6 +104,10 @@ public class GameController {
     }
   }
 
+  /**
+   *
+   * @return lista con el orden de turnos actual
+   */
   public List<Tactician> getOrdenTurnos(){
     return ordenTurnos;
   }
@@ -128,12 +147,24 @@ public class GameController {
     return max_rounds;
   }
 
+  public int getJugadoresQueHanTerminadoTurno(){
+    return jugadoresQueHanTerminadoTurno;
+  }
+
+  public boolean getEstadoDelJuego(){
+    return estadoDelJuego;
+  }
+
   /**
    * Finishes the current player's turn.
    */
   public void endTurn() {
+    if(seAcaboJuego()){
+      estadoDelJuego = false;
+      return;
+    }
     jugadoresQueHanTerminadoTurno++;
-    if (jugadoresQueHanTerminadoTurno == numberOfPlayers){
+    if (jugadoresQueHanTerminadoTurno == getOrdenTurnos().size()){
       round_number++;
       jugadoresQueHanTerminadoTurno = 0;
       setOrdenTurnos();
@@ -168,6 +199,7 @@ public class GameController {
     round_number = 1;
     setOrdenTurnos();
     setTurnOwner(ordenTurnos.get(0));
+    estadoDelJuego = true;
   }
 
   /**
@@ -245,6 +277,10 @@ public class GameController {
     unitSeleccionadaEnMapa = gameMap.getCell(x, y).getUnit();
   }
 
+  /**
+   *
+   * @return unidad seleccionada en el Mapa
+   */
   public IUnit getSelectUnitIn(){
     return unitSeleccionadaEnMapa;
   }

@@ -1,7 +1,12 @@
 package model;
 
+import controller.DeadHeroUnitTacticianHandler;
+import controller.EndTurnHandler;
+import factory.units.FactoryUnits;
+import model.map.Field;
 import model.map.InvalidLocation;
 import model.map.Location;
+import model.units.Hero;
 import model.units.IUnit;
 import model.units.NullUnit;
 
@@ -15,7 +20,7 @@ import java.util.List;
  * Los tacticians son los que representan al usuario en el juego
  * (el usuario se comunica con el controller y el controller con los TacticianS)
  *
- * @author Ignacio Slater Muñoz
+ * @author Geraldine Alvadiz
  * @version 2.0
  * @since 2.0
  */
@@ -26,8 +31,10 @@ public class Tactician {
     private List<IUnit> unitsMovidas = new ArrayList<>();
     private IUnit unitSelection = new NullUnit(new InvalidLocation());
     private PropertyChangeSupport
-            endTurn = new PropertyChangeSupport(this);
-
+            endTurn = new PropertyChangeSupport(this),
+            deadHero = new PropertyChangeSupport(this);
+    private Field gameMap;
+    private DeadHeroUnitTacticianHandler deadHeroUnitTacticianHandler = new DeadHeroUnitTacticianHandler(this);
 
     /**
      * Creates a new Tactician
@@ -37,6 +44,10 @@ public class Tactician {
      */
     public Tactician(String name) {
         this.name = name;
+        FactoryUnits f = new FactoryUnits();
+        Hero hero = f.createHero();
+        units.add(hero);
+        hero.getDeadHero().addPropertyChangeListener(deadHeroUnitTacticianHandler);
     }
 
     /**
@@ -78,6 +89,10 @@ public class Tactician {
 
     }
 
+    public void setGameMap(Field field){
+        this.gameMap = field;
+    }
+
     /**
      * Settea la lista de unidades del Tactician
      *
@@ -110,5 +125,16 @@ public class Tactician {
 
     }
 
+    public PropertyChangeSupport getEndTurn(){
+        return endTurn;
+    }
 
+
+    public void deadHero(){
+        deadHero.firePropertyChange(new PropertyChangeEvent(this, this.name, "vivo", "muerto"));
+    }
+
+    public PropertyChangeSupport getDeadHero(){
+        return deadHero;
+    }
 }
