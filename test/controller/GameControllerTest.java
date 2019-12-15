@@ -101,7 +101,6 @@ class GameControllerTest {
     controller = new GameController(4, 4);
     randomSeed = controller.getGameMap().getSeed();
     testTacticians = List.of("Player 0", "Player 1", "Player 2", "Player 3");
-    controller.setTacticians(testTacticians);
     //setField();
     field = controller.getGameMap();
     setWeapons();
