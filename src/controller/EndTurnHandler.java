@@ -7,7 +7,7 @@ public class EndTurnHandler implements PropertyChangeListener {
     private GameController controller;
 
     /**
-     * Creates a new handler for the new followers of a user
+     * Creates a new handler for the end Turn of Tactician
      *
      * @param controller
      *     The object to be notified of the change.
