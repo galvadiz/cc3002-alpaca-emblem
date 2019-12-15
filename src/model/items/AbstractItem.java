@@ -11,7 +11,7 @@ import model.units.IUnit;
 public abstract class AbstractItem implements IEquipableItem{
 
   private final String name;
-  private final int power;
+  private int power;
   private int maxRange;
   private int minRange;
   private IUnit owner;
@@ -61,6 +61,10 @@ public abstract class AbstractItem implements IEquipableItem{
   @Override
   public void setOwner(IUnit unit) {
     owner = unit;
+  }
+
+  public void setPower(int power){
+    this.power = power;
   }
 
   public void setMinRange(int min){
