@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>controller.GameController</OriginalElement>
+  <nodes>
+    <node x="-2330.0" y="2162.0">model.map.Field</node>
+    <node x="-1573.5" y="96.0">model.map.Location</node>
+    <node x="0.0" y="2114.0">model.units.Alpaca</node>
+    <node x="-1158.5" y="329.0">factory.units.FactoryUnits</node>
+    <node x="693.0" y="2114.0">model.units.Fighter</node>
+    <node x="723.0" y="1025.0">model.units.AbstractUnit</node>
+    <node x="-1025.25" y="982.0">model.items.IEquipableItemAttack</node>
+    <node x="1161.0" y="2114.0">model.units.Archer</node>
+    <node x="-1061.5" y="1547.0">model.items.Sword</node>
+    <node x="-1575.0" y="2342.0">controller.DeadHeroUnitTacticianHandler</node>
+    <node x="-630.5" y="1591.0">model.items.Bow</node>
+    <node x="-1212.0" y="2342.0">controller.EndTurnHandler</node>
+    <node x="-2244.5" y="96.0">controller.GameController</node>
+    <node x="-199.5" y="1547.0">model.items.Axe</node>
+    <node x="370.75" y="982.0">model.items.IEquipableItemNoAttack</node>
+    <node x="-2330.0" y="1934.0">model.items.Luz</node>
+    <node x="-961.5" y="1380.0">model.items.AbstractItemAttack</node>
+    <node x="-319.5902777777778" y="1391.0">model.items.NullItem</node>
+    <node x="231.0" y="2125.0">model.units.NullUnit</node>
+    <node x="1776.0" y="2114.0">model.units.SwordMaster</node>
+    <node x="-1492.5" y="1547.0">model.items.Spear</node>
+    <node x="-849.0" y="2342.0">controller.DeadHeroTacticianGCHandler</node>
+    <node x="-1899.5" y="1602.0">model.items.AbstractMagia</node>
+    <node x="723.0" y="0.0">model.units.IUnit</node>
+    <node x="461.99999999999994" y="2103.0">model.units.Cleric</node>
+    <node x="-1864.5" y="351.0">factory.items.FactoryItems</node>
+    <node x="231.5" y="1635.0">model.items.Staff</node>
+    <node x="-419.5902777777778" y="707.0">model.items.AbstractItem</node>
+    <node x="-1864.5" y="96.0">factory.items.IFactoryItems</node>
+    <node x="-1106.5" y="2162.0">java.util.EventListener</node>
+    <node x="-1899.0" y="1934.0">model.items.Oscuridad</node>
+    <node x="-1158.5" y="96.0">factory.units.IFactoryUnits</node>
+    <node x="-1212.0" y="2241.0">java.beans.PropertyChangeListener</node>
+    <node x="1392.0" y="2070.0">model.units.Hero</node>
+    <node x="924.0" y="2114.0">model.units.Sorcerer</node>
+    <node x="-1933.0" y="2162.0">model.Tactician</node>
+    <node x="310.5" y="1402.0">model.items.AbstractItemNoAttack</node>
+    <node x="-1896.25" y="993.0">model.items.IMagia</node>
+    <node x="-1488.5" y="461.0">model.map.InvalidLocation</node>
+    <node x="-587.25" y="56.0">model.items.IEquipableItem</node>
+    <node x="-1493.0" y="1934.0">model.items.Anima</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="model.items.AbstractMagia" target="model.items.IMagia">
+      <point x="-96.75" y="-113.5" />
+      <point x="0.0" y="25.5" />
+    </edge>
+    <edge source="model.units.NullUnit" target="model.units.AbstractUnit">
+      <point x="0.0" y="-25.5" />
+      <point x="336.5" y="2030.0" />
+      <point x="795.1875" y="2030.0" />
+      <point x="-120.3125" y="487.5" />
+    </edge>
+    <edge source="model.units.Archer" target="model.units.AbstractUnit">
+      <point x="0.0" y="-36.5" />
+      <point x="1266.5" y="2040.0" />
+      <point x="987.6875" y="2040.0" />
+      <point x="72.1875" y="487.5" />
+    </edge>
+    <edge source="model.items.AbstractItemNoAttack" target="model.items.AbstractItem">
+      <point x="-52.75" y="-36.5" />
+      <point x="363.25" y="1355.0" />
+      <point x="-77.09027777777783" y="1355.0" />
+      <point x="137.0" y="311.5" />
+    </edge>
+    <edge source="model.items.Axe" target="model.items.AbstractItemAttack">
+      <point x="0.0" y="-168.5" />
+      <point x="6.0" y="1517.0" />
+      <point x="-771.5999999999999" y="1517.0" />
+      <point x="84.40000000000009" y="58.5" />
+    </edge>
+    <edge source="model.units.Cleric" target="model.units.AbstractUnit">
+      <point x="0.0" y="-47.5" />
+      <point x="567.5" y="2040.0" />
+      <point x="843.3125" y="2040.0" />
+      <point x="-72.1875" y="487.5" />
+    </edge>
+    <edge source="model.items.Sword" target="model.items.AbstractItemAttack">
+      <point x="0.0" y="-168.5" />
+      <point x="0.0" y="58.5" />
+    </edge>
+    <edge source="model.items.Bow" target="model.items.AbstractItemAttack">
+      <point x="0.0" y="-124.5" />
+      <point x="-425.0" y="1527.0" />
+      <point x="-813.8000000000002" y="1527.0" />
+      <point x="42.200000000000045" y="58.5" />
+    </edge>
+    <edge source="model.items.Oscuridad" target="model.items.AbstractMagia">
+      <point x="0.0" y="-91.5" />
+      <point x="0.0" y="113.5" />
+    </edge>
+    <edge source="model.units.Sorcerer" target="model.units.AbstractUnit">
+      <point x="0.0" y="-36.5" />
+      <point x="1032.5" y="2050.0" />
+      <point x="939.5625" y="2050.0" />
+      <point x="24.0625" y="487.5" />
+    </edge>
+    <edge source="model.items.Staff" target="model.items.AbstractItemNoAttack">
+      <point x="0.0" y="-80.5" />
+      <point x="0.0" y="36.5" />
+    </edge>
+    <edge source="java.beans.PropertyChangeListener" target="java.util.EventListener">
+      <point x="0.0" y="-25.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="model.units.AbstractUnit" target="model.units.IUnit">
+      <point x="0.0" y="-487.5" />
+      <point x="0.0" y="487.5" />
+    </edge>
+    <edge source="model.items.IEquipableItemAttack" target="model.items.IEquipableItem">
+      <point x="0.0" y="-36.5" />
+      <point x="-908.75" y="687.0" />
+      <point x="-433.125" y="687.0" />
+      <point x="-51.375" y="300.5" />
+    </edge>
+    <edge source="controller.EndTurnHandler" target="java.beans.PropertyChangeListener">
+      <point x="0.0" y="-25.5" />
+      <point x="0.0" y="25.5" />
+    </edge>
+    <edge source="model.items.NullItem" target="model.items.AbstractItem">
+      <point x="0.0" y="-47.5" />
+      <point x="0.0" y="311.5" />
+    </edge>
+    <edge source="model.units.Hero" target="model.units.AbstractUnit">
+      <point x="0.0" y="-80.5" />
+      <point x="1574.0" y="2030.0" />
+      <point x="1035.8125" y="2030.0" />
+      <point x="120.3125" y="487.5" />
+    </edge>
+    <edge source="model.units.Alpaca" target="model.units.AbstractUnit">
+      <point x="0.0" y="-36.5" />
+      <point x="105.5" y="2020.0" />
+      <point x="747.0625" y="2020.0" />
+      <point x="-168.4375" y="487.5" />
+    </edge>
+    <edge source="model.items.Luz" target="model.items.AbstractMagia">
+      <point x="0.0" y="-91.5" />
+      <point x="-2124.5" y="1909.0" />
+      <point x="-1835.0" y="1909.0" />
+      <point x="-129.0" y="113.5" />
+    </edge>
+    <edge source="model.items.AbstractItemAttack" target="model.items.IEquipableItemAttack">
+      <point x="-52.75" y="-58.5" />
+      <point x="0.0" y="36.5" />
+    </edge>
+    <edge source="model.map.InvalidLocation" target="model.map.Location">
+      <point x="0.0" y="-25.5" />
+      <point x="0.0" y="157.5" />
+    </edge>
+    <edge source="model.items.AbstractItemAttack" target="model.items.AbstractItem">
+      <point x="52.75" y="-58.5" />
+      <point x="-803.25" y="1355.0" />
+      <point x="-351.0902777777778" y="1355.0" />
+      <point x="-137.0" y="311.5" />
+    </edge>
+    <edge source="model.items.Anima" target="model.items.AbstractMagia">
+      <point x="0.0" y="-91.5" />
+      <point x="-1287.5" y="1909.0" />
+      <point x="-1577.0" y="1909.0" />
+      <point x="129.0" y="113.5" />
+    </edge>
+    <edge source="controller.DeadHeroTacticianGCHandler" target="java.beans.PropertyChangeListener">
+      <point x="0.0" y="-25.5" />
+      <point x="-677.5" y="2317.0" />
+      <point x="-926.1666666666667" y="2317.0" />
+      <point x="114.33333333333326" y="25.5" />
+    </edge>
+    <edge source="model.items.IMagia" target="model.items.IEquipableItem">
+      <point x="0.0" y="-25.5" />
+      <point x="-1802.75" y="677.0" />
+      <point x="-535.875" y="677.0" />
+      <point x="-154.125" y="300.5" />
+    </edge>
+    <edge source="model.items.Spear" target="model.items.AbstractItemAttack">
+      <point x="0.0" y="-168.5" />
+      <point x="-1287.0" y="1527.0" />
+      <point x="-898.2000000000003" y="1527.0" />
+      <point x="-42.200000000000045" y="58.5" />
+    </edge>
+    <edge source="model.units.Fighter" target="model.units.AbstractUnit">
+      <point x="0.0" y="-36.5" />
+      <point x="798.5" y="2050.0" />
+      <point x="891.4375" y="2050.0" />
+      <point x="-24.0625" y="487.5" />
+    </edge>
+    <edge source="model.units.SwordMaster" target="model.units.AbstractUnit">
+      <point x="0.0" y="-36.5" />
+      <point x="1886.0" y="2020.0" />
+      <point x="1083.9375" y="2020.0" />
+      <point x="168.4375" y="487.5" />
+    </edge>
+    <edge source="controller.DeadHeroUnitTacticianHandler" target="java.beans.PropertyChangeListener">
+      <point x="0.0" y="-25.5" />
+      <point x="-1403.5" y="2317.0" />
+      <point x="-1154.8333333333333" y="2317.0" />
+      <point x="-114.33333333333326" y="25.5" />
+    </edge>
+    <edge source="model.items.IEquipableItemNoAttack" target="model.items.IEquipableItem">
+      <point x="0.0" y="-36.5" />
+      <point x="468.75" y="677.0" />
+      <point x="-227.625" y="677.0" />
+      <point x="154.125" y="300.5" />
+    </edge>
+    <edge source="model.items.AbstractItem" target="model.items.IEquipableItem">
+      <point x="0.0" y="-311.5" />
+      <point x="-214.09027777777783" y="687.0" />
+      <point x="-330.375" y="687.0" />
+      <point x="51.375" y="300.5" />
+    </edge>
+    <edge source="factory.items.FactoryItems" target="factory.items.IFactoryItems">
+      <point x="0.0" y="-102.5" />
+      <point x="0.0" y="102.5" />
+    </edge>
+    <edge source="factory.units.FactoryUnits" target="factory.units.IFactoryUnits">
+      <point x="0.0" y="-91.5" />
+      <point x="0.0" y="91.5" />
+    </edge>
+    <edge source="model.items.AbstractItemNoAttack" target="model.items.IEquipableItemNoAttack">
+      <point x="52.75" y="-36.5" />
+      <point x="0.0" y="36.5" />
+    </edge>
+    <edge source="model.items.AbstractMagia" target="model.items.AbstractItemAttack">
+      <point x="96.75" y="-113.5" />
+      <point x="-1609.25" y="1517.0" />
+      <point x="-940.4000000000001" y="1517.0" />
+      <point x="-84.40000000000009" y="58.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.1" x="1990.0" y="1570.0" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
