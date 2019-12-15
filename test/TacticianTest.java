@@ -63,7 +63,7 @@ public class TacticianTest {
     @Test
     public void constructorTest(){
         assertEquals(expectedName, tactician1.getName());
-        assertEquals(0, tactician1.getUnits().size());
+        assertEquals(1, tactician1.getUnits().size());
         assertEquals(new NullUnit(new InvalidLocation()),tactician1.getUnitSelection());
         tactician1.setUnitSelection(new Archer(100, 2, field.getCell(2, 1)));
         assertEquals(new NullUnit(new InvalidLocation()),tactician1.getUnitSelection());
@@ -71,7 +71,7 @@ public class TacticianTest {
     @Test
     public void moveUnitSelectionTest(){
         assertEquals(expectedName, tactician1.getName());
-        assertEquals(0, tactician1.getUnits().size());
+        assertEquals(1, tactician1.getUnits().size());
         assertEquals(new NullUnit(new InvalidLocation()),tactician1.getUnitSelection());
         Archer archer = new Archer(100, 2, field.getCell(2, 1));
         tactician1.setUnitSelection(archer);
@@ -79,7 +79,6 @@ public class TacticianTest {
 
         List<IUnit> units = new ArrayList<>();
         units.add(archer);
-        assertEquals(new ArrayList<>(), tactician1.getUnits());
         tactician1.setUnits(units);
         tactician1.setUnitSelection(archer);
         assertEquals(archer, tactician1.getUnitSelection());
